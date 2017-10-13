@@ -7,27 +7,14 @@ _ = require 'underscore'
 NODE_MODULES = 'node_modules'
 
 locate = {
-	'admin': {
-		'**/*.css': 'admin_src/libs/css'
-		'**/*.js': 'admin_src/libs/js'
-	},
-	'front': {
-		'**/*.css': 'frontend_src/libs/css'
-		'**/*.js': 'frontend_src/libs/js'
-	}
+	'**/*.css': 'libs/css'
+	'**/*.js': 'libs/js'
 }
 
 list = {
-	'admin': [
-		'normalizecss',
-		'underscore',
-		'vue',
-		'showdown'],
-	'front': [
-		'normalizecss',
-		'underscore',
-		'vue',
-	]
+	'normalizecss',
+	'underscore',
+	'vue',
 }
 
 defDist = {
@@ -52,7 +39,7 @@ processPackage = (lib, data) ->
 		contents = JSON.parse data
 		main = path.join NODE_MODULES, lib, contents.main
 	
-	destLocation = runThrough locate[args[0]], main
+	destLocation = runThrough locate, main
 	destName = path.parse(main).base
 	
 	destination = path.join destLocation, destName
@@ -67,12 +54,7 @@ processPackage = (lib, data) ->
 		console.log '→ success!'
 
 
-args = process.argv.slice 2
-if args.length == 0 || !list[args[0]]
-	console.log ('Specify bundle task: admin or front');
-	return;
-
-_list = list[args[0]]
+_list = list
 
 _.each _list, (lib) ->
 	console.log '[PACKAGE] ' + lib

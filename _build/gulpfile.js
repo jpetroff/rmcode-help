@@ -1,9 +1,11 @@
-global.__src = __dirname
-var gulp = require('gulp')
+global.__src = __dirname + '/';
+global.__dst = '../wp-content/themes/rm-help-theme/';
 
-require('./gulp/gulp-build-admin')
-require('./gulp/gulp-build-frontend')
+var gulp = require('gulp');
 
-gulp.task('admin', ['js-libs-admin', 'js-build-admin', 'less-admin', 'assets'])
-gulp.task('front', ['js-libs-front', 'js-build-front', 'less-front', 'assets'])
+require('./gulp/gulp-build');
+require('./gulp/gulp-watch');
+
+gulp.task('build', ['js-libs', 'js-build', 'less', 'assets']);
+gulp.task('start', ['build', 'server']);
 
