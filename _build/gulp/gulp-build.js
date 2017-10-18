@@ -72,9 +72,9 @@ gulp.task('less', function(){
 			// 'components/*.less',
 			'less/**/*.less'
 		],{base: src}))
-		.pipe(concat('main.css'))
+		.pipe(concat('style.css'))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(dst + 'css'));
+		.pipe(gulp.dest(dst));
 });
 
 gulp.task('assets', function() {

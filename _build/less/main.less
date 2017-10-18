@@ -1,3 +1,86 @@
-body {
-	background:red;
+
+@font-face {
+	font-family: 'Graphik';
+	font-style: normal;
+	font-weight: 400;
+	src: url('assets/fonts/graphic_n4.woff');
 }
+
+@font-face {
+	font-family: 'Graphik';
+	font-style: normal;
+	font-weight: 600;
+	src: url('assets/fonts/graphic_n7.woff');
+}
+
+body {
+	font-family: 'Graphik';
+	background-color: #EDEDED;
+}
+
+._wrapper {
+	width: 100%;
+}
+
+.def-header {
+	font-size: 112px;
+	line-height: 1;
+	letter-spacing: -7px;
+	font-weight: 600;
+	margin: 0;
+}
+
+.page-content-wrapper {
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.page-content {
+	width: 760px;
+	margin-left: 264px;
+}
+
+.row {
+
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.col-third {
+	width: 33.32%;
+	float: left;
+	min-height: 10px;
+}
+
+// HOMEPAGE
+
+.homepage {
+
+	&__main-header {
+		margin-top: 46px;
+		margin-left: 26px;
+	}
+
+	&__menu {
+		margin-top: 82px;
+	}
+}
+
+// SEARCH
+
+.search-bar {
+	width: 100%;
+	background: white;
+	height: 60px;
+	border-radius: 30px;
+
+	.homepage & {
+		position: static;
+		margin-top: 146px;
+	}
+}
+
