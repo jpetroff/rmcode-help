@@ -14,7 +14,10 @@ var changeLog = function(watcher, name) {
 }
 
 gulp.task('server', function() {
-	var lr = livereload.createServer();
+	var lr = livereload.createServer({
+		exclusions: ['.git/', '.svn/', '.hg/', 'includes/'],
+		exts: ['css', 'js', 'woff', 'jpeg', 'jpg', 'png', 'svg']
+	});
 	lr.watch('../wp-content/themes/rm-help-theme');
 
 	var wJSLibs = gulp.watch(src + 'libs/js/*.js', ['js-libs'])

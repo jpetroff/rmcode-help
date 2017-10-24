@@ -25,7 +25,9 @@ include 'header.php';
 	<div class="page-content-wrapper">
 		<div class="page-content homepage">
 			<h1 class="def-header homepage__main-header">Guide</h1>
-			<div class="search-bar"></div>
+			
+			<?php show_search_component(); ?>
+			
 			<?php
 			while ( have_posts() ) : the_post();
 			

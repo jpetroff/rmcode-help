@@ -45,8 +45,7 @@ gulp.task('js-build', function(){
 		.pipe(wrapjs())
 		.pipe(remember('js-build'))
 		.pipe(order([
-			'js/preamble.js',
-			'components/*.js',
+			'js/utils.js',
 			'js/main.js'
 		], {base: src}))
 		.pipe(concat('app.js'))
