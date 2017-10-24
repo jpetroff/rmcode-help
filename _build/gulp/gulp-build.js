@@ -52,6 +52,14 @@ gulp.task('js-build', function(){
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest(dst + 'js'))
 
+	gulp.src([src + 'tinymce_js/*.js'])
+		.pipe(cache('tinymce-js-build'))
+		.pipe(print())
+		.pipe(wrapjs())
+		.pipe(remember('tinymce-js-build'))
+		.pipe(concat('editor.js'))
+		.pipe(gulp.dest(dst + 'js'))
+
 });
 
 gulp.task('less', function(){
@@ -73,6 +81,18 @@ gulp.task('less', function(){
 			'less/**/*.less'
 		],{base: src}))
 		.pipe(concat('style.css'))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(dst));
+
+	gulp.src([src + 'editor_less/**/*.less'])
+		.pipe(cache('editor_less'))
+		.pipe(sourcemaps.init())
+		.pipe(less({
+			paths: ['.'],
+			plugins: [autoprefix]
+		}))
+		.pipe(remember('editor_less'))
+		.pipe(concat('editor-style.css'))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(dst));
 });

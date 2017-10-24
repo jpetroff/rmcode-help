@@ -31,7 +31,7 @@ function rm_help_register_card() {
 		'has_archive'        => true,
 		'hierarchical'       => true,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author', 'wpcom-markdown' )
+		'supports'           => array( 'title', 'editor', 'author', 'page-attributes' )
 	);
 	
 	register_post_type( 'card', $args );
