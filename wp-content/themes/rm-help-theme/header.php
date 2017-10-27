@@ -13,4 +13,4 @@
 	</script>
 	<?php wp_head(); ?>
 </head>
-<body>
+<body class=" <? if (is_user_logged_in()) echo '_logged_user'; ?>">

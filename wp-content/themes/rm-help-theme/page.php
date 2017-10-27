@@ -2,7 +2,8 @@
 include 'header.php';
 ?>
 	<div class="_wrapper">
-		<article class="page-content-wrapper single-page">
+		<?php show_search_component(); ?>
+		<article class="page-content-wrapper single-page" id="app-page">
 			<div class="page-content page-content_narrow">
 				
 				<?php

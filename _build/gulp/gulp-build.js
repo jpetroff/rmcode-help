@@ -46,7 +46,8 @@ gulp.task('js-build', function(){
 		.pipe(remember('js-build'))
 		.pipe(order([
 			'js/utils.js',
-			'js/main.js'
+			'js/main.js',
+			'js/router.js'
 		], {base: src}))
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest(dst + 'js'))

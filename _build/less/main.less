@@ -20,9 +20,6 @@
 	src: url('assets/fonts/graphic_n7.woff');
 }
 
-:root {
-	margin-top: 0 !important;
-}
 body {
 	font-family: 'Graphik';
 	background-color: #EDEDED;
@@ -30,6 +27,12 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility !important;
+	position: relative;
+}
+
+[v-cloack] {
+	visibility: hidden;
+	display: block;
 }
 
 ._wrapper {
@@ -147,12 +150,12 @@ body {
 .homepage {
 
 	&__main-header {
-		margin-top: 46px;
-		margin-left: 26px;
+		padding-top: 46px;
+		padding-left: 26px;
 	}
 
 	&__menu {
-		margin-top: 82px;
+		margin-top: 280px;
 		letter-spacing: -0.3px;
 		margin-bottom: 74px;
 	}
@@ -250,6 +253,10 @@ body {
 	letter-spacing: -0.2px;
 	line-height: 1.2;
 
+	._logged_user & {
+		top: 32px;
+	}
+
 	&__link {
 		color: #bcbcbc;
 		text-decoration: none;
@@ -263,7 +270,7 @@ body {
 	.rm-logo {
 		width: 130px;
 		height: 30px;
-		margin-top: 114px;
+		margin-top: 80px;
 
 		svg {width: 100%; height: 100%}
 	}
@@ -402,10 +409,24 @@ body {
 	background: white;
 	height: 60px;
 	border-radius: 30px;
+	position: fixed;
+	top: 23px;
+	transition: opacity 0.2s ease;
+	opacity: 1;
+	visibility: visible;
 
-	.homepage & {
-		position: static;
-		margin-top: 146px;
+	&[v-cloack] {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	._logged_user & {
+		top: 55px;
+	}
+
+	._home & {
+		position: absolute;
+		top: 300px;
 	}
 
 	&__query-input {
@@ -419,8 +440,75 @@ body {
 		border: none;
 		outline: none;
 		padding: 0 30px;
+		color: #1884F7;
 	}
 
 	&__submit {display:none}
+
+	&__results {
+		position: absolute;
+		top: 61px;
+		left: 0;
+		width: 100%;
+		border-radius: 30px;
+		min-height: 60px;
+		background: white;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
+	&__result-item {
+		padding: 0px 30px;
+		line-height: 28px;
+		text-decoration: none;
+		display: block;
+		color: black;
+		font-size: 16px;
+
+		.inactive & {
+			opacity: 0.3;
+		}
+
+		.result-item__nav {
+			border-top: 1px solid #EDEDED;
+			padding-top: 18px;
+			opacity: 0.4;
+		}
+
+		strong {font-weight: normal; color: #1884F7}
+
+		.result-item__excerpt {
+			padding-bottom: 18px;
+
+			p,div,img {font-size: 16px; margin: 0; padding: 0; display: inline}
+		}
+
+		&:first-child {
+			.result-item__nav {border-color: transparent}
+		}
+
+		&:hover {
+			background-color: #1884F7;
+			color: white;
+
+			.result-item__nav { color: white; border-color: transparent; }
+			.result-item__excerpt strong { color: white; }
+		}
+
+		&.empty {
+			padding-top: 13px;
+			padding-bottom: 13px;
+
+			.query {
+				color: #1884F7;
+			}
+		}
+
+		&.empty.contact {
+			background-color: #1884F7;
+			color: white;
+		}
+	}
+	a:hover + a { .result-item__nav { border-color: transparent; } }
 }
 
