@@ -8,8 +8,14 @@ w.rmSearch = new Vue({
 		presentation: {
 			width: 760,
 			left: 0,
-			height: 300
-		}
+			height: 300,
+			isFront: true
+		},
+		showResultsPanel: false
+	},
+	beforeMount: function() {
+		this.getPresentationParams();
+		w.addEventListener('resize', _.bind(this.getPresentationParams, this));
 	},
 	directives: {
 		ref: {
@@ -23,41 +29,46 @@ w.rmSearch = new Vue({
 	},
 	computed: {
 		searchResultsState: function() {
-			if(this.inputFocus) {
 
-				if (this.query.length > 0 && this.waitingForResults) {
-					return 'waiting';
+			if (this.query.length > 0 && this.waitingForResults) {
+				if (this.inputFocus) {
+					this.showResultsPanel = true;
+				} else {
+					this.showResultsPanel = false;
 				}
+				return 'waiting';
+			}
 
-				if (this.query.length > 0 && !this.waitingForResults && this.results.length == 0) {
-					if (this.query == this.value) {
-						return 'empty';
-					}
-					else {
-						return 'hidden';
-					}
+			if (this.query.length > 0 && !this.waitingForResults && this.results.length == 0) {
+
+				if (this.query == this.value && this.inputFocus) {
+					this.showResultsPanel = true;
+				} else {
+					this.showResultsPanel = false;
 				}
+				return 'empty';
+			}
 
-				if (
-					this.query.length > 0 &&
-					!this.waitingForResults &&
-					this.results.length > 0
-				) {
-					if (this.query == this.value) {
-						return 'success';
-					} else {
-						return 'inactive';
-					}
+			if (
+				this.query.length > 0 &&
+				!this.waitingForResults &&
+				this.results.length > 0
+			) {
+				if (this.inputFocus) {
+					this.showResultsPanel = true;
+				} else {
+					this.showResultsPanel = false;
 				}
-
-				if (this.query.length == 0) {
-					return 'hidden';
+				if (this.query == this.value) {
+					return 'success';
+				} else {
+					return 'inactive';
 				}
+			}
 
-			} else {
-
-				return 'hidden';
-
+			if (this.query.length == 0) {
+				this.showResultsPanel = false;
+				return 'empty';
 			}
 		}
 	},
@@ -95,25 +106,33 @@ w.rmSearch = new Vue({
 		},
 		_calcMaxHeight: function() {
 			return this.presentation.height - this.$el.offsetTop - 61 - 50;
+		},
+		_specialBlur: function() {
+			_.delay( _.bind(function(){ this.inputFocus = false; }, this), 200);
+		},
+		getPresentationParams: function() {
+			var pageContent = document.getElementsByClassName('page-content')[0];
+
+			var pageContentClientWidth = pageContent.clientWidth;
+			var pageContentLeftOffset = pageContent.offsetLeft;
+			var windowClientHeight = window.innerHeight;
+
+			this.presentation.width = pageContentClientWidth;
+			this.presentation.left = pageContentLeftOffset;
+			this.presentation.height = windowClientHeight;
+		},
+		showResultPage: function( el ) {
+			// console.log(el);
+			// return;
+			// if(!w.Router) return;
+
+			w.Router.changePage(el);
 		}
 	}
 });
 
-function initWindowParams() {
-	var pageContent = document.getElementsByClassName('page-content')[0];
 
-	var pageContentClientWidth = pageContent.clientWidth;
-	var pageContentLeftOffset = pageContent.offsetLeft;
-	var windowClientHeight = window.innerHeight;
 
-	window.rmSearch.presentation.width = pageContentClientWidth;
-	window.rmSearch.presentation.left = pageContentLeftOffset;
-	window.rmSearch.presentation.height = windowClientHeight;
-}
-
-initWindowParams();
-w.addEventListener('resize', initWindowParams);
-
-window.rmSearch.$mount('#search-component-vue');
+// window.rmSearch.$mount('#search-component-vue');
 
 

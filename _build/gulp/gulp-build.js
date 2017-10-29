@@ -27,7 +27,8 @@ gulp.task('js-libs', function(){
 
 	gulp.src([
 		base + 'underscore-min.js',
-		base + 'vue.min.js'
+		base + 'vue.min.js',
+		base + 'pacejs.js'
 	])
 		.pipe(concat('libs.js'))
 		.pipe(gulp.dest(dst + 'js'));
@@ -47,6 +48,7 @@ gulp.task('js-build', function(){
 		.pipe(order([
 			'js/utils.js',
 			'js/main.js',
+			'js/search.js',
 			'js/router.js'
 		], {base: src}))
 		.pipe(concat('app.js'))

@@ -1,5 +1,7 @@
 <?php
 
+define( 'RM_HELP_THEME_DIR', __DIR__);
+
 // Custom post type 'cards'
 include __DIR__.'/includes/cards-type.php';
 

@@ -19,25 +19,36 @@ function show_search_component() {
 	$action_url = home_url();
 	$nonce = wp_create_nonce('search');
 	$output = "
-	<div class='search-component' id='search-component-vue' v-bind:style=\"{ width: presentation.width + 'px', left: presentation.left + 'px'}\" v-cloack>
+	<div class='search-component' v-bind:class=\"[ presentation.isFront ? 'search-component_home' : '' ]\"
+		id='search-component-vue'
+		v-bind:style=\"{ width: presentation.width + 'px', left: presentation.left + 'px'}\" v-cloack
+	>
 		<form role='search' method='POST' action='$action_url'>
-			<input type='text' name='s' class='search-component__query-input' v-bind:value='value' v-on:input='queryInput(\$event.target.value)' v-on:focus='inputFocus = true' v-on:blur='inputFocus = false' v-on:keypress.enter.prevent='submitSearch' placeholder='Search feature, setting, shortcuts, etc'>
+			<input type='text' name='s' class='search-component__query-input' v-bind:value='value' v-on:input='queryInput(\$event.target.value)' v-on:focus='inputFocus = true' v-on:blur='_specialBlur()' v-on:keypress.enter.prevent='submitSearch' placeholder='Search feature, setting, shortcuts, etc'>
 			<input type='submit' class='search-component__submit' value='Search'>
 			<input type='hidden' value='$nonce'>
 		</form>
+		<transition name='toggle-results'>
 		<div class='search-component__results'
 			v-bind:class=\"searchResultsState\"
-			v-show=\"searchResultsState != 'hidden'\"
+			v-show=\"showResultsPanel\"
 			v-bind:style=\"{ maxHeight: _calcMaxHeight() + 'px'}\"
 		>
 			<div class='search-component__result-item waiting' v-show=\"searchResultsState == 'waiting'\">waiting</div>
 			<div class='search-component__result-item empty' v-show=\"searchResultsState == 'empty'\">Nothing found for <strong>{{query}}</strong></div>
 			<a href='#' class='search-component__result-item empty contact' v-show=\"searchResultsState == 'empty'\">Need help? Contact Readymag support</a>
-			<a href='#' class='search-component__result-item' v-show=\"searchResultsState == 'success' || searchResultsState == 'inactive'\" v-for='post in results'>
+			<a
+				v-for='post in results'
+				v-bind:href=\"'/editor/#' + post.post_name\"
+				class='search-component__result-item'
+				v-show=\"searchResultsState == 'success' || searchResultsState == 'inactive'\"
+				v-on:click='showResultPage(\$event.currentTarget)'
+			>
 				<div class='result-item__nav'>{{post.post_title}}</div>
 				<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
 			</a>
 		</div>
+		</transition>
 	</div>
 	";
 	

@@ -27,7 +27,43 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility !important;
-	position: relative;
+	//position: relative;
+}
+
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.pace-inactive {
+	display: none;
+}
+
+.pace .pace-progress {
+	background: #29d;
+	position: fixed;
+	z-index: 100000;
+	top: 0;
+	//right: 100%;
+	width: 100%;
+	height: 2px;
+	.pace-inner {
+		display: block;
+		position: absolute;
+		right: 0px;
+		width: 100px;
+		height: 100%;
+		box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+		opacity: 1.0;
+		-webkit-transform: rotate(3deg) translate(0px,-4px);
+		-ms-transform: rotate(3deg) translate(0px,-4px);
+		transform: rotate(3deg) translate(0px,-4px);
+	}
+
 }
 
 [v-cloack] {
@@ -38,6 +74,17 @@ body {
 ._wrapper {
 	width: 100%;
 	position: relative;
+}
+
+#app-page {
+	opacity: 1;
+	transition: all 0.2s ease;
+	visibility: visible;
+
+	&[data-visible="false"] {
+		opacity: 0;
+		visibility: hidden;
+	}
 }
 
 .def-header {
@@ -298,7 +345,8 @@ body {
 
 	&__header-1 {
 		font-size: 112px;
-		margin: 118px -7px 34px 0;
+		margin: 0 -7px 34px 0;
+		padding-top: 118px;
 		font-weight: 400;
 		letter-spacing: -10.4px;
 		line-height: 1;
@@ -404,6 +452,14 @@ body {
 
 // SEARCH
 
+.toggle-results-enter-active, .toggle-results-leave-active {
+	transition: opacity .2s ease, top .2s ease;
+}
+.toggle-results-enter, .toggle-results-leave-to /* .fade-leave-active below version 2.1.8 */ {
+	opacity: 0;
+	top: 81px;
+}
+
 .search-component {
 	width: 100%;
 	background: white;
@@ -411,9 +467,10 @@ body {
 	border-radius: 30px;
 	position: fixed;
 	top: 23px;
-	transition: opacity 0.2s ease;
+	transition: all 0.2s ease;
 	opacity: 1;
 	visibility: visible;
+	z-index: 9999;
 
 	&[v-cloack] {
 		opacity: 0;
@@ -424,9 +481,13 @@ body {
 		top: 55px;
 	}
 
-	._home & {
+	&_home  {
 		position: absolute;
 		top: 300px;
+	}
+
+	._logged_user &_home {
+		top: 332px;
 	}
 
 	&__query-input {

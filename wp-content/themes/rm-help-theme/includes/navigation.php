@@ -2,7 +2,7 @@
 
 $templs['left'] = "";
 
-$templs['home'] = "<a href=\"%s\" class=\"second-level__item def-link\">%s</a>";
+$templs['home'] = "<a href=\"%s\" class=\"second-level__item def-link\" v-rlink>%s</a>";
 
 $templs['content'] = "";
 
@@ -65,16 +65,20 @@ add_action( 'wp_ajax_nopriv_api_page', 'rm_send_ajax_page' );
 function rm_send_ajax_page( $wp ) {
 	global $wp_the_query;
 	
-	$wp->query_vars['pagename'] = $wp->query_vars['api_page'];
-	$wp->query_vars['post_type'] = 'page';
+	if($wp->query_vars['api_page'] == '_front') {
+		$wp->query_vars['page_id'] = get_option( 'page_on_front' );
+		$template = '/helper-page-front.php';
+	} else {
+		$wp->query_vars['pagename'] = $wp->query_vars['api_page'];
+		$wp->query_vars['post_type'] = 'page';
+		$template = '/helper-page.php';
+	}
+	
 	unset($wp->query_vars['api-page']);
 	
 	$wp->query_posts();
 	
-	$post = $wp_the_query->queried_object;
-	$content = apply_filters('the_content', $post->post_content);
-	
 	header('Content-Type: text/html');
 	
-	echo $content;
+	include RM_HELP_THEME_DIR.$template;
 }

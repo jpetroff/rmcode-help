@@ -1,5 +1,23 @@
 w.utils = {
 	// @TODO: add Promise polyfill
+	init: function() {
+		var i,
+			undefined,
+			el = document.createElement('div'),
+			transitions = {
+				'transition':'transitionend',
+				'OTransition':'otransitionend',  // oTransitionEnd in very old Opera
+				'MozTransition':'transitionend',
+				'WebkitTransition':'webkitTransitionEnd'
+			};
+
+		for (i in transitions) {
+			if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
+				this.transitionName = transitions[i];
+				break;
+			}
+		}
+	},
 	ajax: function(opts) {
 		var data = opts.data || null;
 		var method = typeof opts.method !== 'undefined' ? opts.method : 'GET';
@@ -67,5 +85,54 @@ w.utils = {
 			return str.substr(0, str.length - 1);
 		}
 		return str;
+	},
+	updateDOM: function( fn, ctx ) {
+		var methodFn = _.defer;
+		if(typeof w.requestAnimationFrame == 'function') {
+			methodFn = w.requestAnimationFrame;
+		}
+
+		if(!ctx) {
+			return methodFn( fn );
+		} else {
+			return methodFn( _.bind(fn, ctx) );
+		}
+	},
+	scrollTop: function(_val, _animate) {
+		var animate = (typeof _animate != 'undefined') ? _animate : true;
+		var val = parseInt(_val);
+
+		if(animate == false) {
+			w.utils.updateDOM( function() {
+				w.scrollTo(0, val);
+			});
+		} else {
+			//with animation
+			var from = w.pageYOffset;
+			var by = _val - from;
+
+			var currentIteration = 0;
+
+			/**
+			 * get total iterations
+			 * 60 -> requestAnimationFrame 60/second
+			 * second parameter -> time in seconds for the animation
+			 **/
+			var animIterations = Math.round(60 * 0.5);
+
+			(function scroll() {
+				var value = w.utils.easeOutCubic(currentIteration, from, by, animIterations);
+				w.scrollTo(0, value);
+				currentIteration++;
+				if (currentIteration < animIterations) {
+					requestAnimationFrame(scroll);
+				}
+			})();
+		}
+	},
+	easeOutCubic: function(currentIteration, startValue, changeInValue, totalIterations) {
+		return changeInValue * (Math.pow(currentIteration / totalIterations - 1, 3) + 1) + startValue;
 	}
 }
+
+w.utils.init();

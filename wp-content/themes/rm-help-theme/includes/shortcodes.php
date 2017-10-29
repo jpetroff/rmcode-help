@@ -22,7 +22,7 @@ function rm_recursive_output($id, $current_level, &$levels, &$all) {
 	}
 	
 	$section_id = $all[$id]->post_name;
-	$output = "<div data-level=\"$current_level\" id=\"$section_id\">";
+	$output = "<div data-level=\"$current_level\" id=\"$section_id\" v-navblock>";
 	
 	$output .= "<h$current_level class=\"single-page__header-$current_level\">".$all[$id]->post_title."</h$current_level>";
 	$output .= apply_filters('the_content', $all[$id]->post_content);
