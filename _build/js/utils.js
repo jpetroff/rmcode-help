@@ -45,7 +45,8 @@ w.utils = {
 			if (method == 'POST') {
 				req.open(method, url);
 			} else {
-				req.open(method, url+'?'+data);
+				var dataQuery = data ? '?'+data : '';
+				req.open(method, url+dataQuery);
 			}
 			// console.log(url+'?'+data);
 
@@ -98,7 +99,7 @@ w.utils = {
 			return methodFn( _.bind(fn, ctx) );
 		}
 	},
-	scrollTop: function(_val, _animate) {
+	scrollTop: function(_val, _animate, cb) {
 		var animate = (typeof _animate != 'undefined') ? _animate : true;
 		var val = parseInt(_val);
 
@@ -126,6 +127,8 @@ w.utils = {
 				currentIteration++;
 				if (currentIteration < animIterations) {
 					requestAnimationFrame(scroll);
+				} else if(typeof cb == 'function') {
+					cb();
 				}
 			})();
 		}

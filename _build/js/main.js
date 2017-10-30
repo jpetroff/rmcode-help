@@ -3,11 +3,37 @@ w.Page = function() {
 		data: {
 			navItems: {},
 			navElements: [],
-			scrollOffset: 118
+			scrollOffset: 118,
+			scrollSections: [],
+			scrollAnimationStarted: false,
+			activeSection: ''
 		},
 		mounted: function() {
 			for(var i = 0; i < this.navElements.length; i++) {
-				this.navItems[this.navElements[i].id]= this.navElements[i].offsetTop;
+				this.navItems[this.navElements[i].id] = {
+					pos: this.navElements[i].offsetTop,
+					title: this.navElements[i].dataset.title
+				}
+				var level = parseInt(this.navElements[i].dataset.level);
+
+				if(this.navElements[i].dataset.level <= 2) {
+					var hash = level == 1 ? '' : this.navElements[i].id;
+					var title = this.navElements[i].dataset.title;
+					this.scrollSections.push(
+						[
+							this.navElements[i].offsetTop - this.scrollOffset,
+							null,
+							hash,
+							title
+						]);
+				}
+			}
+			for(var k = 0; k < this.scrollSections.length; k++) {
+				if(k == this.scrollSections.length - 1) {
+					this.scrollSections[k][1] = 'end';
+				} else {
+					this.scrollSections[k][1] = this.scrollSections[k+1][0] - 1;
+				}
 			}
 		},
 		directives: {
@@ -30,12 +56,38 @@ w.Page = function() {
 				w.Router.changePage(el);
 			},
 			localLink: function(hash) {
+				if(
+					typeof hash == 'undefined' ||
+					hash == null ||
+					!this.navItems[hash]
+				) return;
+
 				var position = 0;
-				if (hash != '') {
-					position = Math.max(this.navItems[hash] - this.scrollOffset, 0);
+				position = Math.max(this.navItems[hash].pos - this.scrollOffset + 1, 0);
+				this.scrollAnimationStarted = true;
+
+				var navSection = this._getCurrentNavSection(position);
+				this.activeSection = navSection[2];
+				w.Router && w.Router.updateUrl(w.Router.url.path, w.Router.url.hash, this.navItems[hash].title+' — '+w._site_title);
+				w.utils.scrollTop(position, true, _.bind(function() {this.scrollAnimationStarted = false}, this));
+			},
+			scrollSpy: function() {
+				if(this.scrollAnimationStarted == true) return;
+				var pos = w.pageYOffset;
+				var navSection = this._getCurrentNavSection(pos);
+				// console.log(w.Router.url.hash, navSection[2]);
+				if(w.Router.url.hash != navSection[2]) {
+					console.log('changed to ' + navSection[2]);
+					this.activeSection = navSection[2];
+					w.Router && w.Router.updateUrl(null, navSection[2], navSection[3]);
 				}
-				console.log(position);
-				w.utils.scrollTop(position);
+			},
+			_getCurrentNavSection: function(pos) {
+				for(var i = 0; i < this.scrollSections.length; i++) {
+					if( pos >= this.scrollSections[i][0] && (this.scrollSections[i][1] == 'end' || pos <= this.scrollSections[i][1]) ) {
+						return this.scrollSections[i];
+					}
+				}
 			}
 		}
 	}

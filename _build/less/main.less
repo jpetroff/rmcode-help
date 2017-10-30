@@ -44,25 +44,25 @@ body {
 }
 
 .pace .pace-progress {
-	background: #29d;
+	background: #1884F7;
 	position: fixed;
 	z-index: 100000;
 	top: 0;
 	//right: 100%;
 	width: 100%;
 	height: 2px;
-	.pace-inner {
-		display: block;
-		position: absolute;
-		right: 0px;
-		width: 100px;
-		height: 100%;
-		box-shadow: 0 0 10px #29d, 0 0 5px #29d;
-		opacity: 1.0;
-		-webkit-transform: rotate(3deg) translate(0px,-4px);
-		-ms-transform: rotate(3deg) translate(0px,-4px);
-		transform: rotate(3deg) translate(0px,-4px);
-	}
+	//.pace-inner {
+	//	display: block;
+	//	position: absolute;
+	//	right: 0px;
+	//	width: 100px;
+	//	height: 100%;
+	//	box-shadow: 0 0 10px #1884F7, 0 0 5px #1884F7;
+	//	opacity: 1.0;
+	//	-webkit-transform: rotate(3deg) translate(0px,-4px);
+	//	-ms-transform: rotate(3deg) translate(0px,-4px);
+	//	transform: rotate(3deg) translate(0px,-4px);
+	//}
 
 }
 
@@ -111,7 +111,7 @@ body {
 
 	&_narrow {
 		width: 700px;
-		margin-left: 284px;
+		margin-left: 294px;
 	}
 
 	p {
@@ -453,24 +453,51 @@ body {
 // SEARCH
 
 .toggle-results-enter-active, .toggle-results-leave-active {
-	transition: opacity .2s ease, top .2s ease;
+	transition: opacity .2s ease;
 }
 .toggle-results-enter, .toggle-results-leave-to /* .fade-leave-active below version 2.1.8 */ {
 	opacity: 0;
-	top: 81px;
+}
+
+@keyframes placeHolderShimmer{
+	0%{
+		background-position: -468px 0
+	}
+	100%{
+		background-position: 468px 0
+	}
+}
+
+.animated-background {
+	animation-duration: 1.4s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-name: placeHolderShimmer;
+	animation-timing-function: linear;
+	background: #f6f7f8;
+	background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+	position: relative;
 }
 
 .search-component {
-	width: 100%;
-	background: white;
-	height: 60px;
-	border-radius: 30px;
 	position: fixed;
 	top: 23px;
 	transition: all 0.2s ease;
 	opacity: 1;
 	visibility: visible;
 	z-index: 9999;
+
+
+	.query-input-wrapper {
+		display: block;
+		position: relative;
+		z-index: 10;
+
+		background: white;
+		height: 60px;
+		border-radius: 30px;
+		width: 100%;
+	}
 
 	&[v-cloack] {
 		opacity: 0;
@@ -495,16 +522,66 @@ body {
 		border-radius: 30px;
 		display: block;
 		height: 60px;
-		line-height: 62px;
+		line-height: 60px;
 		font-size: 16px;
 		width: 100%;
 		border: none;
 		outline: none;
-		padding: 0 30px;
+		padding: 1px 172px 0 30px;
+		box-sizing: border-box;
 		color: #1884F7;
+		border: 1px solid #ededed;
 	}
 
-	&__submit {display:none}
+	&__submit {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 60px;
+		width: 112px;
+		line-height: 60px;
+		border-radius: 30px;
+		background-color: #1884F7;
+		color: white;
+		font-size: 16px;
+		border: none;
+		z-index: 11;
+	}
+
+	&__clear {
+		position: absolute;
+		right: 112px;
+		top: 0;
+		width: 60px;
+		height: 60px;
+		padding: 19px 0 0 17px;
+		box-sizing: border-box;
+		cursor: pointer;
+		z-index: 11;
+
+		.clear-button {
+			width: 22px;
+			height: 22px;
+			border-radius: 50%;
+			background-color: #EDEDED;
+			padding: 6px 0 0 6px;
+			box-sizing: border-box;
+
+			.clear-button-cross {
+				display: block;
+			}
+		}
+	}
+
+	&__backdrop {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 0;
+		background: rgba(237,237,237,0.8);
+	}
 
 	&__results {
 		position: absolute;
@@ -516,6 +593,8 @@ body {
 		background: white;
 		overflow-x: hidden;
 		overflow-y: auto;
+		border: 1px solid #ededed;
+		z-index: 1;
 	}
 
 	&__result-item {
@@ -548,7 +627,7 @@ body {
 			.result-item__nav {border-color: transparent}
 		}
 
-		&:hover {
+		&.item:hover {
 			background-color: #1884F7;
 			color: white;
 
@@ -568,6 +647,30 @@ body {
 		&.empty.contact {
 			background-color: #1884F7;
 			color: white;
+		}
+
+		&.waiting {
+			padding-top: 18px;
+			padding-bottom: 18px;
+
+			.fake-line-loader {
+				height: 14px;
+				margin: 14px 0;
+				background-color: #ededed;
+				overflow: hidden;
+
+				&:after {
+					content: '';
+					display: block;
+					width: 450px;
+					height: 100%;
+					.animated-background
+				}
+
+				&.break {
+					margin-top: 32px;
+				}
+			}
 		}
 	}
 	a:hover + a { .result-item__nav { border-color: transparent; } }

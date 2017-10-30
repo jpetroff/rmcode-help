@@ -1,0 +1,128 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Readymag Guide</title>
+	<link rel="stylesheet" href="http://rm.local/wp-content/themes/rm-help-theme/style.css">
+	<script>
+		window._search_nonce = '71dfa28102';
+		window._ajax_url = 'http://rm.local/wp-admin/admin-ajax.php';
+	</script>
+</head>
+<body class=" ">
+	
+	<div class='search-component' v-bind:class="[ presentation.isFront ? 'search-component_home' : '' ]"
+		id='search-component-vue'
+		v-bind:style="{ width: presentation.width + 'px', left: presentation.left + 'px'}" v-cloack
+	>
+		<form role='search' class='query-input-wrapper' method='POST' action='http://rm.local'>
+		
+			<input type='text' name='s'
+				class='search-component__query-input'
+				v-bind:value='value'
+				v-on:input='queryInput($event.target.value)'
+				v-on:focus='inputFocus = true'
+				v-on:keypress.enter.prevent='submitSearch'
+				placeholder='Search feature, setting, shortcuts, etc'
+				ref='queryInput'
+			>
+			
+			<input type='submit' class='search-component__submit' value='Search' v-on:click.prevent='submitSearch(true)'>
+			<div class='search-component__clear' v-show="value.length > 0" v-on:click='clearQuery'>
+				<div class='clear-button'>
+					<svg class='clear-button-cross' width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<g id="close" stroke="#979797" stroke-width="1" stroke-linecap="round">
+							<path d="M1,1 L9,9"></path>
+							<path d="M9,1 L1,9"></path>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<input type='hidden' value='71dfa28102'>
+		</form>
+		<transition name='toggle-results'>
+		<div class='search-component__results'
+			v-bind:class="searchResultsState"
+			v-show="showResultsPanel"
+			v-bind:style="{ maxHeight: _calcMaxHeight() + 'px'}"
+		>
+			<div class='search-component__result-item waiting' v-show="searchResultsState == 'waiting'">
+				<div class='fake-line-loader' style='width:240px;'></div>
+				<div class='fake-line-loader' style='width:450px;'></div>
+				<div class='fake-line-loader break' style='width:180px;'></div>
+				<div class='fake-line-loader' style='width:450px;'></div>
+			</div>
+			
+			<div class='search-component__result-item empty' v-show="searchResultsState == 'empty'">Nothing found for <strong>{{query}}</strong></div>
+			<a href='#' class='search-component__result-item empty contact' v-show="searchResultsState == 'empty'">Need help? Contact Readymag support</a>
+			
+			<a
+				v-for='post in results'
+				v-bind:href="'/editor/#' + post.post_name"
+				class='search-component__result-item item'
+				v-show="searchResultsState == 'success' || searchResultsState == 'inactive'"
+				v-on:click='showResultPage($event.currentTarget)'
+			>
+				<div class='result-item__nav'>{{post.post_title}}</div>
+				<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
+			</a>
+		</div>
+		</transition>
+		<transition name='toggle-results'>
+			<div class='search-component__backdrop' v-show="showResultsPanel || inputFocus" v-on:click.prevent.self='inputFocus = false'></div>
+		</transition>
+	</div>
+		
+	<div class="_wrapper" id="app-page">
+		
+		
+	<article class="page-content-wrapper single-page" >
+		<div class="page-content page-content_narrow">
+			
+			<div data-level="1" id="13-2" v-navblock><h1 class="single-page__header-1">Editor</h1><p class="mytest">Editor is where you design your projects, adding and customizing widgets on each — page as necessary. Your workspace also includes Project Menu (M), in which you can access general settings, overview and rearrange all pages, and work with templates.</p>
+<p class="image-wrapper" contenteditable="false"><img class="page-content__responsive-image" width="601" height="400" src="http://rm.local/wp-content/uploads/Background-and-Grid-Guides.png" srcset="http://rm.local/wp-content/uploads/Background-and-Grid-Guides@2x.png 2x" /></p></div><div data-level="2" id="workspace" v-navblock><h2 class="single-page__header-2">Workspace</h2><p class="p1"><span class="s1">Creating a project in Editor is similar to designing a layout in Adobe Photoshop or Sketch. You can arrange widgets freely on the page. Any new project is created with a blank page and two default widgets, Background and Grid &amp; Guides, in Widgets panel.</span></p>
+<p class="image-wrapper" contenteditable="false"><img class="page-content__responsive-image" width="700" height="475" src="http://rm.local/wp-content/uploads/screenlarge-700x475.jpg" srcset="http://rm.local/wp-content/uploads/screenlarge-700x475@2x.jpg 2x" /></p></div><div data-level="3" id="page" v-navblock><h3 class="single-page__header-3">Page</h3><p>Creating a project in Editor is similar to designing a layout in Adobe Photoshop or Sketch. You can arrange widgets freely on the page. Any new project is created with a blank page and two default widgets, Background and Grid &amp; Guides, in Widgets (Q) panel.</p>
+<ul>
+	<li>Test</li>
+	<li>Create</li>
+	<li>Publish!</li>
+</ul></div><div data-level="2" id="widgets" v-navblock><h2 class="single-page__header-2">Widgets</h2><p>Positions of your widgets are described in absolute values, and they remain at the exact same place regardless of the screen size. You can move widgets freely around your workspace. By default, each widget should be placedU within the dotted frame to ensure it will appear on all screens.</p></div><div data-level="2" id="operations-with-widgets" v-navblock><h2 class="single-page__header-2">Operations with Widgets</h2><p>Creating a project in Editor is similar to designing a layout in Adobe Photoshop or Sketch. You can arrange widgets freely on the page. Any new project is created with a blank page and two default widgets, Background and Grid &amp; Guides, in Widgets panel.</p></div><div data-level="3" id="basic-positioning" v-navblock><h3 class="single-page__header-3">Basic Positioning</h3><p class="test">Positions of your widgets are described in absolute values, and they remain at the exact same place regardless of the screen size. You can move widgets freely around your workspace. By default, each widget should be placedU within the dotted frame to ensure it will appear on all screens.</p></div><div data-level="3" id="widget-controls" v-navblock><h3 class="single-page__header-3">Widget controls</h3><p><span style="font-weight: 400;">Widget controls appear on the right side of the workspace each time you click one of the widgets. Slightly varying for different types of widgets, this panel contains all attributes of the widget. Most common operations allow you to:</span></p>
+<ul>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Adjust widget settings</span></li>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Rotate the widget</span></li>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Add animation</span></li>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Scale to original size</span></li>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Lock the widget</span></li>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Group / Ungroup several widgets</span></li>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Align widgets on the page</span></li>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Position, fix, and 'stick' your widgets</span></li>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Arrange widgets above each other</span></li>
+	<li style="font-weight: 400;"><span style="font-weight: 400;">Turn widget into a link</span></li>
+</ul></div>		</div>
+	</article>
+	
+	
+	<nav class="left-navigation">
+		<a href="/" v-rlink class="rm-guide-backlink left-navigation__link">Readymag Guide</a>
+		
+		<div class="page-navigation">
+			<a href="http://rm.local/editor/" class="left-navigation__link page-navigation__top" v-rlink>Editor</a><a href="http://rm.local/editor/#workspace" class="left-navigation__link page-navigation__secondary" v-rlink>Workspace</a><a href="http://rm.local/editor/#widgets" class="left-navigation__link page-navigation__secondary" v-rlink>Widgets</a><a href="http://rm.local/editor/#operations-with-widgets" class="left-navigation__link page-navigation__secondary" v-rlink>Operations with Widgets</a>		</div>
+	</nav>
+		
+	</div>
+	<script>
+		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+			':35729/livereload.js?snipver=1"></' + 'script>')
+	</script>
+	<script>window._home_url = document.createElement('a'); window._home_url.href = 'http://rm.local';</script>
+	<script src="http://rm.local/wp-content/themes/rm-help-theme/js/libs.js"></script>
+	<script src="http://rm.local/wp-content/themes/rm-help-theme/js/app.js"></script>
+	</body>
+</html>
+
+<!-- Dynamic page generated in 0.526 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2017-10-29 18:53:05 -->
+
+<!-- Compression = gzip -->
+<!-- super cache -->

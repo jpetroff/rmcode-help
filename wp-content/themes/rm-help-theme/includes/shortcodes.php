@@ -17,14 +17,17 @@ function rm_recursive_output($id, $current_level, &$levels, &$all) {
 		$create_nav[] = array(
 			'caption' => $all[$id]->post_title,
 			'link' => $current_level == 1 ? $current_page : $current_page."#".$all[$id]->post_name,
-			'level' => $current_level == 1 ? 'top' : 'secondary'
+			'level' => $current_level == 1 ? 'top' : 'secondary',
+			'post_name' => $all[$id]->post_name
 		);
 	}
 	
 	$section_id = $all[$id]->post_name;
-	$output = "<div data-level=\"$current_level\" id=\"$section_id\" v-navblock>";
+	$section_id_decl = $current_level != 1 ? "id='$section_id'" : '';
+	$section_title = $all[$id]->post_title;
+	$output = "<div data-level=\"$current_level\" data-title=\"$section_title\" $section_id_decl v-navblock>";
 	
-	$output .= "<h$current_level class=\"single-page__header-$current_level\">".$all[$id]->post_title."</h$current_level>";
+	$output .= "<h$current_level class=\"single-page__header-$current_level\">".$section_title."</h$current_level>";
 	$output .= apply_filters('the_content', $all[$id]->post_content);
 	
 	$output .= "</div>";

@@ -28,7 +28,8 @@
 		<div class="page-navigation">
 			<?php
 			foreach ($create_nav as $nav_item) {
-				echo "<a href=\"${nav_item['link']}\" class=\"left-navigation__link page-navigation__${nav_item['level']}\" v-rlink>${nav_item['caption']}</a>";
+				$hash = ($nav_item['level'] == 'secondary' ? $nav_item['post_name'] : '');
+				echo "<a href=\"${nav_item['link']}\"  v-bind:class=\"[(activeSection == '${hash}') ? 'current' : '']\" class=\"left-navigation__link page-navigation__${nav_item['level']}\" v-rlink>${nav_item['caption']}</a>";
 			}
 			?>
 		</div>

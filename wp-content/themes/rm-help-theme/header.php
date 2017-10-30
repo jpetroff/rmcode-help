@@ -11,6 +11,5 @@
 		window._search_nonce = '<?php echo wp_create_nonce('search'); ?>';
 		window._ajax_url = '<?php echo admin_url('admin-ajax.php'); ?>';
 	</script>
-	<?php wp_head(); ?>
 </head>
-<body class=" <? if (is_user_logged_in()) echo '_logged_user'; ?>">
+<body class=" <? if (false && is_user_logged_in()) echo '_logged_user'; ?>">

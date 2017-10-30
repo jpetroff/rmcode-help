@@ -49,7 +49,8 @@ w.utils = {
 			if (method == 'POST') {
 				req.open(method, url);
 			} else {
-				req.open(method, url+'?'+data);
+				var dataQuery = data ? '?'+data : '';
+				req.open(method, url+dataQuery);
 			}
 			// console.log(url+'?'+data);
 
@@ -102,7 +103,7 @@ w.utils = {
 			return methodFn( _.bind(fn, ctx) );
 		}
 	},
-	scrollTop: function(_val, _animate) {
+	scrollTop: function(_val, _animate, cb) {
 		var animate = (typeof _animate != 'undefined') ? _animate : true;
 		var val = parseInt(_val);
 
@@ -130,6 +131,8 @@ w.utils = {
 				currentIteration++;
 				if (currentIteration < animIterations) {
 					requestAnimationFrame(scroll);
+				} else if(typeof cb == 'function') {
+					cb();
 				}
 			})();
 		}
@@ -151,11 +154,37 @@ w.Page = function() {
 		data: {
 			navItems: {},
 			navElements: [],
-			scrollOffset: 118
+			scrollOffset: 118,
+			scrollSections: [],
+			scrollAnimationStarted: false,
+			activeSection: ''
 		},
 		mounted: function() {
 			for(var i = 0; i < this.navElements.length; i++) {
-				this.navItems[this.navElements[i].id]= this.navElements[i].offsetTop;
+				this.navItems[this.navElements[i].id] = {
+					pos: this.navElements[i].offsetTop,
+					title: this.navElements[i].dataset.title
+				}
+				var level = parseInt(this.navElements[i].dataset.level);
+
+				if(this.navElements[i].dataset.level <= 2) {
+					var hash = level == 1 ? '' : this.navElements[i].id;
+					var title = this.navElements[i].dataset.title;
+					this.scrollSections.push(
+						[
+							this.navElements[i].offsetTop - this.scrollOffset,
+							null,
+							hash,
+							title
+						]);
+				}
+			}
+			for(var k = 0; k < this.scrollSections.length; k++) {
+				if(k == this.scrollSections.length - 1) {
+					this.scrollSections[k][1] = 'end';
+				} else {
+					this.scrollSections[k][1] = this.scrollSections[k+1][0] - 1;
+				}
 			}
 		},
 		directives: {
@@ -178,12 +207,38 @@ w.Page = function() {
 				w.Router.changePage(el);
 			},
 			localLink: function(hash) {
+				if(
+					typeof hash == 'undefined' ||
+					hash == null ||
+					!this.navItems[hash]
+				) return;
+
 				var position = 0;
-				if (hash != '') {
-					position = Math.max(this.navItems[hash] - this.scrollOffset, 0);
+				position = Math.max(this.navItems[hash].pos - this.scrollOffset + 1, 0);
+				this.scrollAnimationStarted = true;
+
+				var navSection = this._getCurrentNavSection(position);
+				this.activeSection = navSection[2];
+				w.Router && w.Router.updateUrl(w.Router.url.path, w.Router.url.hash, this.navItems[hash].title+' — '+w._site_title);
+				w.utils.scrollTop(position, true, _.bind(function() {this.scrollAnimationStarted = false}, this));
+			},
+			scrollSpy: function() {
+				if(this.scrollAnimationStarted == true) return;
+				var pos = w.pageYOffset;
+				var navSection = this._getCurrentNavSection(pos);
+				// console.log(w.Router.url.hash, navSection[2]);
+				if(w.Router.url.hash != navSection[2]) {
+					console.log('changed to ' + navSection[2]);
+					this.activeSection = navSection[2];
+					w.Router && w.Router.updateUrl(null, navSection[2], navSection[3]);
 				}
-				console.log(position);
-				w.utils.scrollTop(position);
+			},
+			_getCurrentNavSection: function(pos) {
+				for(var i = 0; i < this.scrollSections.length; i++) {
+					if( pos >= this.scrollSections[i][0] && (this.scrollSections[i][1] == 'end' || pos <= this.scrollSections[i][1]) ) {
+						return this.scrollSections[i];
+					}
+				}
 			}
 		}
 	}
@@ -295,16 +350,14 @@ w.rmSearch = new Vue({
 				)
 			)
 		},
-		submitSearch: function() {
+		submitSearch: function( returnFocus ) {
+			if(returnFocus == true) this.$refs.queryInput.focus();
 			this.query = this.value;
 			this.waitingForResults = true;
 			this._requestResults();
 		},
 		_calcMaxHeight: function() {
 			return this.presentation.height - this.$el.offsetTop - 61 - 50;
-		},
-		_specialBlur: function() {
-			_.delay( _.bind(function(){ this.inputFocus = false; }, this), 200);
 		},
 		getPresentationParams: function() {
 			var pageContent = document.getElementsByClassName('page-content')[0];
@@ -313,16 +366,21 @@ w.rmSearch = new Vue({
 			var pageContentLeftOffset = pageContent.offsetLeft;
 			var windowClientHeight = window.innerHeight;
 
-			this.presentation.width = pageContentClientWidth;
-			this.presentation.left = pageContentLeftOffset;
+			this.presentation.width = this.presentation.isFront ? pageContentClientWidth : (pageContentClientWidth + 60);
+
+			this.presentation.left = this.presentation.isFront ? pageContentLeftOffset : (pageContentLeftOffset - 30);
+
 			this.presentation.height = windowClientHeight;
+
 		},
 		showResultPage: function( el ) {
-			// console.log(el);
-			// return;
-			// if(!w.Router) return;
-
+			this.inputFocus = false;
 			w.Router.changePage(el);
+		},
+		clearQuery: function() {
+			this.query = '';
+			this.value = '';
+			this.$refs.queryInput.focus();
 		}
 	}
 });
@@ -347,6 +405,10 @@ w.Router = {
 	pageTransitionStarted: false,
 	pageData: null,
 	init: function() {
+		w.addEventListener('popstate', _.bind(function(ev){
+			this.changePage(w.location, true);
+		}, this), false);
+
 		this.parse_url(w.location, true);
 		w.rmSearch.presentation.isFront = this.isFront;
 		w.rmSearch.$mount('#search-component-vue');
@@ -357,18 +419,20 @@ w.Router = {
 		w.currentPage.$mount(this.pageContainer);
 		w.currentPage.$el.dataset.visible = true;
 
+		if(w.currentPage.navElements.length > 0) {
+			w.addEventListener('scroll', this.passScrollParams);
+		}
+
 		_.delay( function() {w.currentPage.localLink(w.Router.url.hash)}, 1);
-		// document.addEventListener("DOMContentLoaded", function(event) {
-		//
-		// });
 	},
-	changePage: function(url) {
-		this.parse_url(url);
+	changePage: function(url, skipUpdate) {
+		var needChange = this.parse_url(url, skipUpdate);
+
 		w.rmSearch.presentation.isFront = this.isFront;
 
 		if(this.url.isLocal) {
 			w.currentPage.localLink(this.url.hash);
-		} else {
+		} else if(needChange) {
 			this.asyncLoadStarted = true;
 
 			w.utils.updateDOM(this.hidePage, this);
@@ -393,6 +457,13 @@ w.Router = {
 			url.href = _url;
 		}
 
+		if(this.url && this.url.location && this.url.location == url.href) {
+			console.log('skip parsing – same URL');
+			return false;
+		}
+
+		var isLocal = this.url && this.url.path && this.url.path == url.pathname;
+
 		this.url = {
 			location: url.href,
 			home: w._home_url.href,
@@ -400,16 +471,19 @@ w.Router = {
 			relPath: w.utils.untrailingslashit( url.pathname.replace( w._home_url.pathname, '') ),
 			query: url.search.replace('?', ''),
 			hash: url.hash.replace('#', ''),
-			isLocal: (w.location.pathname == url.pathname)
+			isLocal: isLocal
 		}
 
-		if(!skipUpdate) history.pushState(null, null, this.url.path + (this.url.hash != '' ? '#' + this.url.hash : '') );
+		if(!skipUpdate) w.history.pushState(null, null, this.url.path + (this.url.hash != '' ? '#' + this.url.hash : '') );
 
 		if (this.url.relPath == '') {
 			this.isFront = true;
+			document.title = w._site_title;
 		} else {
 			this.isFront = false;
 		}
+
+		return true;
 	},
 	showNewPage: function(data) {
 		if(this.pageTransitionStarted || this.asyncLoadStarted) return;
@@ -421,6 +495,7 @@ w.Router = {
 		}, this);
 	},
 	hidePage: function() {
+		w.removeEventListener('scroll', this.passScrollParams);
 		w.currentPage.$el.dataset.visible = false;
 		w.utils.scrollTop(0, false);
 		this.pageTransitionStarted = true;
@@ -430,6 +505,21 @@ w.Router = {
 				this.showNewPage();
 			}, this)
 		)
+	},
+	updateUrl: function( path, _hash, title ) {
+		path = path || this.url.path;
+		var hash = _hash != '' ? '#'+_hash : '';
+		title = title != '' ? title+' — '+w._site_title : w._site_title;
+
+		w.history.replaceState( null, title, path+hash );
+		this.url.location = w.location.href;
+		this.url.path = w.location.pathname;
+		this.url.relPath = w.utils.untrailingslashit( w.location.pathname.replace( w._home_url.pathname, '') );
+		this.url.query = w.location.search.replace('?', '');
+		this.url.hash = w.location.hash.replace('#', '');
+	},
+	passScrollParams: function() {
+		w.currentPage && w.currentPage.scrollSpy();
 	}
 }
 
