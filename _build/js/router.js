@@ -40,7 +40,7 @@ w.Router = {
 
 			w.utils.ajax({
 				method: 'GET',
-				url: 'http://rm.local/api/page/' + (this.isFront ? '_front' : this.url.relPath)
+				url: w._home_url + 'api/page/' + (this.isFront ? '_front' : this.url.relPath)
 			}).then(_.bind(function(data) {
 				this.asyncLoadStarted = false;
 				this.pageData = data;

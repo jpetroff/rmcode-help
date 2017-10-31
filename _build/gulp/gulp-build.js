@@ -78,8 +78,8 @@ gulp.task('less', function(){
 		}))
 		.pipe(remember('less'))
 		.pipe(order([
+			'less/prefix.less',
 			'libs/css/normalize.css',
-			// 'components/*.less',
 			'less/**/*.less'
 		],{base: src}))
 		.pipe(concat('style.css'))

@@ -330,21 +330,35 @@ w.rmSearch = new Vue({
 		},
 		_requestResults: function() {
 			w.utils.ajax({
-				url: 'http://rm.local/wp-admin/admin-ajax.php',
-				method: 'POST',
+				url: w._home_url.href + 'search/',
+				method: 'GET',
 				data: {
-					action: 'search',
-					query: this.query
+					s: this.query
 				}
 			}).then(_.bind(
 				function(data) {
 					var results = JSON.parse(data);
-					for(var i = 0; i < results.length; i++) {
-						results[i].post_excerpt = results[i].post_excerpt.replace('...', '');
+					var result_posts = results['posts'];
+					var link_index = results['link_index'];
+					for(var i = 0; i < result_posts.length; i++) {
+						result_posts[i].post_excerpt = result_posts[i].post_excerpt.replace('...', '');
+						var ind = result_posts[i].ID;
+						if(
+							typeof link_index[ind] !== 'undefined' &&
+							typeof link_index[ind].permalink !== 'undefined'
+						) {
+							result_posts[i].display_link = link_index[ind]['permalink'];
+							result_posts[i].parent_title = '';
+						} else {
+							ind = link_index[result_posts[i].ID];
+							result_posts[i].parent_link = link_index[ind]['permalink'];
+							result_posts[i].display_link = link_index[ind]['permalink'] + '#' + result_posts[i].post_name;
+							result_posts[i].parent_title = link_index[ind]['title'];
+						}
+
 					}
-					this.results = results;
+					this.results = result_posts;
 					this.waitingForResults = false;
-					console.log(this.results);
 				},
 				this
 				)
@@ -439,7 +453,7 @@ w.Router = {
 
 			w.utils.ajax({
 				method: 'GET',
-				url: 'http://rm.local/api/page/' + (this.isFront ? '_front' : this.url.relPath)
+				url: w._home_url + 'api/page/' + (this.isFront ? '_front' : this.url.relPath)
 			}).then(_.bind(function(data) {
 				this.asyncLoadStarted = false;
 				this.pageData = data;

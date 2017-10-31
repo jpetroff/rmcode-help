@@ -3,15 +3,14 @@
 add_action( 'wp_ajax_search', 'get_ajax_search_results' );
 add_action( 'wp_ajax_nopriv_search', 'get_ajax_search_results' );
 
-function get_ajax_search_results() {
-	$req = $_REQUEST['query'];
-	
+function get_ajax_search_results( $wp ) {
 	$q = new WP_Query();
-	$q->query_vars['s'] = $req;
+	$q->query_vars['s'] = $wp->query_vars['s'];
 	
 	relevanssi_do_query($q);
+	$link_index = get_option('_rm_card_link_index');
 	
-	wp_send_json($q->posts);
+	wp_send_json( array( 'posts' => $q->posts, 'link_index' => $link_index ) );
 	wp_die();
 }
 
@@ -66,12 +65,12 @@ function show_search_component() {
 			
 			<a
 				v-for='post in results'
-				v-bind:href=\"'/editor/#' + post.post_name\"
+				v-bind:href=\"post.display_link\"
 				class='search-component__result-item item'
 				v-show=\"searchResultsState == 'success' || searchResultsState == 'inactive'\"
 				v-on:click.prevent='showResultPage(\$event.currentTarget)'
 			>
-				<div class='result-item__nav'>{{post.post_title}}</div>
+				<div class='result-item__nav'>{{post.post_title}}{{post.parent_title != '' ? ' — ' + post.parent_title : ''}}</div>
 				<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
 			</a>
 		</div>
