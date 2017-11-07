@@ -10,7 +10,7 @@ var cache = require('gulp-cached')
 var vueSplit = require('gulp-vuesplit').default
 var order = require('gulp-order')
 var remember = require('gulp-remember')
-// var vueExtract = require('./gulp-vue-extract')
+var vueExtract = require('./gulp-vue-extract')
 var wrapjs = require('./gulp-jswrapper')
 var print = require('gulp-print')
 
@@ -27,8 +27,7 @@ gulp.task('js-libs', function(){
 
 	gulp.src([
 		base + 'underscore-min.js',
-		base + 'vue.min.js',
-		base + 'pacejs.js'
+		base + 'vue.min.js'
 	])
 		.pipe(concat('libs.js'))
 		.pipe(gulp.dest(dst + 'js'));
@@ -36,17 +35,19 @@ gulp.task('js-libs', function(){
 });
 
 gulp.task('js-build', function(){
-	gulp.src([src + 'js/*.js'])
-		// .pipe(vueExtract({
-		// 	type:'script',
-		// 	storeTemplate: 'inline'
-		// }))
+	gulp.src([src + 'js/*.js', src + 'components/*.vue'])
+		.pipe(vueExtract({
+			type:'script',
+			storeTemplate: 'inline'
+		}))
 		.pipe(cache('js-build'))
 		.pipe(print())
 		.pipe(wrapjs())
 		.pipe(remember('js-build'))
 		.pipe(order([
+			'js/pace.modified.js',
 			'js/utils.js',
+			'components/*.js',
 			'js/main.js',
 			'js/search.js',
 			'js/router.js'

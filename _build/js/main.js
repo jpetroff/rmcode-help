@@ -8,6 +8,9 @@ w.Page = function() {
 			scrollAnimationStarted: false,
 			activeSection: ''
 		},
+		components: {
+			'hint': w.components['hint']
+		},
 		mounted: function() {
 			for(var i = 0; i < this.navElements.length; i++) {
 				this.navItems[this.navElements[i].id] = {

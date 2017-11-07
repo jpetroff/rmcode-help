@@ -48,7 +48,7 @@ body {
 	position: fixed;
 	z-index: 100000;
 	top: 0;
-	//right: 100%;
+	right: 100%;
 	width: 100%;
 	height: 2px;
 	//.pace-inner {
@@ -136,6 +136,7 @@ body {
 		margin-left: -24px;
 		list-style: none;
 		padding: 0;
+		letter-spacing: -0.6px;
 
 		li {
 			line-height: 28px;
@@ -429,17 +430,20 @@ body {
 		border-radius: 6px;
 		border: 1px solid #ddd;
 		margin: 48px 0;
-		padding: 0 40px;
+
 
 		&__toggle {
 			line-height: 43px;
 			color: #bcbcbc;
 			letter-spacing: -0.4px;
+			padding: 0 40px;
+			cursor: pointer;
 		}
 
 		&__content {
 			display: none;
 			margin-bottom: 40px;
+			padding: 0 40px;
 		}
 
 		&.show {
@@ -530,6 +534,23 @@ body {
 		box-sizing: border-box;
 		color: #1884F7;
 		border: 1px solid #ededed;
+
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color: #ccc;
+			opacity: 1;
+		}
+		&::-moz-placeholder { /* Firefox 19+ */
+			color: #ccc;
+			opacity: 1;
+		}
+		&:-ms-input-placeholder { /* IE 10+ */
+			color: #ccc;
+			opacity: 1;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+			color: #ccc;
+			opacity: 1;
+		}
 	}
 
 	&__submit {
@@ -540,11 +561,17 @@ body {
 		width: 112px;
 		line-height: 60px;
 		border-radius: 30px;
-		background-color: #1884F7;
+		background-color: #ccc;
 		color: white;
 		font-size: 16px;
 		border: none;
 		z-index: 11;
+		outline: none;
+
+		&.active {
+			//background: linear-gradient(60deg, #ff0000 8%,#ff3702,#fe6e03,#fea405,#fed906 45%,#fed906 50%,#B8F786,#77C1BE,#0055ff 85%);
+			background: linear-gradient(90deg, #FF0000 10%, #0A00FF 90%);
+		}
 	}
 
 	&__clear {
@@ -566,6 +593,14 @@ body {
 			padding: 6px 0 0 6px;
 			box-sizing: border-box;
 
+			&:hover {
+				background-color: #FFD803;
+
+				.clear-button-cross g {
+					stroke: black !important;
+				}
+			}
+
 			.clear-button-cross {
 				display: block;
 			}
@@ -584,7 +619,7 @@ body {
 
 	&__results {
 		position: absolute;
-		top: 61px;
+		top: 59px;
 		left: 0;
 		width: 100%;
 		border-radius: 30px;
@@ -657,6 +692,7 @@ body {
 				margin: 14px 0;
 				background-color: #ededed;
 				overflow: hidden;
+				border-radius: 7px;
 
 				&:after {
 					content: '';

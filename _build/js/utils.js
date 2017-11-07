@@ -1,3 +1,4 @@
+w.components = {};
 w.utils = {
 	// @TODO: add Promise polyfill
 	init: function() {

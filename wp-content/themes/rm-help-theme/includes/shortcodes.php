@@ -54,7 +54,7 @@ function rm_output_shortcode( $_atts ) {
 	if(!$atts['parent']) return $output;
 	
 	$q = new WP_Query();
-	$_all_cards = $q->query( array( 'post_type' => 'card', 'posts_per_page' => '-1' ) );
+	$_all_cards = $q->query( array( 'post_type' => 'card', 'posts_per_page' => '-1', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
 	
 	$all_cards = [];
 	foreach ($_all_cards as $item) {
@@ -77,3 +77,17 @@ function rm_output_shortcode( $_atts ) {
 	return $output;
 }
 add_shortcode('output', 'rm_output_shortcode');
+
+function rm_hint_box_shortcode( $atts, $content, $tag) {
+	$header = ucfirst($tag);
+	
+	$content = apply_filters('wpautop', $content);
+	
+	$output = "<div is='hint' header='$header'> $content </div>";
+	
+	return $output;
+}
+add_shortcode('hint', 'rm_hint_box_shortcode');
+add_shortcode('note', 'rm_hint_box_shortcode');
+add_shortcode('hints', 'rm_hint_box_shortcode');
+add_shortcode('notes', 'rm_hint_box_shortcode');

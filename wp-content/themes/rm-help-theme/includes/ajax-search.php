@@ -26,6 +26,7 @@ function show_search_component() {
 		
 			<input type='text' name='s'
 				class='search-component__query-input'
+				autocomplete='off'
 				v-bind:value='value'
 				v-on:input='queryInput(\$event.target.value)'
 				v-on:focus='inputFocus = true'
@@ -34,7 +35,7 @@ function show_search_component() {
 				ref='queryInput'
 			>
 			
-			<input type='submit' class='search-component__submit' value='Search' v-on:click.prevent='submitSearch(true)'>
+			<input type='submit' class='search-component__submit' v-bind:class=\"[isActive ? 'active' : '']\" value='Search' v-on:click.prevent='submitSearch(true)'>
 			<div class='search-component__clear' v-show=\"value.length > 0\" v-on:click.prevent='clearQuery'>
 				<div class='clear-button'>
 					<svg class='clear-button-cross' width=\"10px\" height=\"10px\" viewBox=\"0 0 10 10\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">
