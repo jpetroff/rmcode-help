@@ -23,7 +23,7 @@ gulp.task('server', function() {
 	var wJSLibs = gulp.watch(src + 'libs/js/*.js', ['js-libs'])
 	changeLog(wJSLibs, 'js-libs')
 
-	var wJSBuild = gulp.watch([src + 'js/**/*.js', src + 'tinymce_js/**/*.js'], ['js-build'])
+	var wJSBuild = gulp.watch([src + 'js/**/*.js', src + 'tinymce_js/**/*.js', src + 'components/**/*.vue'], ['js-build'])
 	changeLog(wJSBuild, 'js-build')
 
 	var wLess = gulp.watch([src + 'less/**/*.less', src + 'editor_less/**/*.less'], ['less'])

@@ -12,32 +12,8 @@ w.Page = function() {
 			'hint': w.components['hint']
 		},
 		mounted: function() {
-			for(var i = 0; i < this.navElements.length; i++) {
-				this.navItems[this.navElements[i].id] = {
-					pos: this.navElements[i].offsetTop,
-					title: this.navElements[i].dataset.title
-				}
-				var level = parseInt(this.navElements[i].dataset.level);
-
-				if(this.navElements[i].dataset.level <= 2) {
-					var hash = level == 1 ? '' : this.navElements[i].id;
-					var title = this.navElements[i].dataset.title;
-					this.scrollSections.push(
-						[
-							this.navElements[i].offsetTop - this.scrollOffset,
-							null,
-							hash,
-							title
-						]);
-				}
-			}
-			for(var k = 0; k < this.scrollSections.length; k++) {
-				if(k == this.scrollSections.length - 1) {
-					this.scrollSections[k][1] = 'end';
-				} else {
-					this.scrollSections[k][1] = this.scrollSections[k+1][0] - 1;
-				}
-			}
+			this.recalcAnchorNav();
+			this.$on('recalcAnchorNav', this.recalcAnchorNav);
 		},
 		directives: {
 			rlink: {
@@ -89,6 +65,34 @@ w.Page = function() {
 				for(var i = 0; i < this.scrollSections.length; i++) {
 					if( pos >= this.scrollSections[i][0] && (this.scrollSections[i][1] == 'end' || pos <= this.scrollSections[i][1]) ) {
 						return this.scrollSections[i];
+					}
+				}
+			},
+			recalcAnchorNav: function() {
+				for(var i = 0; i < this.navElements.length; i++) {
+					this.navItems[this.navElements[i].id] = {
+						pos: this.navElements[i].offsetTop,
+						title: this.navElements[i].dataset.title
+					}
+					var level = parseInt(this.navElements[i].dataset.level);
+
+					if(this.navElements[i].dataset.level <= 2) {
+						var hash = level == 1 ? '' : this.navElements[i].id;
+						var title = this.navElements[i].dataset.title;
+						this.scrollSections.push(
+							[
+								this.navElements[i].offsetTop - this.scrollOffset,
+								null,
+								hash,
+								title
+							]);
+					}
+				}
+				for(var k = 0; k < this.scrollSections.length; k++) {
+					if(k == this.scrollSections.length - 1) {
+						this.scrollSections[k][1] = 'end';
+					} else {
+						this.scrollSections[k][1] = this.scrollSections[k+1][0] - 1;
 					}
 				}
 			}

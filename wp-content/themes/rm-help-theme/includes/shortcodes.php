@@ -81,7 +81,11 @@ add_shortcode('output', 'rm_output_shortcode');
 function rm_hint_box_shortcode( $atts, $content, $tag) {
 	$header = ucfirst($tag);
 	
-	$content = apply_filters('wpautop', $content);
+	$pattern = "#</?p *>#i";
+	$content = wpautop(preg_replace($pattern, '', $content));
+	
+	$emptyp = "#<p>\s*</p>#i";
+	$content = preg_replace($emptyp, '', $content);
 	
 	$output = "<div is='hint' header='$header'> $content </div>";
 	

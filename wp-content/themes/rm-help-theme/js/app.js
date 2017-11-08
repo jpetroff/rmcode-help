@@ -1080,6 +1080,13 @@ w.utils = {
 	},
 	easeOutCubic: function(currentIteration, startValue, changeInValue, totalIterations) {
 		return changeInValue * (Math.pow(currentIteration / totalIterations - 1, 3) + 1) + startValue;
+	},
+	outerHeight: function(el) {
+		var height = el.offsetHeight;
+		var style = getComputedStyle(el);
+
+		height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+		return height;
 	}
 }
 
@@ -1091,14 +1098,29 @@ w.utils.init();
 // File /Users/john/rmsource/rmcode-help/_build/components/hint.js
 
 w.components['hint'] = {
-	template: '<div class=def-hint-box v-bind:class=\"[ show ? \'show\' : \'\']\"><div class=def-hint-box__toggle v-on:click.prevent=toggle()>{{header}}</div><div class=def-hint-box__content><slot></slot></div></div>',
+	template: '<div class=def-hint-box v-bind:class=\"[ show ? \'show\' : \'\', landed ? \'def-hint-box_transitions\' : \'\' ]\" v-bind:style={height:this.elHeight}><div class=def-hint-box__toggle v-on:click.prevent=toggle() ref=toggleButton>{{header}} <i class=toggle-icon><svg width=10px height=10px viewBox=\"0 0 10 10\" version=1.1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink><g id=close stroke=#BEBEBE stroke-width=1 stroke-linecap=round><path d=\"M1,1 L5,9\" id=Line-3></path><path d=\"M5,1 L9,9\" id=Line-3 transform=\"translate(7.000000, 5.000000) scale(-1, 1) translate(-7.000000, -5.000000) \"></path></g></svg></i></div><div class=def-hint-box__content ref=boxContent><slot></slot></div></div>',
 	props: ['header'],
 	data: function() {
-		return { show: true }
+		return { show: false, height: 0, collapsedHeight: 0, fullHeight: 0, elHeight: 0, landed: false }
+	},
+	mounted: function() {
+		this.collapsedHeight = w.utils.outerHeight(this.$refs.toggleButton); // 2px border
+		this.fullHeight = this.collapsedHeight + w.utils.outerHeight(this.$refs.boxContent);
+		this.elHeight = this.show ? this.fullHeight : this.collapsedHeight;
+
+		this.$el.addEventListener(w.utils.transitionName, _.bind(function(ev) {
+			if(this.$el === ev.target) {
+				this.$parent.$emit('recalcAnchorNav');
+			}
+		}, this));
+
+		// prevent ontransitionend from firing at mount
+		w.utils.updateDOM(function() {this.landed = true;}, this);
 	},
 	methods: {
 		toggle: function() {
 			this.show = !this.show;
+			this.elHeight = this.show ? this.fullHeight : this.collapsedHeight;
 		}
 	}
 }
@@ -1123,32 +1145,8 @@ w.Page = function() {
 			'hint': w.components['hint']
 		},
 		mounted: function() {
-			for(var i = 0; i < this.navElements.length; i++) {
-				this.navItems[this.navElements[i].id] = {
-					pos: this.navElements[i].offsetTop,
-					title: this.navElements[i].dataset.title
-				}
-				var level = parseInt(this.navElements[i].dataset.level);
-
-				if(this.navElements[i].dataset.level <= 2) {
-					var hash = level == 1 ? '' : this.navElements[i].id;
-					var title = this.navElements[i].dataset.title;
-					this.scrollSections.push(
-						[
-							this.navElements[i].offsetTop - this.scrollOffset,
-							null,
-							hash,
-							title
-						]);
-				}
-			}
-			for(var k = 0; k < this.scrollSections.length; k++) {
-				if(k == this.scrollSections.length - 1) {
-					this.scrollSections[k][1] = 'end';
-				} else {
-					this.scrollSections[k][1] = this.scrollSections[k+1][0] - 1;
-				}
-			}
+			this.recalcAnchorNav();
+			this.$on('recalcAnchorNav', this.recalcAnchorNav);
 		},
 		directives: {
 			rlink: {
@@ -1200,6 +1198,34 @@ w.Page = function() {
 				for(var i = 0; i < this.scrollSections.length; i++) {
 					if( pos >= this.scrollSections[i][0] && (this.scrollSections[i][1] == 'end' || pos <= this.scrollSections[i][1]) ) {
 						return this.scrollSections[i];
+					}
+				}
+			},
+			recalcAnchorNav: function() {
+				for(var i = 0; i < this.navElements.length; i++) {
+					this.navItems[this.navElements[i].id] = {
+						pos: this.navElements[i].offsetTop,
+						title: this.navElements[i].dataset.title
+					}
+					var level = parseInt(this.navElements[i].dataset.level);
+
+					if(this.navElements[i].dataset.level <= 2) {
+						var hash = level == 1 ? '' : this.navElements[i].id;
+						var title = this.navElements[i].dataset.title;
+						this.scrollSections.push(
+							[
+								this.navElements[i].offsetTop - this.scrollOffset,
+								null,
+								hash,
+								title
+							]);
+					}
+				}
+				for(var k = 0; k < this.scrollSections.length; k++) {
+					if(k == this.scrollSections.length - 1) {
+						this.scrollSections[k][1] = 'end';
+					} else {
+						this.scrollSections[k][1] = this.scrollSections[k+1][0] - 1;
 					}
 				}
 			}

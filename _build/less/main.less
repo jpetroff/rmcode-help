@@ -430,6 +430,12 @@ body {
 		border-radius: 6px;
 		border: 1px solid #ddd;
 		margin: 48px 0;
+		overflow: hidden;
+
+		&_transitions {
+			transition: height 0.2s ease;
+			transition-delay: 0.1s;
+		}
 
 
 		&__toggle {
@@ -438,17 +444,38 @@ body {
 			letter-spacing: -0.4px;
 			padding: 0 40px;
 			cursor: pointer;
+			position: relative;
+
+			.toggle-icon {
+				height: 10px;
+				width: 10px;
+				position: absolute;
+				left: 15px;
+				top: 16px;
+				overflow: hidden;
+				contain: strict;
+			}
 		}
 
 		&__content {
-			display: none;
+			display: block;
+			visibility: hidden;
+			opacity: 0;
 			margin-bottom: 40px;
 			padding: 0 40px;
+			transition: all 0.2s ease;
 		}
 
 		&.show {
+			transition-delay: 0s;
 			.def-hint-box__content {
 				display: block;
+				visibility: visible;
+				opacity: 1;
+				transition-delay: 0.2s;
+			}
+			.def-hint-box__toggle .toggle-icon {
+				transform: rotate(180deg);
 			}
 		}
 	}

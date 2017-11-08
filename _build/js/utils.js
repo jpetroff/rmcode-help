@@ -136,6 +136,13 @@ w.utils = {
 	},
 	easeOutCubic: function(currentIteration, startValue, changeInValue, totalIterations) {
 		return changeInValue * (Math.pow(currentIteration / totalIterations - 1, 3) + 1) + startValue;
+	},
+	outerHeight: function(el) {
+		var height = el.offsetHeight;
+		var style = getComputedStyle(el);
+
+		height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+		return height;
 	}
 }
 
