@@ -48,7 +48,7 @@ function show_search_component() {
 			</div>
 			<input type='hidden' value='$nonce'>
 		</form>
-		<transition name='toggle-results'>
+		<transition name='toggle-results' v-on:after-leave=\"afterLeaveResults\">
 		<div class='search-component__results'
 			v-bind:class=\"searchResultsState\"
 			v-show=\"showResultsPanel\"

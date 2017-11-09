@@ -1251,7 +1251,8 @@ w.rmSearch = new Vue({
 			height: 300,
 			isFront: true
 		},
-		showResultsPanel: false
+		showResultsPanel: false,
+		postponeUntilTransitionEnd: false
 	},
 	beforeMount: function() {
 		this.getPresentationParams();
@@ -1314,7 +1315,9 @@ w.rmSearch = new Vue({
 
 			if (this.query.length == 0) {
 				this.showResultsPanel = false;
-				return 'empty';
+				
+				// HACK: return previously cached value
+				return this._computedWatchers.searchResultsState.value;
 			}
 		}
 	},
@@ -1394,9 +1397,16 @@ w.rmSearch = new Vue({
 			w.Router.changePage(el);
 		},
 		clearQuery: function() {
-			this.query = '';
+			// this._cached_state = this.searchResultsState;
+			// this.postponeUntilTransitionEnd = true;
+
 			this.value = '';
+			this.query = '';
 			this.$refs.queryInput.focus();
+		},
+		afterLeaveResults: function() {
+			// this.postponeUntilTransitionEnd = false;
+			// this._cached_state = null;
 		}
 	}
 });
