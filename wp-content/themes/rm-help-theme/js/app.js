@@ -1091,6 +1091,19 @@ w.utils = {
 }
 
 w.utils.init();
+
+// window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
+// groove.widget('setWidgetId', 'INSERT YOUR WIDGET ID HERE');
+// groove.widget('setAutoload', false);
+// !function(g,r,v){var a,c,n=r.createElement("iframe");(n.frameElement||n).style.cssText="width: 0; height: 0; border: 0",n.title="",n.role="presentation",n.src="javascript:false",r.body.appendChild(n);try{a=n.contentWindow.document}catch(b){c=r.domain;var d="javascript:document.write('<head><script>document.domain=\""+c+"\";</",i="script></head><body></body>')";n.src=d+i,a=n.contentWindow.document}var s="https:"==r.location.protocol?"https://":"http://",p="http://groove-widget-production.s3.amazonaws.com".replace("http://",s);n.className="grv-widget-tag",a.open()._l=function(){c&&(this.domain=c);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=p+"/loader.js",this.body.appendChild(t)},a.write('<body onload="document._l();">'),a.close()}(window,document);
+// document.getElementById('load').addEventListener('click', function() {
+// 	groove.widget('load');
+// 	this.disabled = true;
+// 	document.getElementById('open').addEventListener('click', function() {
+// 		groove.widget('open');
+// 		this.disabled = true;
+// 	});
+// });
 // End of /Users/john/rmsource/rmcode-help/_build/js/utils.js
 })(window);
 (function(w){
@@ -1315,10 +1328,16 @@ w.rmSearch = new Vue({
 
 			if (this.query.length == 0) {
 				this.showResultsPanel = false;
-				
+
 				// HACK: return previously cached value
 				return this._computedWatchers.searchResultsState.value;
 			}
+		},
+		encodedQuerySubject: function() {
+			if(this.results.length == 0 && this.query.length != 0) {
+				return encodeURI('Looking for: ' + this.query);
+			}
+			return '';
 		}
 	},
 	methods: {
@@ -1404,9 +1423,47 @@ w.rmSearch = new Vue({
 			this.query = '';
 			this.$refs.queryInput.focus();
 		},
-		afterLeaveResults: function() {
-			// this.postponeUntilTransitionEnd = false;
-			// this._cached_state = null;
+		contactSupport: function(ev) {
+			if(!w.groove) {
+				return true;
+			} else {
+				ev.preventDefault();
+			}
+			var grooveIframeDocument = null;
+			w.groove.widget('open');
+
+			var setSubjectCrudeMethod = _.bind(function() {
+				var success = false;
+				if(grooveIframeDocument == null) {
+					var iframes = document.getElementsByTagName('iframe');
+					for (var i = 0; i < iframes.length; i++) {
+						if (iframes[i].contentDocument && iframes[i].contentDocument.getElementsByTagName('app').length != 0) {
+							grooveIframeDocument = iframes[i].contentDocument;
+							success = true;
+							break;
+						}
+					}
+				} else {
+					success = true;
+				}
+
+				if(success) {
+					var subjectInput = grooveIframeDocument.getElementById('subject');
+					if(subjectInput) {
+						subjectInput.value = 'Looking for: ' + this.query;
+						subjectInput.readOnly = true;
+						subjectInput.disabled = true;
+					} else {
+						success = false;
+					}
+				}
+				console.log(success)
+				if(!success) {
+					requestAnimationFrame(setSubjectCrudeMethod);
+				}
+			}, this);
+
+			setSubjectCrudeMethod();
 		}
 	}
 });

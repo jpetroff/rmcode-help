@@ -44,7 +44,8 @@ body {
 }
 
 .pace .pace-progress {
-	background: #1884F7;
+	background: linear-gradient(90deg, #FF0000 10%, #0A00FF 90%);
+
 	position: fixed;
 	z-index: 100000;
 	top: 0;
@@ -228,6 +229,13 @@ body {
 				line-height: 28px;
 				height: 56px;
 			}
+
+			&:hover {
+				color: inherit;
+				.top-level__caption {
+					color: inherit;
+				}
+			}
 		}
 
 		&__second-level {
@@ -243,6 +251,10 @@ body {
 
 				&:first-child {
 					padding-top: 11px;
+				}
+
+				&:hover {
+					color: inherit;
 				}
 			}
 
@@ -466,8 +478,8 @@ body {
 			display: block;
 			visibility: hidden;
 			opacity: 0;
-			margin-bottom: 40px;
-			padding: 0 40px;
+			//margin-bottom: 40px;
+			padding: 6px 40px 29px 40px;
 			transition: all 0.2s ease;
 		}
 

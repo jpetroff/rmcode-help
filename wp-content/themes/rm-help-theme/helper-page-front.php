@@ -1,7 +1,7 @@
 
 	<nav class="left-navigation">
 		<div class="rm-logo">
-			<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewbox="0 0 612 140.7" y="0px" x="0px" id="Layer_1" width="" height="" style="box-shadow: none; border-radius: 0px; opacity: 1;" viewBox="1.2000000476837158 0 609.7999877929688 140.6999969482422" preserveAspectRatio="xMidYMid meet" fill="#000000" fill-opacity="1">
+			<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewbox="0 0 612 140.7" y="0px" x="0px" id="Layer_1" style="box-shadow: none; border-radius: 0px; opacity: 1;" viewBox="1.2000000476837158 0 609.7999877929688 140.6999969482422" preserveAspectRatio="xMidYMid meet" fill="#000000" fill-opacity="1">
 				<g>
 					<path d="M79,41.1c-19.9,0-35.3,14.6-35.3,35.9c0,21.2,16.1,35.9,35.3,35.9c14.6,0,25.3-7.4,31.5-17.6l-12.9-5.8   c-2.3,5.8-8.6,10.2-17.9,10.2c-13,0-20.7-8.8-20.7-19h52.2l1.5-4.4C112.8,54.9,97.5,41.1,79,41.1z M59.8,67.7   c2.3-7.6,8.5-13.5,19.2-13.5c9.2,0,16.9,5.9,17.7,13.5H59.8z"></path>
 					<path d="M609.5,73.3h-26.7v12.3h12.6c-0.7,9.1-9,14.1-18.1,14.1c-15.2,0-21.8-11.1-21.8-22.4c0-11.4,6.6-23,22-23   c8.6,0,15.1,4.5,18.4,10.6l12.5-6.2c-6.2-11.4-16.9-17.6-30.9-17.7c-21.6,0.1-37.1,15.5-37.1,36.3c0,21.7,16.9,35.6,35.7,35.6   C595,112.9,611,99,611,77.7L609.5,73.3z"></path>

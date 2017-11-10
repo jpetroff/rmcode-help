@@ -48,7 +48,7 @@ function show_search_component() {
 			</div>
 			<input type='hidden' value='$nonce'>
 		</form>
-		<transition name='toggle-results' v-on:after-leave=\"afterLeaveResults\">
+		<transition name='toggle-results'>
 		<div class='search-component__results'
 			v-bind:class=\"searchResultsState\"
 			v-show=\"showResultsPanel\"
@@ -62,8 +62,12 @@ function show_search_component() {
 			</div>
 			
 			<div class='search-component__result-item empty' v-show=\"searchResultsState == 'empty'\">Nothing found for <strong>{{query}}</strong></div>
-			<a href='#' class='search-component__result-item empty contact' v-show=\"searchResultsState == 'empty'\">Need help? Contact Readymag support</a>
-			
+			<a 	v-bind:href=\" 'mailto:support@readymag.com?subject=' + encodedQuerySubject \"
+				class='search-component__result-item empty contact' v-show=\"searchResultsState == 'empty'\"
+				v-on:click='contactSupport(\$event)'
+			>
+					Need help? Contact Readymag support
+			</a>
 			<a
 				v-for='post in results'
 				v-bind:href=\"post.display_link\"

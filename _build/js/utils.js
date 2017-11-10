@@ -147,3 +147,16 @@ w.utils = {
 }
 
 w.utils.init();
+
+// window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
+// groove.widget('setWidgetId', 'INSERT YOUR WIDGET ID HERE');
+// groove.widget('setAutoload', false);
+// !function(g,r,v){var a,c,n=r.createElement("iframe");(n.frameElement||n).style.cssText="width: 0; height: 0; border: 0",n.title="",n.role="presentation",n.src="javascript:false",r.body.appendChild(n);try{a=n.contentWindow.document}catch(b){c=r.domain;var d="javascript:document.write('<head><script>document.domain=\""+c+"\";</",i="script></head><body></body>')";n.src=d+i,a=n.contentWindow.document}var s="https:"==r.location.protocol?"https://":"http://",p="http://groove-widget-production.s3.amazonaws.com".replace("http://",s);n.className="grv-widget-tag",a.open()._l=function(){c&&(this.domain=c);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=p+"/loader.js",this.body.appendChild(t)},a.write('<body onload="document._l();">'),a.close()}(window,document);
+// document.getElementById('load').addEventListener('click', function() {
+// 	groove.widget('load');
+// 	this.disabled = true;
+// 	document.getElementById('open').addEventListener('click', function() {
+// 		groove.widget('open');
+// 		this.disabled = true;
+// 	});
+// });

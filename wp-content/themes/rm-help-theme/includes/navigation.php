@@ -1,7 +1,5 @@
 <?php
 
-$templs['left'] = "";
-
 $templs['home'] = "<a href=\"%s\" class=\"second-level__item def-link\" v-rlink>%s</a>";
 
 $templs['content'] = "";
@@ -12,8 +10,10 @@ function rm_show_menu_shortcode( $atts ) {
 	
 	$a = shortcode_atts( array(
 		'parent' => NULL,
-		'page' => '/',
-		'template' => 'left'
+		'page' => NULL,
+		'template' => 'home',
+		'color' => '#ff0000',
+		'icon' => ''
 	), $atts );
 	
 	if(!$a['parent']) return $output;
@@ -24,12 +24,41 @@ function rm_show_menu_shortcode( $atts ) {
 	);
 	$q = new WP_Query( $args );
 	
-	if(count($q->posts) == 0) return $output;
+	$link_index = get_option('_rm_card_link_index');
 	
-	foreach ($q->posts as $card) {
-		$url = '/' . trim($a['page']) . '/#' . $card->post_name;
-		$newline = sprintf($templs[$a['template']],  $url, $card->post_title);
-		$output .= $newline;
+	$parent_card = (int) $a['parent'];
+	$setPage = $a['page'] ? $a['page'] : trim(parse_url($link_index[$parent_card]['permalink'], PHP_URL_PATH), '/');
+	
+	if($a['template'] == 'home') {
+		$setTitle = $link_index[$parent_card]['title'];
+		$setIcon = $a['icon'];
+		$hasColor = $a['color'] ? 'style="color:'.$a['color'].'"' : '';
+		$output .= "
+		<div class=\"homepage__section-list section-list__editor\" $hasColor>
+				<a href=\"/$setPage/\" v-rlink class=\"homepage__section-list__top-level\">
+					<div class=\"top-level__icon\">
+						$setIcon
+					</div>
+					<div class=\"top-level__caption\">
+						$setTitle
+					</div>
+				</a>
+				<div class=\"homepage__section-list__second-level\">
+		";
+	}
+	
+	
+	if(count($q->posts) != 0) {
+		foreach ($q->posts as $card) {
+			$url = '/' . $setPage . '/#' . $card->post_name;
+			$newline = sprintf($templs[$a['template']],  $url, $card->post_title);
+			$output .= $newline;
+		}
+	}
+	
+	if($a['template'] == 'home') {
+		$output .= "</div>
+			</div>";
 	}
 	
 	return $output;

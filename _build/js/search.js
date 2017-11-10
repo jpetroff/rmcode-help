@@ -75,10 +75,16 @@ w.rmSearch = new Vue({
 
 			if (this.query.length == 0) {
 				this.showResultsPanel = false;
-				
+
 				// HACK: return previously cached value
 				return this._computedWatchers.searchResultsState.value;
 			}
+		},
+		encodedQuerySubject: function() {
+			if(this.results.length == 0 && this.query.length != 0) {
+				return encodeURI('Looking for: ' + this.query);
+			}
+			return '';
 		}
 	},
 	methods: {
@@ -164,9 +170,47 @@ w.rmSearch = new Vue({
 			this.query = '';
 			this.$refs.queryInput.focus();
 		},
-		afterLeaveResults: function() {
-			// this.postponeUntilTransitionEnd = false;
-			// this._cached_state = null;
+		contactSupport: function(ev) {
+			if(!w.groove) {
+				return true;
+			} else {
+				ev.preventDefault();
+			}
+			var grooveIframeDocument = null;
+			w.groove.widget('open');
+
+			var setSubjectCrudeMethod = _.bind(function() {
+				var success = false;
+				if(grooveIframeDocument == null) {
+					var iframes = document.getElementsByTagName('iframe');
+					for (var i = 0; i < iframes.length; i++) {
+						if (iframes[i].contentDocument && iframes[i].contentDocument.getElementsByTagName('app').length != 0) {
+							grooveIframeDocument = iframes[i].contentDocument;
+							success = true;
+							break;
+						}
+					}
+				} else {
+					success = true;
+				}
+
+				if(success) {
+					var subjectInput = grooveIframeDocument.getElementById('subject');
+					if(subjectInput) {
+						subjectInput.value = 'Looking for: ' + this.query;
+						subjectInput.readOnly = true;
+						subjectInput.disabled = true;
+					} else {
+						success = false;
+					}
+				}
+				console.log(success)
+				if(!success) {
+					requestAnimationFrame(setSubjectCrudeMethod);
+				}
+			}, this);
+
+			setSubjectCrudeMethod();
 		}
 	}
 });
