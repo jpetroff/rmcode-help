@@ -87,4 +87,5 @@ function rm_send_ajax_page( $wp ) {
 	header('Content-Type: text/html');
 	
 	include RM_HELP_THEME_DIR.$template;
+	
 }

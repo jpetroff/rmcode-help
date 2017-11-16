@@ -14,6 +14,7 @@ function rm_parse_request( $wp ){
 		$action_prefix = is_user_logged_in() ? 'wp_ajax_' : 'wp_ajax_nopriv_';
 		define('DOING_AJAX', 1);
 		do_action( $action_prefix . 'api_page', $wp );
+		do_action('shutdown');
 		wp_die();
 	}
 	
@@ -24,6 +25,7 @@ function rm_parse_request( $wp ){
 			$action_prefix = is_user_logged_in() ? 'wp_ajax_' : 'wp_ajax_nopriv_';
 			define('DOING_AJAX', 1);
 			do_action( $action_prefix . 'search', $wp );
+			do_action('shutdown');
 			wp_die();
 		}
 		
