@@ -9,9 +9,15 @@ w.rmSearch = new Vue({
 			width: 760,
 			left: 0,
 			height: 300,
-			isFront: true
+			isFront: true,
+			paddingScroll: 40,
+			scrollCoefficient: 1,
+			scrollBarTop: 0,
+			scrollBarHeight: 0,
+			scrollContainerHeight: 0
 		},
 		showResultsPanel: false,
+		onlyHints: false,
 		postponeUntilTransitionEnd: false
 	},
 	beforeMount: function() {
@@ -104,7 +110,14 @@ w.rmSearch = new Vue({
 					var results = JSON.parse(data);
 					var result_posts = results['posts'];
 					var link_index = results['link_index'];
+					this.onlyHints = true;
 					for(var i = 0; i < result_posts.length; i++) {
+						if(result_posts[i].post_type != 'hint') {
+							this.onlyHints = false;
+						}
+
+						if (result_posts[i].post_type == 'hint') continue;
+
 						result_posts[i].post_excerpt = result_posts[i].post_excerpt.replace('...', '');
 						var ind = result_posts[i].ID;
 						if(
@@ -123,8 +136,10 @@ w.rmSearch = new Vue({
 
 							}
 						}
+						result_posts[i].display_title = (result_posts[i].highlighted_title || result_posts[i].post_title) + (result_posts[i].parent_title != '' ? ' &mdash; ' + result_posts[i].parent_title : '');
 					}
 					this.results = result_posts;
+					this.$nextTick(this._calcScroll);
 					this.waitingForResults = false;
 				},
 				this
@@ -139,10 +154,33 @@ w.rmSearch = new Vue({
 			if(returnFocus == true) this.$refs.queryInput.focus();
 			this.query = this.value;
 			this.waitingForResults = true;
+			this.presentation.scrollContainerHeight = 0;
+			this.presentation.scrollCoefficient = 1;
+			this.onlyHints = false;
 			this._requestResults();
 		},
 		_calcMaxHeight: function() {
 			return this.presentation.height - this.$el.offsetTop - 59 - 50;
+		},
+		_calcScroll: function() {
+
+			var dataHeight = w.utils.outerHeight(this.$refs.dataContainer);
+			var maxHeight = this._calcMaxHeight();
+
+			if(dataHeight > maxHeight) {
+				this.$refs.scrollContainer.addEventListener('scroll', _.bind(this._performScroll, this));
+				this.presentation.scrollCoefficient = (maxHeight - 2 * this.presentation.paddingScroll) / dataHeight;
+				this._performScroll()
+			} else {
+				this.presentation.scrollCoefficient = 1;
+				this.$refs.scrollContainer.removeEventListener('scroll', _.bind(this._performScroll, this));
+				this.presentation.scrollContainerHeight = 0;
+			}
+		},
+		_performScroll: function() {
+			this.presentation.scrollContainerHeight = this._calcMaxHeight();
+			this.presentation.scrollBarTop = this.presentation.paddingScroll + this.$refs.scrollContainer.scrollTop * this.presentation.scrollCoefficient;
+			this.presentation.scrollBarHeight = this._calcMaxHeight() * this.presentation.scrollCoefficient;
 		},
 		getPresentationParams: function() {
 			var pageContent = document.getElementsByClassName('page-content')[0];
@@ -156,6 +194,8 @@ w.rmSearch = new Vue({
 			this.presentation.left = this.presentation.isFront ? pageContentLeftOffset : (pageContentLeftOffset - 30);
 
 			this.presentation.height = windowClientHeight;
+
+			if (this.searchResultsState == 'success') this._calcScroll();
 
 		},
 		showResultPage: function( el ) {
@@ -184,11 +224,13 @@ w.rmSearch = new Vue({
 				if(grooveIframeDocument == null) {
 					var iframes = document.getElementsByTagName('iframe');
 					for (var i = 0; i < iframes.length; i++) {
-						if (iframes[i].contentDocument && iframes[i].contentDocument.getElementsByTagName('app').length != 0) {
-							grooveIframeDocument = iframes[i].contentDocument;
-							success = true;
-							break;
-						}
+						try {
+							if (iframes[i].contentDocument && iframes[i].contentDocument.getElementsByTagName('app').length != 0) {
+								grooveIframeDocument = iframes[i].contentDocument;
+								success = true;
+								break;
+							}
+						} catch(e) {}
 					}
 				} else {
 					success = true;
@@ -204,13 +246,13 @@ w.rmSearch = new Vue({
 						success = false;
 					}
 				}
-				console.log(success)
+				console.log(success);
 				if(!success) {
-					requestAnimationFrame(setSubjectCrudeMethod);
+					w.utils.updateDOM(setSubjectCrudeMethod);
 				}
 			}, this);
 
-			setSubjectCrudeMethod();
+			w.utils.updateDOM(setSubjectCrudeMethod);
 		}
 	}
 });

@@ -52,32 +52,43 @@ function show_search_component() {
 		<div class='search-component__results'
 			v-bind:class=\"searchResultsState\"
 			v-show=\"showResultsPanel\"
-			v-bind:style=\"{ maxHeight: _calcMaxHeight() + 'px'}\"
+			v-bind:style=\"{ height: presentation.scrollContainerHeight == 0 ? 'auto' : _calcMaxHeight() + 'px'}\"
 		>
-			<div class='search-component__result-item waiting' v-show=\"searchResultsState == 'waiting'\">
-				<div class='fake-line-loader' style='width:240px;'></div>
-				<div class='fake-line-loader' style='width:450px;'></div>
-				<div class='fake-line-loader break' style='width:180px;'></div>
-				<div class='fake-line-loader' style='width:450px;'></div>
+			<div class='scroll-bar' v-if=\"presentation.scrollCoefficient < 1\" ref='scrollBar' v-bind:style=\"{top:presentation.scrollBarTop + 'px', height: presentation.scrollBarHeight + 'px'}\"></div>
+			<div class='search-component__results-scroll-wrapper'
+				ref='scrollContainer'
+				v-bind:class=\"[ presentation.scrollCoefficient < 1 ? 'active-scroll' : '']\"
+				v-bind:style=\"{ height: presentation.scrollContainerHeight == 0 ? 'auto' : _calcMaxHeight() + 'px'}\"
+			>
+				<div class='search-component__results-data-wrapper'
+					ref='dataContainer'
+				>
+					<div class='search-component__result-item waiting' v-show=\"searchResultsState == 'waiting'\">
+						<div class='fake-line-loader' style='width:240px;'></div>
+						<div class='fake-line-loader' style='width:450px;'></div>
+						<div class='fake-line-loader break' style='width:180px;'></div>
+						<div class='fake-line-loader' style='width:450px;'></div>
+					</div>
+					
+					<div class='search-component__result-item empty' v-show=\"searchResultsState == 'empty'\">Nothing found for <strong>{{query}}</strong></div>
+					<a 	v-bind:href=\" 'mailto:support@readymag.com?subject=' + encodedQuerySubject \"
+						class='search-component__result-item empty contact' v-show=\"searchResultsState == 'empty'\"
+						v-on:click='contactSupport(\$event)'
+					>
+							Need help? Contact Readymag support
+					</a>
+					<a
+						v-for='post in results'
+						v-bind:href=\"post.display_link\"
+						class='search-component__result-item item'
+						v-show=\"searchResultsState == 'success' || searchResultsState == 'inactive'\"
+						v-on:click.prevent='showResultPage(\$event.currentTarget)'
+					>
+						<div class='result-item__nav'>{{post.post_title}}{{post.parent_title != '' ? ' — ' + post.parent_title : ''}}</div>
+						<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
+					</a>
+				</div>
 			</div>
-			
-			<div class='search-component__result-item empty' v-show=\"searchResultsState == 'empty'\">Nothing found for <strong>{{query}}</strong></div>
-			<a 	v-bind:href=\" 'mailto:support@readymag.com?subject=' + encodedQuerySubject \"
-				class='search-component__result-item empty contact' v-show=\"searchResultsState == 'empty'\"
-				v-on:click='contactSupport(\$event)'
-			>
-					Need help? Contact Readymag support
-			</a>
-			<a
-				v-for='post in results'
-				v-bind:href=\"post.display_link\"
-				class='search-component__result-item item'
-				v-show=\"searchResultsState == 'success' || searchResultsState == 'inactive'\"
-				v-on:click.prevent='showResultPage(\$event.currentTarget)'
-			>
-				<div class='result-item__nav'>{{post.post_title}}{{post.parent_title != '' ? ' — ' + post.parent_title : ''}}</div>
-				<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
-			</a>
 		</div>
 		</transition>
 		<transition name='toggle-results'>

@@ -25,7 +25,7 @@
 }
 
 :root {
-	background-color: white;
+	background-color: #EDEDED;
 }
 
 
@@ -40,6 +40,7 @@ body#tinymce {
 	text-rendering: optimizeLegibility !important;
 	max-width: 780px !important;
 	box-sizing: border-box;
+	margin: auto;
 }
 
 p {
@@ -48,14 +49,36 @@ p {
 	letter-spacing: -0.6px;
 	font-size: 18px;
 	line-height: 28px;
-	margin: 0 0 18px 0;
+	margin: 45px 0 0 0;
+}
+p + p, ul + p, ol + p {
+	margin-top: 18px;
+}
+h4 + p {
+	margin-top: 0;
+}
+
+p + ol, p + ul, h4 + ol, h4 + ul, ul + ol, ol + ul {
+	margin-top: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #0A00FF;
+
+	&:hover {
+		text-decoration: none;
+		color: #0A00FF;
+	}
 }
 
 ul,
 ol {
-	margin-left: -24px;
+	margin-left: -22px;
+	margin-top: 45px;
 	list-style: none;
 	padding: 0;
+	letter-spacing: -0.6px;
 	.elements-padding;
 
 	.mce-visualblocks & {
@@ -72,7 +95,7 @@ ul li::before {
 	content: "\002022";
 	color: #BCBCBC;
 	display: inline-block;
-	width: 24px;
+	width: 22px;
 }
 
 ol li {
@@ -82,21 +105,69 @@ ol li::before {
 	content: counter(list-order);
 	color: #BCBCBC;
 	display: inline-block;
-	width: 24px;
+	width: 22px;
 }
 
-p.image-wrapper {
-	box-sizing: content-box;
-	padding-left: 40px;
-	padding-right: 40px;
-	font-size: 0px;
-	color: #aaa;
-	margin: 40px 0;
+media-wrapper,
+div.wpview[data-wpview-type="video"] {
+	display: block;
+	box-sizing: border-box;
+	.elements-padding;
+	margin: 45px 0 0 0;
 
-	img {
+
+	img, iframe {
 		max-width: 100%;
 		margin: 0;
 		padding: 0;
 		border-radius: 6px;
+	}
+}
+
+.def-hint-box {
+	display: block;
+	border-radius: 6px;
+	border: 1px solid #ddd;
+	margin: 45px 0 0 0;
+	overflow: hidden;
+	margin-left: 40px;
+	margin-right: 40px;
+
+	&__toggle {
+		height: 43px;
+		line-height: 43px !important;
+		color: #bcbcbc;
+		letter-spacing: -0.4px;
+		padding: 0 40px;
+		cursor: pointer;
+		position: relative;
+		transition: color 0.2s ease;
+
+		.toggle-icon {
+			height: 10px;
+			width: 10px;
+			position: absolute;
+			left: 15px;
+			top: 16px;
+			overflow: hidden;
+			contain: strict;
+			transform: rotate(180deg);
+		}
+	}
+
+	&__content {
+		display: block;
+		padding: 6px 40px 50px 40px;
+
+		p, ul, ol {
+			padding: 0;
+			margin-bottom: 0;
+			line-height: 28px;
+		}
+
+		p:first-child, ul:first-child, ol:first-child {
+			margin-top: 0;
+		}
+
 	}
 }

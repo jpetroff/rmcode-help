@@ -13,6 +13,7 @@ var remember = require('gulp-remember')
 var vueExtract = require('./gulp-vue-extract')
 var wrapjs = require('./gulp-jswrapper')
 var print = require('gulp-print')
+var cleancss = require('gulp-clean-css')
 
 var src = global.__src;
 var dst = global.__dst;
@@ -35,15 +36,20 @@ gulp.task('js-libs', function(){
 });
 
 gulp.task('js-build', function(){
-	gulp.src([src + 'js/*.js', src + 'components/*.vue'])
+	var g = gulp.src([src + 'js/*.js', src + 'components/*.vue'])
 		.pipe(vueExtract({
 			type:'script',
 			storeTemplate: 'inline'
 		}))
 		.pipe(cache('js-build'))
 		.pipe(print())
-		.pipe(wrapjs())
-		.pipe(remember('js-build'))
+		.pipe(wrapjs());
+
+	if(__prod) {
+		g = g.pipe(uglify());
+	}
+
+	g = g.pipe(remember('js-build'))
 		.pipe(order([
 			'js/pace.modified.js',
 			'js/utils.js',
@@ -55,40 +61,53 @@ gulp.task('js-build', function(){
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest(dst + 'js'))
 
-	gulp.src([src + 'tinymce_js/*.js'])
+	g = gulp.src([src + 'tinymce_js/*.js'])
 		.pipe(cache('tinymce-js-build'))
 		.pipe(print())
-		.pipe(wrapjs())
-		.pipe(remember('tinymce-js-build'))
+		.pipe(wrapjs());
+
+	if(__prod) {
+		g = g.pipe(uglify());
+	}
+
+	g = g.pipe(remember('tinymce-js-build'))
 		.pipe(concat('editor.js'))
-		.pipe(gulp.dest(dst + 'js'))
+		.pipe(gulp.dest(dst + 'js'));
 
 });
 
 gulp.task('less', function(){
-	gulp.src([src + 'less/**/*.less', src + 'libs/css/normalize.css'])
+	var g = gulp.src([src + 'less/**/*.less', src + 'libs/css/normalize.css'])
 		.pipe(cache('less'))
-		.pipe(print())
-		// .pipe(vueExtract({
-		// 	type:'style'
-		// }))
-		.pipe(sourcemaps.init())
-		.pipe(less({
+		.pipe(print());
+
+	if(!__prod)
+		g = g.pipe(sourcemaps.init());
+
+	g = g.pipe(less({
 			paths: ['.'],
 			plugins: [autoprefix]
-		}))
-		.pipe(remember('less'))
+		}));
+
+	if(__prod) {
+		g = g.pipe(cleancss());
+	}
+
+	g = g.pipe(remember('less'))
 		.pipe(order([
 			'less/prefix.less',
 			'libs/css/normalize.css',
 			'less/**/*.less'
 		],{base: src}))
-		.pipe(concat('style.css'))
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(dst));
+		.pipe(concat('style.css'));
+	if(!__prod)
+		g = g.pipe(sourcemaps.write());
+
+	g = g.pipe(gulp.dest(dst));
 
 	gulp.src([src + 'editor_less/**/*.less'])
 		.pipe(cache('editor_less'))
+		.pipe(print())
 		.pipe(sourcemaps.init())
 		.pipe(less({
 			paths: ['.'],
@@ -104,6 +123,3 @@ gulp.task('assets', function() {
 	gulp.src( src + 'assets/*.*' )
 		.pipe(gulp.dest(dst + 'assets'));
 });
-
-
-

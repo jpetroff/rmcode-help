@@ -962,6 +962,13 @@ w.utils = {
 				break;
 			}
 		}
+
+		// load logged user → load ga
+		this._loadLoggedUser(_.bind(function(user) {
+			user = user || {};
+			this._loadGAScript(user._id);
+			this._loadSupportWidget(user.email);
+		}, this));
 	},
 	ajax: function(opts) {
 		var data = opts.data || null;
@@ -980,8 +987,6 @@ w.utils = {
 
 			if ('' == data) data = null;
 		}
-
-		// console.log(data);
 
 		return new Promise(function(resolve, reject) {
 			// Do the usual XHR stuff
@@ -1087,23 +1092,106 @@ w.utils = {
 
 		height += parseInt(style.marginTop) + parseInt(style.marginBottom);
 		return height;
-	}
+	},
+	prepareAnalytics: function() {
+
+	},
+	_loadLoggedUser: function(callback) {
+		//слушаем событие postMessage от ифрейма который скажет данные о залогиненом пользователе
+		w.addEventListener('message', _.bind(function(e) {
+			if (e.origin == 'https://my.readymag.com') {
+
+				var data = JSON.parse(e.data)
+				if (data.event != 'user') return
+
+				var user = data.message
+				//сохраняем данные о текущем юзере туда где они обычно лежат
+				window.utils.user = user;
+
+				callback && callback(user)
+
+				document.body.removeChild(frame);
+			}
+		}, this));
+
+		//создаем ифрейм через который мы будем получать данные о текущем пользователе, если он залогинен на РМ
+		//потом ждем пока ифрейм загрузиться
+		var frame = document.createElement('iframe');
+
+		frame.style.width = 0;
+		frame.style.height = 0;
+		frame.style.position = 'absolute';
+		frame.style.top = '-999px';
+		frame.name = 'rmuser';
+		frame.src = 'https://my.readymag.com/get_user_cookies.' + Date.now();
+		frame.addEventListener('load', function() {
+			//просим ифрейм сказать нам данные по залогиненому юзеру
+			//это нужно для того, чтобы код в ифрейме знал кому отсылать данные о юзере (e.source.postMessage...)
+			// frame.contentWindow.postMessage('GetLoggedUser', "*");
+			window.frames.rmuser.postMessage('GetLoggedUser', "*");
+		});
+		document.body.appendChild(frame);
+	},
+	_loadGAScript: function(id, subscription) {
+		ga('create', 'UA-33458420-9', 'auto', {name: 'readymag'});
+		if(id && subscription) {
+			ga('set', 'cd4', id);
+			ga('set', 'cd5', subscription);
+		}
+
+		var gaScript = document.createElement('script');
+		gaScript.src = 'https://www.google-analytics.com/analytics.js';
+		gaScript.async = true;
+		document.body.appendChild(gaScript);
+	},
+	_loadSupportWidget: function(email) {
+		groove.widget('setWidgetId', '3910cca5-d6cf-0982-cec6-1538812506eb');
+		if(email) w.groove('setCustomerData', {email: email});
+		!function(g,r,v){var a,n,c=r.createElement("iframe");(c.frameElement||c).style.cssText="width: 0; height: 0; border: 0",c.title="",c.role="presentation",c.src="javascript:false",r.body.appendChild(c);try{a=c.contentWindow.document}catch(i){n=r.domain;var b=["javascript:document.write('<he","ad><scri","pt>document.domain=","\"",n,"\";</scri","pt></he","ad><bo","dy></bo","dy>')"];c.src=b.join(""),a=c.contentWindow.document}var d="https:"==r.location.protocol?"https://":"http://",s="http://groove-widget-production.s3.amazonaws.com".replace("http://",d);c.className="grv-widget-tag",a.open()._l=function(){n&&(this.domain=n);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=s+"/loader.js",this.body.appendChild(t)};var p=["<bo",'dy onload="document._l();">'];a.write(p.join("")),a.close()}(window,document);
+	},
+	_getSubscription: function(user) {
+		var ret = user.stripe && user.stripe.subscription_id;
+
+		var type = '', level = '', cycle = '';
+
+		if (!ret || ret.toLowerCase() == 'none') {
+			type = 'free';
+			level = '';
+		} else {
+
+			ret = ret.toLowerCase();
+
+			// ищем тип подписки
+			if ( ret && (/yearly/g).test(ret) ) {
+				cycle = 'yearly';
+			} else if (ret && (/monthly/g).test(ret) ) {
+				cycle = 'monthly';
+			}
+
+			level = ret;
+			level = level.replace(/ /g, '');
+			level = level.replace(/_/g, '');
+			level = level.replace(/(yearly|monthly)/g, '');
+			level = level.replace(/plan/g, '');
+			level = level.trim();
+			type = 'paid';
+		}
+
+		return type + ' ' + level + ' ' + cycle;
+	},
 }
 
-w.utils.init();
+/*
+	GOOGLE ANALYTICS global definitions
+ */
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 
-// window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
-// groove.widget('setWidgetId', 'INSERT YOUR WIDGET ID HERE');
-// groove.widget('setAutoload', false);
-// !function(g,r,v){var a,c,n=r.createElement("iframe");(n.frameElement||n).style.cssText="width: 0; height: 0; border: 0",n.title="",n.role="presentation",n.src="javascript:false",r.body.appendChild(n);try{a=n.contentWindow.document}catch(b){c=r.domain;var d="javascript:document.write('<head><script>document.domain=\""+c+"\";</",i="script></head><body></body>')";n.src=d+i,a=n.contentWindow.document}var s="https:"==r.location.protocol?"https://":"http://",p="http://groove-widget-production.s3.amazonaws.com".replace("http://",s);n.className="grv-widget-tag",a.open()._l=function(){c&&(this.domain=c);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=p+"/loader.js",this.body.appendChild(t)},a.write('<body onload="document._l();">'),a.close()}(window,document);
-// document.getElementById('load').addEventListener('click', function() {
-// 	groove.widget('load');
-// 	this.disabled = true;
-// 	document.getElementById('open').addEventListener('click', function() {
-// 		groove.widget('open');
-// 		this.disabled = true;
-// 	});
-// });
+/*
+	GROOVE WIDGET global definitions
+ */
+window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
+
+w.utils.init();
 // End of /Users/john/rmsource/rmcode-help/_build/js/utils.js
 })(window);
 (function(w){
@@ -1262,9 +1350,15 @@ w.rmSearch = new Vue({
 			width: 760,
 			left: 0,
 			height: 300,
-			isFront: true
+			isFront: true,
+			paddingScroll: 40,
+			scrollCoefficient: 1,
+			scrollBarTop: 0,
+			scrollBarHeight: 0,
+			scrollContainerHeight: 0
 		},
 		showResultsPanel: false,
+		onlyHints: false,
 		postponeUntilTransitionEnd: false
 	},
 	beforeMount: function() {
@@ -1357,7 +1451,14 @@ w.rmSearch = new Vue({
 					var results = JSON.parse(data);
 					var result_posts = results['posts'];
 					var link_index = results['link_index'];
+					this.onlyHints = true;
 					for(var i = 0; i < result_posts.length; i++) {
+						if(result_posts[i].post_type != 'hint') {
+							this.onlyHints = false;
+						}
+
+						if (result_posts[i].post_type == 'hint') continue;
+
 						result_posts[i].post_excerpt = result_posts[i].post_excerpt.replace('...', '');
 						var ind = result_posts[i].ID;
 						if(
@@ -1376,8 +1477,10 @@ w.rmSearch = new Vue({
 
 							}
 						}
+						result_posts[i].display_title = (result_posts[i].highlighted_title || result_posts[i].post_title) + (result_posts[i].parent_title != '' ? ' &mdash; ' + result_posts[i].parent_title : '');
 					}
 					this.results = result_posts;
+					this.$nextTick(this._calcScroll);
 					this.waitingForResults = false;
 				},
 				this
@@ -1392,10 +1495,33 @@ w.rmSearch = new Vue({
 			if(returnFocus == true) this.$refs.queryInput.focus();
 			this.query = this.value;
 			this.waitingForResults = true;
+			this.presentation.scrollContainerHeight = 0;
+			this.presentation.scrollCoefficient = 1;
+			this.onlyHints = false;
 			this._requestResults();
 		},
 		_calcMaxHeight: function() {
 			return this.presentation.height - this.$el.offsetTop - 59 - 50;
+		},
+		_calcScroll: function() {
+
+			var dataHeight = w.utils.outerHeight(this.$refs.dataContainer);
+			var maxHeight = this._calcMaxHeight();
+
+			if(dataHeight > maxHeight) {
+				this.$refs.scrollContainer.addEventListener('scroll', _.bind(this._performScroll, this));
+				this.presentation.scrollCoefficient = (maxHeight - 2 * this.presentation.paddingScroll) / dataHeight;
+				this._performScroll()
+			} else {
+				this.presentation.scrollCoefficient = 1;
+				this.$refs.scrollContainer.removeEventListener('scroll', _.bind(this._performScroll, this));
+				this.presentation.scrollContainerHeight = 0;
+			}
+		},
+		_performScroll: function() {
+			this.presentation.scrollContainerHeight = this._calcMaxHeight();
+			this.presentation.scrollBarTop = this.presentation.paddingScroll + this.$refs.scrollContainer.scrollTop * this.presentation.scrollCoefficient;
+			this.presentation.scrollBarHeight = this._calcMaxHeight() * this.presentation.scrollCoefficient;
 		},
 		getPresentationParams: function() {
 			var pageContent = document.getElementsByClassName('page-content')[0];
@@ -1409,6 +1535,8 @@ w.rmSearch = new Vue({
 			this.presentation.left = this.presentation.isFront ? pageContentLeftOffset : (pageContentLeftOffset - 30);
 
 			this.presentation.height = windowClientHeight;
+
+			if (this.searchResultsState == 'success') this._calcScroll();
 
 		},
 		showResultPage: function( el ) {
@@ -1437,11 +1565,13 @@ w.rmSearch = new Vue({
 				if(grooveIframeDocument == null) {
 					var iframes = document.getElementsByTagName('iframe');
 					for (var i = 0; i < iframes.length; i++) {
-						if (iframes[i].contentDocument && iframes[i].contentDocument.getElementsByTagName('app').length != 0) {
-							grooveIframeDocument = iframes[i].contentDocument;
-							success = true;
-							break;
-						}
+						try {
+							if (iframes[i].contentDocument && iframes[i].contentDocument.getElementsByTagName('app').length != 0) {
+								grooveIframeDocument = iframes[i].contentDocument;
+								success = true;
+								break;
+							}
+						} catch(e) {}
 					}
 				} else {
 					success = true;
@@ -1457,13 +1587,13 @@ w.rmSearch = new Vue({
 						success = false;
 					}
 				}
-				console.log(success)
+				console.log(success);
 				if(!success) {
-					requestAnimationFrame(setSubjectCrudeMethod);
+					w.utils.updateDOM(setSubjectCrudeMethod);
 				}
 			}, this);
 
-			setSubjectCrudeMethod();
+			w.utils.updateDOM(setSubjectCrudeMethod);
 		}
 	}
 });

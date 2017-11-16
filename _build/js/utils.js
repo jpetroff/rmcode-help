@@ -18,6 +18,13 @@ w.utils = {
 				break;
 			}
 		}
+
+		// load logged user → load ga
+		this._loadLoggedUser(_.bind(function(user) {
+			user = user || {};
+			this._loadGAScript(user._id);
+			this._loadSupportWidget(user.email);
+		}, this));
 	},
 	ajax: function(opts) {
 		var data = opts.data || null;
@@ -36,8 +43,6 @@ w.utils = {
 
 			if ('' == data) data = null;
 		}
-
-		// console.log(data);
 
 		return new Promise(function(resolve, reject) {
 			// Do the usual XHR stuff
@@ -143,20 +148,103 @@ w.utils = {
 
 		height += parseInt(style.marginTop) + parseInt(style.marginBottom);
 		return height;
-	}
+	},
+	prepareAnalytics: function() {
+
+	},
+	_loadLoggedUser: function(callback) {
+		//слушаем событие postMessage от ифрейма который скажет данные о залогиненом пользователе
+		w.addEventListener('message', _.bind(function(e) {
+			if (e.origin == 'https://my.readymag.com') {
+
+				var data = JSON.parse(e.data)
+				if (data.event != 'user') return
+
+				var user = data.message
+				//сохраняем данные о текущем юзере туда где они обычно лежат
+				window.utils.user = user;
+
+				callback && callback(user)
+
+				document.body.removeChild(frame);
+			}
+		}, this));
+
+		//создаем ифрейм через который мы будем получать данные о текущем пользователе, если он залогинен на РМ
+		//потом ждем пока ифрейм загрузиться
+		var frame = document.createElement('iframe');
+
+		frame.style.width = 0;
+		frame.style.height = 0;
+		frame.style.position = 'absolute';
+		frame.style.top = '-999px';
+		frame.name = 'rmuser';
+		frame.src = 'https://my.readymag.com/get_user_cookies.' + Date.now();
+		frame.addEventListener('load', function() {
+			//просим ифрейм сказать нам данные по залогиненому юзеру
+			//это нужно для того, чтобы код в ифрейме знал кому отсылать данные о юзере (e.source.postMessage...)
+			// frame.contentWindow.postMessage('GetLoggedUser', "*");
+			window.frames.rmuser.postMessage('GetLoggedUser', "*");
+		});
+		document.body.appendChild(frame);
+	},
+	_loadGAScript: function(id, subscription) {
+		ga('create', 'UA-33458420-9', 'auto', {name: 'readymag'});
+		if(id && subscription) {
+			ga('set', 'cd4', id);
+			ga('set', 'cd5', subscription);
+		}
+
+		var gaScript = document.createElement('script');
+		gaScript.src = 'https://www.google-analytics.com/analytics.js';
+		gaScript.async = true;
+		document.body.appendChild(gaScript);
+	},
+	_loadSupportWidget: function(email) {
+		groove.widget('setWidgetId', '3910cca5-d6cf-0982-cec6-1538812506eb');
+		if(email) w.groove('setCustomerData', {email: email});
+		!function(g,r,v){var a,n,c=r.createElement("iframe");(c.frameElement||c).style.cssText="width: 0; height: 0; border: 0",c.title="",c.role="presentation",c.src="javascript:false",r.body.appendChild(c);try{a=c.contentWindow.document}catch(i){n=r.domain;var b=["javascript:document.write('<he","ad><scri","pt>document.domain=","\"",n,"\";</scri","pt></he","ad><bo","dy></bo","dy>')"];c.src=b.join(""),a=c.contentWindow.document}var d="https:"==r.location.protocol?"https://":"http://",s="http://groove-widget-production.s3.amazonaws.com".replace("http://",d);c.className="grv-widget-tag",a.open()._l=function(){n&&(this.domain=n);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=s+"/loader.js",this.body.appendChild(t)};var p=["<bo",'dy onload="document._l();">'];a.write(p.join("")),a.close()}(window,document);
+	},
+	_getSubscription: function(user) {
+		var ret = user.stripe && user.stripe.subscription_id;
+
+		var type = '', level = '', cycle = '';
+
+		if (!ret || ret.toLowerCase() == 'none') {
+			type = 'free';
+			level = '';
+		} else {
+
+			ret = ret.toLowerCase();
+
+			// ищем тип подписки
+			if ( ret && (/yearly/g).test(ret) ) {
+				cycle = 'yearly';
+			} else if (ret && (/monthly/g).test(ret) ) {
+				cycle = 'monthly';
+			}
+
+			level = ret;
+			level = level.replace(/ /g, '');
+			level = level.replace(/_/g, '');
+			level = level.replace(/(yearly|monthly)/g, '');
+			level = level.replace(/plan/g, '');
+			level = level.trim();
+			type = 'paid';
+		}
+
+		return type + ' ' + level + ' ' + cycle;
+	},
 }
 
-w.utils.init();
+/*
+	GOOGLE ANALYTICS global definitions
+ */
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 
-// window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
-// groove.widget('setWidgetId', 'INSERT YOUR WIDGET ID HERE');
-// groove.widget('setAutoload', false);
-// !function(g,r,v){var a,c,n=r.createElement("iframe");(n.frameElement||n).style.cssText="width: 0; height: 0; border: 0",n.title="",n.role="presentation",n.src="javascript:false",r.body.appendChild(n);try{a=n.contentWindow.document}catch(b){c=r.domain;var d="javascript:document.write('<head><script>document.domain=\""+c+"\";</",i="script></head><body></body>')";n.src=d+i,a=n.contentWindow.document}var s="https:"==r.location.protocol?"https://":"http://",p="http://groove-widget-production.s3.amazonaws.com".replace("http://",s);n.className="grv-widget-tag",a.open()._l=function(){c&&(this.domain=c);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=p+"/loader.js",this.body.appendChild(t)},a.write('<body onload="document._l();">'),a.close()}(window,document);
-// document.getElementById('load').addEventListener('click', function() {
-// 	groove.widget('load');
-// 	this.disabled = true;
-// 	document.getElementById('open').addEventListener('click', function() {
-// 		groove.widget('open');
-// 		this.disabled = true;
-// 	});
-// });
+/*
+	GROOVE WIDGET global definitions
+ */
+window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
+
+w.utils.init();

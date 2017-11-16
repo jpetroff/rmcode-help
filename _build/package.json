@@ -40,5 +40,8 @@
 				"vinyl-source-stream": "latest",
 				"vue-template-validator": "^1.1.5",
 				"vuejs": "^1.0.29"
+		},
+		"devDependencies": {
+				"gulp-clean-css": "^3.9.0"
 		}
 }

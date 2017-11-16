@@ -10,6 +10,19 @@ function rm_img_shortcode( $atts, $content ) {
 }
 add_shortcode('img', 'rm_img_shortcode');
 
+function rm_video_shortcode( $atts, $content ) {
+	$w = $atts['width'];
+	$h = $atts['height'];
+	$src = $atts['src'];
+	$autoplay = $atts['autoplay'] == 'on' ? 'autoplay' : '';
+	$loop = $atts['loop'] == 'on' ? 'loop' : '';
+	$controls = $atts['controls'] == 'on' ? 'controls' : '';
+	
+	return "<video class=\"page-content__responsive-video\" width=\"$w\" height=\"$h\" src=\"$src\" $autoplay $controls $loop></video>";
+}
+remove_shortcode('video');
+add_shortcode('video', 'rm_video_shortcode');
+
 function rm_recursive_output($id, $current_level, &$levels, &$all) {
 	global $create_nav, $current_page;
 	
@@ -25,7 +38,7 @@ function rm_recursive_output($id, $current_level, &$levels, &$all) {
 	$section_id = $all[$id]->post_name;
 	$section_id_decl = $current_level != 1 ? "id='$section_id'" : '';
 	$section_title = $all[$id]->post_title;
-	$output = "<div data-level=\"$current_level\" data-title=\"$section_title\" $section_id_decl v-navblock>";
+	$output = "<div class=\"card_level_$current_level\" data-level=\"$current_level\" data-title=\"$section_title\" $section_id_decl v-navblock>";
 	
 	$output .= "<h$current_level class=\"single-page__header-$current_level\">".$section_title."</h$current_level>";
 	$output .= apply_filters('the_content', $all[$id]->post_content);
@@ -79,7 +92,7 @@ function rm_output_shortcode( $_atts ) {
 add_shortcode('output', 'rm_output_shortcode');
 
 function rm_hint_box_shortcode( $atts, $content, $tag) {
-	$header = ucfirst($tag);
+	$header = (isset($atts['title']) && $atts['title'] != '') ? $atts['title'] : ucfirst($tag);
 	
 	$pattern = "#</?p *>#i";
 	$content = wpautop(preg_replace($pattern, '', $content));

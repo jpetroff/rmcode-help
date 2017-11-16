@@ -2,21 +2,29 @@
 
 function rm_media_send_to_editor( $code, $id, $meta ) {
 	$att_meta = wp_get_attachment_metadata( $id );
-	$image_size = $meta['image-size'];
-	$image_filepath = dirname( wp_get_attachment_url($id) );
-	$retina_meta = get_post_meta($id, '_rm_attachment_metadata', true);
 	
-	$w = $image_size == 'full' ? $att_meta['width'] : $att_meta['sizes'][$image_size]['width'];
-	$h = $image_size == 'full' ? $att_meta['height'] : $att_meta['sizes'][$image_size]['height'];
-	$fn = $image_size == 'full' ? $image_filepath.'/'.$att_meta['file'] : $image_filepath.'/'.$att_meta['sizes'][$image_size]['file'];
-	$rfn = $image_size == 'full' ? $image_filepath.'/'.$retina_meta['file'] : $image_filepath.'/'.$retina_meta['sizes'][$image_size]['file'];
-	$prefix = "<p class=\"image-wrapper\" contenteditable=\"false\" >[img w=\"$w\" h=\"$h\" f=\"$fn\" rf=\"$rfn\"]";
+	if(wp_attachment_is('image', $id)) {
+		$image_size = $meta['image-size'];
+		$image_filepath = dirname(wp_get_attachment_url($id));
+		$retina_meta = get_post_meta($id, '_rm_attachment_metadata', true);
+		
+		$w = $image_size == 'full' ? $att_meta['width'] : $att_meta['sizes'][$image_size]['width'];
+		$h = $image_size == 'full' ? $att_meta['height'] : $att_meta['sizes'][$image_size]['height'];
+		$fn = $image_size == 'full' ? $image_filepath . '/' . $att_meta['file'] : $image_filepath . '/' . $att_meta['sizes'][$image_size]['file'];
+		$rfn = $image_size == 'full' ? $image_filepath . '/' . $retina_meta['file'] : $image_filepath . '/' . $retina_meta['sizes'][$image_size]['file'];
+		$prefix = "[img w=\"$w\" h=\"$h\" f=\"$fn\" rf=\"$rfn\"]";
+		
+		return $prefix;
+	}
 	
-	$editor_content = "<img src=\"$fn\" width=$w height=$h />";
-	
-	$suffix = "[/img]</p>";
-	
-	return $prefix.$editor_content.$suffix;
+	if(wp_attachment_is('video', $id)) {
+		$src = wp_get_attachment_url($id);
+		$scaling = 700 / $att_meta['width'];
+		$w = 700;
+		$h = $att_meta['height'] * $scaling;
+		
+		return "[video src=\"$src\" width=\"$w\" height=\"$h\" autoplay=on loop=on controls=off]";
+	}
 }
 add_filter('media_send_to_editor', 'rm_media_send_to_editor', 0, 3);
 
@@ -70,13 +78,21 @@ function rm_card_meta_box_cb( $post )
 	echo $output;
 }
 
-add_action( 'save_post', 'rm_card_save', 0 );
+add_action( 'save_post', 'rm_card_save' );
 function rm_card_save( $post_id ) {
 	if( $_POST['post_type'] != 'card') return;
 	
 	$new_post_name = trim(sanitize_title_with_dashes($_POST['rm_post_name']), '-');
-	if($new_post_name == '') $new_post_name = trim(sanitize_title_with_dashes($_POST['post_title']), '/');
-	$_POST['post_name'] = $new_post_name;
+	if($new_post_name != '') {
+		remove_action( 'save_post', 'rm_card_save' );
+		
+		wp_update_post( array(
+			'ID' => $post_id,
+			'post_name' => $new_post_name
+		) );
+		
+		add_action( 'save_post', 'rm_card_save' );
+	}
 	
 	$link_index = get_option('_rm_card_link_index');
 	if(!$link_index) $link_index = array();
@@ -113,3 +129,51 @@ function rm_card_delete( $post_id ) {
 	unset($link_index[$post_id]);
 	update_option('_rm_card_link_index', $link_index);
 }
+
+function rm_tinymce_plugin($plugin_array)
+{
+	//enqueue TinyMCE plugin script with its ID.
+	$plugin_array["rm_tinymce_plugin"] =  get_template_directory_uri() . "/js/editor.js";
+	return $plugin_array;
+}
+
+add_filter("mce_external_plugins", "rm_tinymce_plugin");
+
+function register_buttons_editor($buttons)
+{
+	//register buttons with their id.
+	array_push($buttons, "hint");
+	array_push($buttons, "mdash");
+	return $buttons;
+}
+
+add_filter("mce_buttons", "register_buttons_editor");
+
+add_filter('tiny_mce_before_init', 'rm_filter_tiny_mce_before_init');
+function rm_filter_tiny_mce_before_init( $options ) {
+	
+	if ( ! isset( $options['extended_valid_elements'] ) ) {
+		$options['extended_valid_elements'] = '';
+	} else {
+		$options['extended_valid_elements'] .= ',';
+	}
+	
+	if ( ! isset( $options['valid_children'] ) ) {
+		$options['valid_children'] = '';
+	} else {
+		$options['valid_children'] .= ',';
+	}
+	
+	if ( ! isset( $options['custom_elements'] ) ) {
+		$options['custom_elements'] = '';
+	} else {
+		$options['custom_elements'] .= ',';
+	}
+	
+	$options['custom_elements'] .= 'media-wrapper,hint,iframe';
+	$options['extended_valid_elements'] .= 'div[*],iframe[*],hint[*],media-wrapper[*],a[*]';
+	$options['valid_children'] .= '+div[hint|media-wrapper|a],+a[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6],+hint[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6]';
+	
+	return $options;
+}
+
