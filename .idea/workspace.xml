@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6b0f62-dc85-4e72-88f9-595abeb2496a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/test.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme.zip" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/js/router.js" afterPath="$PROJECT_DIR$/_build/js/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/js/utils.js" afterPath="$PROJECT_DIR$/_build/js/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update-theme.sh" afterPath="$PROJECT_DIR$/update-theme.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/app.js" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/editor.js" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/editor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/style.css" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/wp-cache-config.php" afterPath="$PROJECT_DIR$/wp-content/wp-cache-config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -131,8 +121,8 @@
       <file leaf-file-name="custom-parse-request.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1058">
-              <caret line="63" column="62" lean-forward="false" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
+            <state relative-caret-position="918">
+              <caret line="34" column="50" lean-forward="false" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -248,8 +238,8 @@
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" />
         <option value="$PROJECT_DIR$/update-theme.sh" />
         <option value="$PROJECT_DIR$/_build/js/utils.js" />
-        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
         <option value="$PROJECT_DIR$/_build/js/router.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
       </list>
     </option>
   </component>
@@ -478,12 +468,12 @@
       <workItem from="1510260743600" duration="7039000" />
       <workItem from="1510396239049" duration="7335000" />
       <workItem from="1510478157270" duration="28607000" />
-      <workItem from="1510736731165" duration="23181000" />
+      <workItem from="1510736731165" duration="23211000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274624000" />
+    <option name="totallyTimeSpent" value="274654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="426" y="22" width="1707" height="1362" extended-state="0" />
@@ -926,8 +916,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="63" column="62" lean-forward="false" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
+        <state relative-caret-position="918">
+          <caret line="34" column="50" lean-forward="false" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
           <folding />
         </state>
       </provider>
