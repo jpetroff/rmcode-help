@@ -14,6 +14,7 @@ function rm_parse_request( $wp ){
 		$action_prefix = is_user_logged_in() ? 'wp_ajax_' : 'wp_ajax_nopriv_';
 		define('DOING_AJAX', 1);
 		do_action( $action_prefix . 'api_page', $wp );
+		echo '<!--</html>-->';
 		do_action('shutdown');
 		wp_die();
 	}
@@ -32,3 +33,32 @@ function rm_parse_request( $wp ){
 	}
 }
 add_action( 'parse_request', 'rm_parse_request' );
+
+/**
+ * Tell WP Super Cache to cache API endpoints
+ *
+ * @param string $eof_pattern
+ *
+ * @return string
+ */
+function rm_ajax_cache_requests( $eof_pattern ) {
+	global $wp_super_cache_comments;
+	
+	if ( defined( 'DOING_AJAX' ) ) {
+		// Accept a JSON-formatted string as an end-of-file marker, so that the page will be cached
+		$json_object_pattern     = '^[{].*[}]$';
+		$json_collection_pattern = '^[\[].*[\]]$';
+		
+		$eof_pattern = str_replace(
+			'<\?xml',
+			sprintf( '<\?xml|%s|%s', $json_object_pattern, $json_collection_pattern ),
+			$eof_pattern
+		);
+		
+		// Don't append HTML comments to the JSON output, because that would invalidate it
+		$wp_super_cache_comments = false;
+	}
+	
+	return $eof_pattern;
+}
+//add_filter( 'wp_cache_eof_tags', 'rm_ajax_cache_requests' );

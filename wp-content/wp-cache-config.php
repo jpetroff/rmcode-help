@@ -15,8 +15,8 @@ if ( ! defined('WPCACHEHOME') )
 	define( 'WPCACHEHOME', WP_CONTENT_DIR . "/plugins/wp-super-cache/" ); //Added by WP-Cache Manager
 
 $cache_compression = 1; //Added by WP-Cache Manager
-$cache_enabled = false; //Added by WP-Cache Manager
-$super_cache_enabled = false; //Added by WP-Cache Manager
+$cache_enabled = true; //Added by WP-Cache Manager
+$super_cache_enabled = true; //Added by WP-Cache Manager
 $cache_max_time = 1800; //Added by WP-Cache Manager
 //$use_flock = true; // Set it true or false if you know what to use
 $cache_path = WP_CONTENT_DIR . '/cache/';
@@ -29,7 +29,7 @@ $cache_acceptable_files = array ( 0 => 'api/page/*', ); //Added by WP-Cache Mana
 $cache_rejected_uri = array('wp-.*\\.php', 'index\\.php');
 $cache_rejected_user_agent = array ( 0 => 'bot', 1 => 'ia_archive', 2 => 'slurp', 3 => 'crawl', 4 => 'spider', 5 => 'Yandex' );
 
-$cache_rebuild_files = 0; //Added by WP-Cache Manager
+$cache_rebuild_files = 1; //Added by WP-Cache Manager
 
 // Disable the file locking system.
 // If you are experiencing problems with clearing or creating cache files
@@ -105,6 +105,6 @@ $wp_cache_mobile_prefixes = 'w3c , w3c-, acs-, alav, alca, amoi, audi, avan, ben
 $cached_direct_pages = array(  ); //Added by WP-Cache Manager
 $wpsc_served_header = false;
 $cache_gc_email_me = 0; //Added by WP-Cache Manager
-$wpsc_save_headers = 0; //Added by WP-Cache Manager
+$wpsc_save_headers = 1; //Added by WP-Cache Manager
 $cache_schedule_interval = 'hourly'; //Added by WP-Cache Manager
 ?>

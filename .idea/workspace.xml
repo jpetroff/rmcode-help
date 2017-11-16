@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6b0f62-dc85-4e72-88f9-595abeb2496a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/update-theme.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme.zip" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/test.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme.zip" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/js/router.js" afterPath="$PROJECT_DIR$/_build/js/router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/js/utils.js" afterPath="$PROJECT_DIR$/_build/js/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update-theme.sh" afterPath="$PROJECT_DIR$/update-theme.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/app.js" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/editor.js" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/editor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/style.css" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/wp-cache-config.php" afterPath="$PROJECT_DIR$/wp-content/wp-cache-config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,25 +39,25 @@
             <state relative-caret-position="1512">
               <caret line="56" column="77" lean-forward="false" selection-start-line="56" selection-start-column="77" selection-end-line="56" selection-end-column="77" />
               <folding>
-                <marker date="1510761270195" expanded="true" signature="628:4283" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="840:1916" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="875:1180" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="1442:1866" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="1473:1856" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="1662:1845" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="1748:1833" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="1953:4085" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="1995:4069" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="2427:4060" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="2703:4050" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="2833:3107" ph="..." />
-                <marker date="1510761270195" expanded="false" signature="2878:2890" ph="..." />
-                <marker date="1510761270195" expanded="false" signature="2942:2954" ph="..." />
-                <marker date="1510761270195" expanded="false" signature="3012:3024" ph="..." />
-                <marker date="1510761270195" expanded="false" signature="3076:3088" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="3348:3549" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="3558:4039" ph="..." />
-                <marker date="1510761270195" expanded="true" signature="4122:4275" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="628:4283" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="840:1916" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="875:1180" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="1442:1866" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="1473:1856" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="1662:1845" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="1748:1833" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="1953:4085" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="1995:4069" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="2427:4060" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="2703:4050" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="2833:3107" ph="..." />
+                <marker date="1510761270000" expanded="false" signature="2878:2890" ph="..." />
+                <marker date="1510761270000" expanded="false" signature="2942:2954" ph="..." />
+                <marker date="1510761270000" expanded="false" signature="3012:3024" ph="..." />
+                <marker date="1510761270000" expanded="false" signature="3076:3088" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="3348:3549" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="3558:4039" ph="..." />
+                <marker date="1510761270000" expanded="true" signature="4122:4275" ph="..." />
               </folding>
             </state>
           </provider>
@@ -67,11 +73,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_build/js/router.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="773">
+              <caret line="42" column="96" lean-forward="false" selection-start-line="42" selection-start-column="96" selection-end-line="42" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/footer.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,52 +107,32 @@
         <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1031">
-              <caret line="89" column="4" lean-forward="true" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+              <caret line="89" column="4" lean-forward="false" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
               <folding>
-                <marker date="1510830254311" expanded="true" signature="952:1233" ph="..." />
-                <marker date="1510830254311" expanded="true" signature="1032:1173" ph="..." />
-                <marker date="1510830254311" expanded="true" signature="1069:1096" ph="..." />
-                <marker date="1510830254311" expanded="true" signature="1136:1164" ph="..." />
+                <marker date="1510830254000" expanded="true" signature="952:1233" ph="..." />
+                <marker date="1510830254000" expanded="true" signature="1032:1173" ph="..." />
+                <marker date="1510830254000" expanded="true" signature="1069:1096" ph="..." />
+                <marker date="1510830254000" expanded="true" signature="1136:1164" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cards-type.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/cards-type.php">
+      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_build/js/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="891">
-              <caret line="33" column="87" lean-forward="true" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
+            <state relative-caret-position="969">
+              <caret line="205" column="84" lean-forward="false" selection-start-line="205" selection-start-column="84" selection-end-line="205" selection-end-column="84" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom-parse-request.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="custom-parse-request.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update-theme.sh" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/update-theme.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_build/less/main.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="362" column="35" lean-forward="true" selection-start-line="362" selection-start-column="35" selection-end-line="362" selection-end-column="35" />
+            <state relative-caret-position="1058">
+              <caret line="63" column="62" lean-forward="false" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -227,7 +223,6 @@
         <option value="$PROJECT_DIR$/wp-config.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/header.php" />
-        <option value="$PROJECT_DIR$/_build/js/router.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/rewrite.log" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/theme-rewrite-rules.php" />
         <option value="$PROJECT_DIR$/_build/gradient.js" />
@@ -245,15 +240,16 @@
         <option value="$PROJECT_DIR$/_build/less/main.less" />
         <option value="$PROJECT_DIR$/_build/gulpfile.js" />
         <option value="$PROJECT_DIR$/_build/gulp/gulp-build.js" />
-        <option value="$PROJECT_DIR$/_build/js/utils.js" />
         <option value="$PROJECT_DIR$/_build/js/search.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/shortcodes.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/footer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/edit-helpers.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
         <option value="$PROJECT_DIR$/update-theme.sh" />
+        <option value="$PROJECT_DIR$/_build/js/utils.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
+        <option value="$PROJECT_DIR$/_build/js/router.js" />
       </list>
     </option>
   </component>
@@ -371,6 +367,32 @@
               <item name="_build" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="tinymce_js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="rm-help-theme" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="rm-help-theme" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -456,12 +478,12 @@
       <workItem from="1510260743600" duration="7039000" />
       <workItem from="1510396239049" duration="7335000" />
       <workItem from="1510478157270" duration="28607000" />
-      <workItem from="1510736731165" duration="17583000" />
+      <workItem from="1510736731165" duration="23181000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269026000" />
+    <option name="totallyTimeSpent" value="274624000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="426" y="22" width="1707" height="1362" extended-state="0" />
@@ -502,13 +524,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_build/libs/css/normalize.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="2" lean-forward="false" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-customize-setting.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
@@ -748,34 +763,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_build/js/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="773">
-          <caret line="42" column="35" lean-forward="false" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_build/js/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="179" column="35" lean-forward="false" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_build/editor_less/editor-style.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="58" column="1" lean-forward="false" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_build/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="844">
-          <caret line="197" column="73" lean-forward="true" selection-start-line="197" selection-start-column="73" selection-end-line="197" selection-end-column="73" />
           <folding />
         </state>
       </provider>
@@ -791,7 +782,7 @@
     <entry file="file://$PROJECT_DIR$/_build/less/main.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1242">
-          <caret line="362" column="35" lean-forward="true" selection-start-line="362" selection-start-column="35" selection-end-line="362" selection-end-column="35" />
+          <caret line="362" column="35" lean-forward="false" selection-start-line="362" selection-start-column="35" selection-end-line="362" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -807,7 +798,7 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -825,25 +816,25 @@
         <state relative-caret-position="1512">
           <caret line="56" column="77" lean-forward="false" selection-start-line="56" selection-start-column="77" selection-end-line="56" selection-end-column="77" />
           <folding>
-            <marker date="1510761270195" expanded="true" signature="628:4283" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="840:1916" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="875:1180" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="1442:1866" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="1473:1856" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="1662:1845" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="1748:1833" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="1953:4085" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="1995:4069" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="2427:4060" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="2703:4050" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="2833:3107" ph="..." />
-            <marker date="1510761270195" expanded="false" signature="2878:2890" ph="..." />
-            <marker date="1510761270195" expanded="false" signature="2942:2954" ph="..." />
-            <marker date="1510761270195" expanded="false" signature="3012:3024" ph="..." />
-            <marker date="1510761270195" expanded="false" signature="3076:3088" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="3348:3549" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="3558:4039" ph="..." />
-            <marker date="1510761270195" expanded="true" signature="4122:4275" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="628:4283" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="840:1916" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="875:1180" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="1442:1866" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="1473:1856" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="1662:1845" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="1748:1833" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="1953:4085" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="1995:4069" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="2427:4060" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="2703:4050" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="2833:3107" ph="..." />
+            <marker date="1510761270000" expanded="false" signature="2878:2890" ph="..." />
+            <marker date="1510761270000" expanded="false" signature="2942:2954" ph="..." />
+            <marker date="1510761270000" expanded="false" signature="3012:3024" ph="..." />
+            <marker date="1510761270000" expanded="false" signature="3076:3088" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="3348:3549" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="3558:4039" ph="..." />
+            <marker date="1510761270000" expanded="true" signature="4122:4275" ph="..." />
           </folding>
         </state>
       </provider>
@@ -872,39 +863,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/test.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1031">
-          <caret line="89" column="4" lean-forward="true" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
-          <folding>
-            <marker date="1510830254311" expanded="true" signature="952:1233" ph="..." />
-            <marker date="1510830254311" expanded="true" signature="1032:1173" ph="..." />
-            <marker date="1510830254311" expanded="true" signature="1069:1096" ph="..." />
-            <marker date="1510830254311" expanded="true" signature="1136:1164" ph="..." />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/cards-type.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="891">
-          <caret line="33" column="87" lean-forward="true" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
+          <caret line="33" column="87" lean-forward="false" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_build/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="197" column="73" lean-forward="true" selection-start-line="197" selection-start-column="73" selection-end-line="197" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1031">
+          <caret line="89" column="4" lean-forward="false" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+          <folding>
+            <marker date="1510830254000" expanded="true" signature="952:1233" ph="..." />
+            <marker date="1510830254000" expanded="true" signature="1032:1173" ph="..." />
+            <marker date="1510830254000" expanded="true" signature="1069:1096" ph="..." />
+            <marker date="1510830254000" expanded="true" signature="1136:1164" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update-theme.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_build/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="205" column="84" lean-forward="false" selection-start-line="205" selection-start-column="84" selection-end-line="205" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_build/js/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="773">
+          <caret line="42" column="96" lean-forward="false" selection-start-line="42" selection-start-column="96" selection-end-line="42" selection-end-column="96" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/update-theme.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="1058">
+          <caret line="63" column="62" lean-forward="false" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
           <folding />
         </state>
       </provider>
