@@ -1,14 +1,10 @@
-<html>
+<?php die(); ?><html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Readymag Guide</title>
 	<link rel="stylesheet" href="http://rm.local/wp-content/themes/rm-help-theme/style.css">
-	<script>
-		window._search_nonce = '71dfa28102';
-		window._ajax_url = 'http://rm.local/wp-admin/admin-ajax.php';
-	</script>
 </head>
 <body class=" ">
 
@@ -20,6 +16,7 @@
 		
 			<input type='text' name='s'
 				class='search-component__query-input'
+				autocomplete='off'
 				v-bind:value='value'
 				v-on:input='queryInput($event.target.value)'
 				v-on:focus='inputFocus = true'
@@ -28,8 +25,8 @@
 				ref='queryInput'
 			>
 			
-			<input type='submit' class='search-component__submit' value='Search' v-on:click.prevent='submitSearch(true)'>
-			<div class='search-component__clear' v-show="value.length > 0" v-on:click='clearQuery'>
+			<input type='submit' class='search-component__submit' v-bind:class="[isActive ? 'active' : '']" value='Search' v-on:click.prevent='submitSearch(true)'>
+			<div class='search-component__clear' v-show="value.length > 0" v-on:click.prevent='clearQuery'>
 				<div class='clear-button'>
 					<svg class='clear-button-cross' width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<g id="close" stroke="#979797" stroke-width="1" stroke-linecap="round">
@@ -39,34 +36,49 @@
 					</svg>
 				</div>
 			</div>
-			<input type='hidden' value='71dfa28102'>
+			<input type='hidden' value='a007756d99'>
 		</form>
 		<transition name='toggle-results'>
 		<div class='search-component__results'
 			v-bind:class="searchResultsState"
 			v-show="showResultsPanel"
-			v-bind:style="{ maxHeight: _calcMaxHeight() + 'px'}"
+			v-bind:style="{ height: presentation.scrollContainerHeight == 0 ? 'auto' : _calcMaxHeight() + 'px'}"
 		>
-			<div class='search-component__result-item waiting' v-show="searchResultsState == 'waiting'">
-				<div class='fake-line-loader' style='width:240px;'></div>
-				<div class='fake-line-loader' style='width:450px;'></div>
-				<div class='fake-line-loader break' style='width:180px;'></div>
-				<div class='fake-line-loader' style='width:450px;'></div>
-			</div>
-			
-			<div class='search-component__result-item empty' v-show="searchResultsState == 'empty'">Nothing found for <strong>{{query}}</strong></div>
-			<a href='#' class='search-component__result-item empty contact' v-show="searchResultsState == 'empty'">Need help? Contact Readymag support</a>
-			
-			<a
-				v-for='post in results'
-				v-bind:href="'/editor/#' + post.post_name"
-				class='search-component__result-item item'
-				v-show="searchResultsState == 'success' || searchResultsState == 'inactive'"
-				v-on:click='showResultPage($event.currentTarget)'
+			<div class='scroll-bar' v-if="presentation.scrollCoefficient < 1" ref='scrollBar' v-bind:style="{top:presentation.scrollBarTop + 'px', height: presentation.scrollBarHeight + 'px'}"></div>
+			<div class='search-component__results-scroll-wrapper'
+				ref='scrollContainer'
+				v-bind:class="[ presentation.scrollCoefficient < 1 ? 'active-scroll' : '']"
+				v-bind:style="{ height: presentation.scrollContainerHeight == 0 ? 'auto' : _calcMaxHeight() + 'px'}"
 			>
-				<div class='result-item__nav'>{{post.post_title}}</div>
-				<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
-			</a>
+				<div class='search-component__results-data-wrapper'
+					ref='dataContainer'
+				>
+					<div class='search-component__result-item waiting' v-show="searchResultsState == 'waiting'">
+						<div class='fake-line-loader' style='width:240px;'></div>
+						<div class='fake-line-loader' style='width:450px;'></div>
+						<div class='fake-line-loader break' style='width:180px;'></div>
+						<div class='fake-line-loader' style='width:450px;'></div>
+					</div>
+					
+					<div class='search-component__result-item empty' v-show="searchResultsState == 'empty'">Nothing found for <strong>{{query}}</strong></div>
+					<a 	v-bind:href=" 'mailto:support@readymag.com?subject=' + encodedQuerySubject "
+						class='search-component__result-item empty contact' v-show="searchResultsState == 'empty'"
+						v-on:click='contactSupport($event)'
+					>
+							Need help? Contact Readymag support
+					</a>
+					<a
+						v-for='post in results'
+						v-bind:href="post.display_link"
+						class='search-component__result-item item'
+						v-show="searchResultsState == 'success' || searchResultsState == 'inactive'"
+						v-on:click.prevent='showResultPage($event.currentTarget)'
+					>
+						<div class='result-item__nav'>{{post.post_title}}{{post.parent_title != '' ? ' — ' + post.parent_title : ''}}</div>
+						<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
+					</a>
+				</div>
+			</div>
 		</div>
 		</transition>
 		<transition name='toggle-results'>
@@ -78,7 +90,7 @@
 		
 	<nav class="left-navigation">
 		<div class="rm-logo">
-			<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewbox="0 0 612 140.7" y="0px" x="0px" id="Layer_1" width="" height="" style="box-shadow: none; border-radius: 0px; opacity: 1;" viewBox="1.2000000476837158 0 609.7999877929688 140.6999969482422" preserveAspectRatio="xMidYMid meet" fill="#000000" fill-opacity="1">
+			<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewbox="0 0 612 140.7" y="0px" x="0px" id="Layer_1" style="box-shadow: none; border-radius: 0px; opacity: 1;" viewBox="1.2000000476837158 0 609.7999877929688 140.6999969482422" preserveAspectRatio="xMidYMid meet" fill="#000000" fill-opacity="1">
 				<g>
 					<path d="M79,41.1c-19.9,0-35.3,14.6-35.3,35.9c0,21.2,16.1,35.9,35.3,35.9c14.6,0,25.3-7.4,31.5-17.6l-12.9-5.8   c-2.3,5.8-8.6,10.2-17.9,10.2c-13,0-20.7-8.8-20.7-19h52.2l1.5-4.4C112.8,54.9,97.5,41.1,79,41.1z M59.8,67.7   c2.3-7.6,8.5-13.5,19.2-13.5c9.2,0,16.9,5.9,17.7,13.5H59.8z"></path>
 					<path d="M609.5,73.3h-26.7v12.3h12.6c-0.7,9.1-9,14.1-18.1,14.1c-15.2,0-21.8-11.1-21.8-22.4c0-11.4,6.6-23,22-23   c8.6,0,15.1,4.5,18.4,10.6l12.5-6.2c-6.2-11.4-16.9-17.6-30.9-17.7c-21.6,0.1-37.1,15.5-37.1,36.3c0,21.7,16.9,35.6,35.7,35.6   C595,112.9,611,99,611,77.7L609.5,73.3z"></path>
@@ -97,18 +109,18 @@
 			<h1 class="def-header homepage__main-header">Guide</h1>
 			<div class="homepage__menu row">
 		<div class="col-third">
-			<div class="homepage__section-list section-list__editor">
+			
+		<div class="homepage__section-list section-list__editor" style="color:#f00">
 				<a href="/editor/" v-rlink class="homepage__section-list__top-level">
 					<div class="top-level__icon">
-					
+						
 					</div>
 					<div class="top-level__caption">
 						Editor
 					</div>
 				</a>
 				<div class="homepage__section-list__second-level">
-					<a href="/editor/#workspace" class="second-level__item def-link" v-rlink>Workspace</a><a href="/editor/#widgets" class="second-level__item def-link" v-rlink>Widgets</a><a href="/editor/#operations-with-widgets" class="second-level__item def-link" v-rlink>Operations with Widgets</a>
-				</div>
+		<a href="/editor/#widgets" class="second-level__item def-link" v-rlink>Widgets</a><a href="/editor/#workspace" class="second-level__item def-link" v-rlink>Workspace</a></div>
 			</div>
 		</div>
 		<div class="col-third">
@@ -184,14 +196,14 @@
 		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
 			':35729/livereload.js?snipver=1"></' + 'script>')
 	</script>
-	<script>window._home_url = document.createElement('a'); window._home_url.href = 'http://rm.local';</script>
+	<script>
+		window._home_url = document.createElement('a'); window._home_url.href = 'http://rm.local/';
+		window._site_title = 'Readymag Guide';
+	</script>
 	<script src="http://rm.local/wp-content/themes/rm-help-theme/js/libs.js"></script>
 	<script src="http://rm.local/wp-content/themes/rm-help-theme/js/app.js"></script>
 	</body>
 </html>
 
-<!-- Dynamic page generated in 0.318 seconds. -->
-<!-- Cached page generated by WP-Super-Cache on 2017-10-29 18:52:15 -->
-
-<!-- Compression = gzip -->
-<!-- super cache -->
+<!-- Dynamic page generated in 0.259 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2017-11-16 20:36:22 -->

@@ -1,4 +1,4 @@
-
+<?php die(); ?>
 	<article class="page-content-wrapper single-page" >
 		<div class="page-content page-content_narrow">
 			

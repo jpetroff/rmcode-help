@@ -1,0 +1,1 @@
+<?php die(); ?>{"headers":{"Vary":"Vary: Cookie","X-Powered-By":"X-Powered-By: PHP\/7.0.15","Link":"Link: <http:\/\/rm.local\/>; rel=shortlink","Last-Modified":"Last-Modified: Thu, 16 Nov 2017 20:36:22 GMT","Content-Type":"Content-Type: text\/html; charset=\"UTF-8\""},"uri":"rm.local\/","blog_id":1,"post":20,"key":"rm.local80\/"}
