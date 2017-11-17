@@ -520,3 +520,499 @@
 22:00:30 33616 /wp-admin/admin-ajax.php In WP Cache Phase 2
 22:00:30 33616 /wp-admin/admin-ajax.php Setting up WordPress actions
 22:00:30 33616 /wp-admin/admin-ajax.php Not caching wp-admin requests.
+11:04:51 33707 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:04:51 33707 /editor/ wp_cache_get_cookies_values: return: 
+11:04:51 33707 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:04:51 33707 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:04:51 33707 /editor/ Serving wp-cache static file
+11:04:51 33707 /editor/ exit request
+11:04:54 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:04:54 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:04:54 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:04:54 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:04:55 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:04:55 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:04:55 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:04:55 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:04:55 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:04:55 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:04:55 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:04:56 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:04:56 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:04:56 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:04:56 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:04:58 34467 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:04:58 34467 /editor/ wp_cache_get_cookies_values: return: 
+11:04:58 34467 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:04:58 34467 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:04:58 34467 /editor/ Serving wp-cache static file
+11:04:58 34467 /editor/ exit request
+11:04:58 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:04:58 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:04:58 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:04:58 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:04:59 33615 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:05:13 33617 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:05:13 33617 /editor/ wp_cache_get_cookies_values: return: 
+11:05:13 33617 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:05:13 33617 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:05:13 33617 /editor/ Serving wp-cache static file
+11:05:13 33617 /editor/ exit request
+11:05:24 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:05:24 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:05:24 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:05:24 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:05:25 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:08:41 34467 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: /^wp-postpass_2a396e83d68fb2b59624c5cdfd42f531|^comment_author_2a396e83d68fb2b59624c5cdfd42f531|^wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531/ Cookie detected: wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531
+11:08:41 34467 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: return: 2c73f2800db91fd1995099e28ebc5623
+11:08:41 34467 /wp-admin/admin-ajax.php In WP Cache Phase 2
+11:08:41 34467 /wp-admin/admin-ajax.php Setting up WordPress actions
+11:08:41 34467 /wp-admin/admin-ajax.php Not caching wp-admin requests.
+11:09:42 33614 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: /^wp-postpass_2a396e83d68fb2b59624c5cdfd42f531|^comment_author_2a396e83d68fb2b59624c5cdfd42f531|^wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531/ Cookie detected: wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531
+11:09:42 33614 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: return: 2c73f2800db91fd1995099e28ebc5623
+11:09:42 33614 /wp-admin/admin-ajax.php In WP Cache Phase 2
+11:09:42 33614 /wp-admin/admin-ajax.php Setting up WordPress actions
+11:09:42 33614 /wp-admin/admin-ajax.php Not caching wp-admin requests.
+11:10:54 33615 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:10:54 33615 /editor/ wp_cache_get_cookies_values: return: 
+11:10:54 33615 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:10:54 33615 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:10:54 33615 /editor/ Serving wp-cache static file
+11:10:54 33615 /editor/ exit request
+11:11:07 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:11:07 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:11:07 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:11:07 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:11:08 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:11:08 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:11:08 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:11:08 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:11:08 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:11:08 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:11:08 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:11:09 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:11:09 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:11:09 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:11:09 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:11:13 34467 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:11:13 34467 /editor/ wp_cache_get_cookies_values: return: 
+11:11:13 34467 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:11:13 34467 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:11:13 34467 /editor/ Serving wp-cache static file
+11:11:13 34467 /editor/ exit request
+11:11:23 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:11:23 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:11:23 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:11:23 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:11:24 33617 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:11:29 33616 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:11:29 33616 /editor/ wp_cache_get_cookies_values: return: 
+11:11:29 33616 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:11:29 33616 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:11:29 33616 /editor/ Serving wp-cache static file
+11:11:29 33616 /editor/ exit request
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:11:40 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:11:42 33707 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: /^wp-postpass_2a396e83d68fb2b59624c5cdfd42f531|^comment_author_2a396e83d68fb2b59624c5cdfd42f531|^wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531/ Cookie detected: wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531
+11:11:42 33707 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: return: 2c73f2800db91fd1995099e28ebc5623
+11:11:42 33707 /wp-admin/admin-ajax.php In WP Cache Phase 2
+11:11:42 33707 /wp-admin/admin-ajax.php Setting up WordPress actions
+11:11:42 33707 /wp-admin/admin-ajax.php Not caching wp-admin requests.
+11:13:42 33706 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: /^wp-postpass_2a396e83d68fb2b59624c5cdfd42f531|^comment_author_2a396e83d68fb2b59624c5cdfd42f531|^wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531/ Cookie detected: wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531
+11:13:42 33706 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: return: 2c73f2800db91fd1995099e28ebc5623
+11:13:42 33706 /wp-admin/admin-ajax.php In WP Cache Phase 2
+11:13:42 33706 /wp-admin/admin-ajax.php Setting up WordPress actions
+11:13:42 33706 /wp-admin/admin-ajax.php Not caching wp-admin requests.
+11:13:56 34467 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:13:56 34467 /editor/ wp_cache_get_cookies_values: return: 
+11:13:56 34467 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:13:56 34467 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:13:56 34467 /editor/ Serving wp-cache static file
+11:13:56 34467 /editor/ exit request
+11:14:08 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:14:08 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:14:08 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:14:08 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:14:09 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:14:36 33617 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:14:36 33617 /editor/ wp_cache_get_cookies_values: return: 
+11:14:36 33617 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:14:36 33617 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:14:36 33617 /editor/ Serving wp-cache static file
+11:14:36 33617 /editor/ exit request
+11:14:45 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:14:45 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:14:45 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:14:45 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:14:46 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:14:46 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:14:46 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:14:46 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:14:46 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:14:46 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:14:46 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:14:47 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:14:47 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:14:47 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:14:47 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:15:43 34467 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: /^wp-postpass_2a396e83d68fb2b59624c5cdfd42f531|^comment_author_2a396e83d68fb2b59624c5cdfd42f531|^wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531/ Cookie detected: wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531
+11:15:43 34467 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: return: 2c73f2800db91fd1995099e28ebc5623
+11:15:43 34467 /wp-admin/admin-ajax.php In WP Cache Phase 2
+11:15:43 34467 /wp-admin/admin-ajax.php Setting up WordPress actions
+11:15:43 34467 /wp-admin/admin-ajax.php Not caching wp-admin requests.
+11:17:31 33707 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:17:31 33707 /editor/ wp_cache_get_cookies_values: return: 
+11:17:31 33707 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:17:31 33707 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:17:31 33707 /editor/ Serving wp-cache static file
+11:17:31 33707 /editor/ exit request
+11:17:41 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:17:41 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:17:41 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:17:41 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:17:42 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:17:42 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:17:42 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:17:42 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:17:42 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:17:42 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:17:42 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:17:43 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:17:43 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:17:43 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:17:43 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:17:44 34467 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: /^wp-postpass_2a396e83d68fb2b59624c5cdfd42f531|^comment_author_2a396e83d68fb2b59624c5cdfd42f531|^wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531/ Cookie detected: wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531
+11:17:44 34467 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: return: 2c73f2800db91fd1995099e28ebc5623
+11:17:44 34467 /wp-admin/admin-ajax.php In WP Cache Phase 2
+11:17:44 34467 /wp-admin/admin-ajax.php Setting up WordPress actions
+11:17:44 34467 /wp-admin/admin-ajax.php Not caching wp-admin requests.
+11:22:07 33616 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33617 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33616 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33617 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33616 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33616 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33617 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33617 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33616 /editor/ Serving wp-cache static file
+11:22:07 33617 /editor/ Serving wp-cache static file
+11:22:07 33616 /editor/ exit request
+11:22:07 33617 /editor/ exit request
+11:22:07 33617 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33617 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33617 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33617 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33617 /editor/ Serving wp-cache static file
+11:22:07 33617 /editor/ exit request
+11:22:07 33706 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33706 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33706 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33706 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33706 /editor/ Serving wp-cache static file
+11:22:07 33706 /editor/ exit request
+11:22:07 34467 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 34467 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 34467 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 34467 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 34467 /editor/ Serving wp-cache static file
+11:22:07 34467 /editor/ exit request
+11:22:07 33707 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33707 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33707 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33707 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33707 /editor/ Serving wp-cache static file
+11:22:07 33707 /editor/ exit request
+11:22:07 33616 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33616 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33617 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33617 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33617 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33617 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33617 /editor/ Serving wp-cache static file
+11:22:07 33617 /editor/ exit request
+11:22:07 33616 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33616 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33616 /editor/ Serving wp-cache static file
+11:22:07 33616 /editor/ exit request
+11:22:07 33706 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33706 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33706 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33706 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33706 /editor/ Serving wp-cache static file
+11:22:07 33706 /editor/ exit request
+11:22:07 33707 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33707 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33707 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33707 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33707 /editor/ Serving wp-cache static file
+11:22:07 33707 /editor/ exit request
+11:22:07 33617 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33617 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33617 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33617 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33617 /editor/ Serving wp-cache static file
+11:22:07 33617 /editor/ exit request
+11:22:07 34467 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 34467 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 34467 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 34467 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 34467 /editor/ Serving wp-cache static file
+11:22:07 34467 /editor/ exit request
+11:22:07 33616 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33616 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33616 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33616 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33616 /editor/ Serving wp-cache static file
+11:22:07 33616 /editor/ exit request
+11:22:07 44771 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 44771 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 44771 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 44771 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 44771 /editor/ Serving wp-cache static file
+11:22:07 44771 /editor/ exit request
+11:22:07 33616 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33616 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33616 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33616 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33616 /editor/ Serving wp-cache static file
+11:22:07 33616 /editor/ exit request
+11:22:07 33706 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:07 33706 /editor/ wp_cache_get_cookies_values: return: 
+11:22:07 33706 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:22:07 33706 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:22:07 33706 /editor/ Serving wp-cache static file
+11:22:07 33706 /editor/ exit request
+11:22:18 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:22:18 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:22:18 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:22:18 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:22:19 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:22:19 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:22:19 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:22:19 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:22:19 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:22:19 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:22:19 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:22:20 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:22:20 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:22:20 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:22:20 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:24:06 33616 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:24:06 33616 /editor/ wp_cache_get_cookies_values: return: 
+11:24:06 33616 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:24:06 33616 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:24:06 33616 /editor/ Serving wp-cache static file
+11:24:06 33616 /editor/ exit request
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:24:16 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:24:17 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:24:17 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:24:17 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:24:17 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:24:32 33615 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:24:32 33615 /editor/ wp_cache_get_cookies_values: return: 
+11:24:32 33615 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:24:32 33615 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:24:32 33615 /editor/ Serving wp-cache static file
+11:24:32 33615 /editor/ exit request
+11:24:32 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:24:32 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:24:32 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:24:32 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:24:33 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:24:51 33706 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:24:51 33706 /editor/ wp_cache_get_cookies_values: return: 
+11:24:51 33706 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:24:51 33706 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:24:51 33706 /editor/ Serving wp-cache static file
+11:24:51 33706 /editor/ exit request
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:24:52 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:25:45 34467 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:25:45 34467 /editor/ wp_cache_get_cookies_values: return: 
+11:25:45 34467 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:25:45 34467 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:25:45 34467 /editor/ Serving wp-cache static file
+11:25:45 34467 /editor/ exit request
+11:25:45 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:25:45 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:25:45 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:25:45 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:25:46 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:25:46 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:25:46 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:25:46 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:25:46 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:25:46 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:25:46 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:25:46 33616 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:25:46 33616 /editor/ wp_cache_get_cookies_values: return: 
+11:25:46 33616 /editor/ supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/
+11:25:46 33616 /editor/ wp-cache file exists: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/editor/wp-cache-77caa119519889cbb72d12958d9995a1.php
+11:25:46 33616 /editor/ Serving wp-cache static file
+11:25:46 33616 /editor/ exit request
+11:25:47 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:25:47 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:25:47 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map supercache dir: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:25:47 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map No Super Cache file found for current URL: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/index.html
+11:25:47 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:25:47 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:25:47 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:25:47 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map In WP Cache Phase 2
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Setting up WordPress actions
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Created output buffer
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_get_cookies_values: return: 
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: doing rebuild for /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wpcache_do_rebuild: exiting as directory is not a directory: /Users/john/rmsource/rmcode-help/wp-content/cache/supercache/rm.local/wp-content/themes/rm-help-theme/js/underscore-min.map/
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Output buffer callback
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map 404 file not found not cached
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_maybe_dynamic: returned $buffer
+11:25:48 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map wp_cache_shutdown_callback: No cache file created. Returning.
+11:25:58 33615 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: /^wp-postpass_2a396e83d68fb2b59624c5cdfd42f531|^comment_author_2a396e83d68fb2b59624c5cdfd42f531|^wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531/ Cookie detected: wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531
+11:25:58 33615 /wp-admin/admin-ajax.php wp_cache_get_cookies_values: return: 2c73f2800db91fd1995099e28ebc5623
+11:25:58 33615 /wp-admin/admin-ajax.php In WP Cache Phase 2
+11:25:58 33615 /wp-admin/admin-ajax.php Setting up WordPress actions
+11:25:58 33615 /wp-admin/admin-ajax.php Not caching wp-admin requests.
+11:26:00 33615 /wp-admin/options-general.php?page=wpsupercache&tab=settings Not serving wp-admin requests.
+11:26:00 33615 /wp-admin/options-general.php?page=wpsupercache&tab=settings wp_cache_get_cookies_values: /^wp-postpass_2a396e83d68fb2b59624c5cdfd42f531|^comment_author_2a396e83d68fb2b59624c5cdfd42f531|^wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531/ Cookie detected: wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531
+11:26:00 33615 /wp-admin/options-general.php?page=wpsupercache&tab=settings wp_cache_get_cookies_values: return: 2c73f2800db91fd1995099e28ebc5623
+11:26:00 33615 /wp-admin/options-general.php?page=wpsupercache&tab=settings In WP Cache Phase 2
+11:26:00 33615 /wp-admin/options-general.php?page=wpsupercache&tab=settings Setting up WordPress actions
+11:26:00 33615 /wp-admin/options-general.php?page=wpsupercache&tab=settings Not caching wp-admin requests.
+11:26:19 33615 /wp-admin/options-general.php?page=wpsupercache&tab=settings maybe_stop_gc: GC flag not found. GC will go ahead..
+11:26:24 33614 /wp-admin/options-general.php?page=wpsupercache&tab=settings wp_cache_get_cookies_values: /^wp-postpass_2a396e83d68fb2b59624c5cdfd42f531|^comment_author_2a396e83d68fb2b59624c5cdfd42f531|^wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531/ Cookie detected: wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531
+11:26:24 33614 /wp-admin/options-general.php?page=wpsupercache&tab=settings wp_cache_get_cookies_values: return: 2c73f2800db91fd1995099e28ebc5623
+11:26:24 33614 /wp-admin/options-general.php?page=wpsupercache&tab=settings In WP Cache Phase 2
+11:26:24 33614 /wp-admin/options-general.php?page=wpsupercache&tab=settings Setting up WordPress actions
+11:26:24 33614 /wp-admin/options-general.php?page=wpsupercache&tab=settings Not caching wp-admin requests.
+11:26:30 33614 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:26:31 33614 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:28:13 34467 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:28:14 34467 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:28:20 44773 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:28:21 44773 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:28:39 33618 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:28:42 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:28:50 33614 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:29:00 33616 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:29:16 33706 /search/?s=page Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:31:00 44249 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:31:09 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:31:14 33707 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:31:18 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:31:38 33618 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:31:38 33618 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:32:03 33706 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:32:05 33706 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:33:28 34467 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:34:58 33707 /api/page/_front/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:35:01 33707 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:35:06 33707 /api/page/editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+11:35:11 33707 /api/page/_front/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:09:27 33618 / Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:09:27 33616 / Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:09:27 33614 / Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:09:39 33706 /wp-content/themes/rm-help-theme/assets/fonts/fonts.css?livereload=1510924178989 Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:09:39 34467 / Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:09:39 33617 / Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:09:47 33614 / Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:10:17 33706 /api/page/editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:12:35 33614 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:12:37 33614 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:14:11 34467 /wp-content/themes/rm-help-theme/assets/fonts/graphic_n4-webfont.woff2 Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:14:12 34467 /wp-content/themes/rm-help-theme/assets/fonts/graphic_n4-webfont.woff Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:22:35 33707 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:23:56 33707 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:24:07 33618 /wp-content/themes/rm-help-theme/assets/fonts/graphic_n4-webfont.woff2 Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:24:08 33618 /wp-content/themes/rm-help-theme/assets/fonts/graphic_n4-webfont.woff Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:30:35 48202 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:30:52 33616 /editor/ Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:30:56 44249 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)
+13:49:02 33616 /wp-content/themes/rm-help-theme/js/underscore-min.map Removing auth from $_COOKIE to allow caching for logged in user (wordpress_logged_in_2a396e83d68fb2b59624c5cdfd42f531)

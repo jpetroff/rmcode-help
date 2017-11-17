@@ -97,7 +97,7 @@ gulp.task('less', function(){
 		.pipe(order([
 			'less/prefix.less',
 			'libs/css/normalize.css',
-			'less/**/*.less'
+			'less/main.less'
 		],{base: src}))
 		.pipe(concat('style.css'));
 	if(!__prod)
@@ -120,6 +120,6 @@ gulp.task('less', function(){
 });
 
 gulp.task('assets', function() {
-	gulp.src( src + 'assets/*.*' )
-		.pipe(gulp.dest(dst + 'assets'));
+	gulp.src( src + 'assets/**/*' )
+		.pipe(gulp.dest(dst));
 });

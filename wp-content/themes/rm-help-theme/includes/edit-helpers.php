@@ -12,7 +12,7 @@ function rm_media_send_to_editor( $code, $id, $meta ) {
 		$h = $image_size == 'full' ? $att_meta['height'] : $att_meta['sizes'][$image_size]['height'];
 		$fn = $image_size == 'full' ? $image_filepath . '/' . $att_meta['file'] : $image_filepath . '/' . $att_meta['sizes'][$image_size]['file'];
 		$rfn = $image_size == 'full' ? $image_filepath . '/' . $retina_meta['file'] : $image_filepath . '/' . $retina_meta['sizes'][$image_size]['file'];
-		$prefix = "[img w=\"$w\" h=\"$h\" f=\"$fn\" rf=\"$rfn\"]";
+		$prefix = "\n[img w=\"$w\" h=\"$h\" f=\"$fn\" rf=\"$rfn\"]";
 		
 		return $prefix;
 	}
@@ -21,9 +21,9 @@ function rm_media_send_to_editor( $code, $id, $meta ) {
 		$src = wp_get_attachment_url($id);
 		$scaling = 700 / $att_meta['width'];
 		$w = 700;
-		$h = $att_meta['height'] * $scaling;
+		$h = floor($att_meta['height'] * $scaling);
 		
-		return "[video src=\"$src\" width=\"$w\" height=\"$h\" autoplay=on loop=on controls=off]";
+		return "\n[video src=\"$src\" width=\"$w\" height=\"$h\" autoplay=on loop=on controls=off]";
 	}
 }
 add_filter('media_send_to_editor', 'rm_media_send_to_editor', 0, 3);
