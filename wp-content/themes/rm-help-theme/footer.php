@@ -10,7 +10,7 @@
 		window._home_url = document.createElement('a'); window._home_url.href = '<?php echo trailingslashit(home_url()); ?>';
 		window._site_title = '<?php bloginfo('name');  ?>';
 	</script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/libs.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/app.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/libs.js" defer></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/app.js" defer></script>
 	</body>
 </html>

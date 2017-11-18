@@ -48,7 +48,9 @@ w.Page = function() {
 				var navSection = this._getCurrentNavSection(position);
 				this.activeSection = navSection[2];
 				w.Router && w.Router.updateUrl(w.Router.url.path, w.Router.url.hash, this.navItems[hash].title+' — '+w._site_title);
-				w.utils.scrollTop(position, true, _.bind(function() {this.scrollAnimationStarted = false}, this));
+				w.utils.scrollTop(position, true, _.bind(function() {
+					w.utils.updateDOM(function() {this.scrollAnimationStarted = false}, this);
+				}, this));
 			},
 			scrollSpy: function() {
 				if(this.scrollAnimationStarted == true) return;

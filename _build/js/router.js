@@ -113,6 +113,7 @@ w.Router = {
 		title = title != '' ? title+' — '+w._site_title : w._site_title;
 
 		w.history.replaceState( null, title, path+hash );
+		document.title = title;
 		this.url.location = w.location.href;
 		this.url.path = w.location.pathname;
 		this.url.relPath = w.utils.untrailingslashit( w.location.pathname.replace( w._home_url.pathname, '') );
