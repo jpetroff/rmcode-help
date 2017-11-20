@@ -177,3 +177,14 @@ function rm_filter_tiny_mce_before_init( $options ) {
 	return $options;
 }
 
+is_admin() && add_action( 'pre_get_posts', 'rm_cards_default_sort' );
+
+function rm_cards_default_sort( $query ){
+	// Nothing to do:
+	if (!$query->is_main_query() || 'card' != $query->get('post_type'))
+		return;
+	
+	$query->set('orderby', 'menu_order');
+	$query->set('order', 'ASC');
+	
+}

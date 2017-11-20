@@ -85,8 +85,7 @@ function rm_output_shortcode( $_atts ) {
 	}
 	
 	$output = rm_recursive_output($atts['parent'], 1, $levels, $all_cards);
-
-//	return '<pre>'.print_r($output, true).'</pre>';
+	
 	return $output;
 }
 add_shortcode('output', 'rm_output_shortcode');

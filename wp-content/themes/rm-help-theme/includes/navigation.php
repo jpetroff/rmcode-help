@@ -20,7 +20,9 @@ function rm_show_menu_shortcode( $atts ) {
 	
 	$args = array(
 		'post_type' => 'card',
-		'post_parent' => $a['parent']
+		'post_parent' => $a['parent'],
+		'orderby' => 'menu_order',
+		'order' => 'ASC'
 	);
 	$q = new WP_Query( $args );
 	
@@ -33,10 +35,11 @@ function rm_show_menu_shortcode( $atts ) {
 		$setTitle = $link_index[$parent_card]['title'];
 		$setIcon = $a['icon'];
 		$hasColor = $a['color'] ? 'style="color:'.$a['color'].'"' : '';
+		$iconColor = $a['color'] ? 'style="background:'.$a['color'].'"' : '';
 		$output .= "
 		<div class=\"homepage__section-list section-list__editor\" $hasColor>
 				<a href=\"/$setPage/\" v-rlink class=\"homepage__section-list__top-level\">
-					<div class=\"top-level__icon\">
+					<div class=\"top-level__icon\" $iconColor>
 						$setIcon
 					</div>
 					<div class=\"top-level__caption\">
