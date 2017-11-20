@@ -47,14 +47,34 @@ function rm_card_add_meta_box()
  */
 function rm_card_meta_box_cb( $post )
 {
+	// Card URI
 	$post_name = $post->post_name;
 	$output = "
 		<p class=\"post-attributes-label-wrapper\"><label class=\"post-attributes-label\" for=\"rm_post_name\">Card URI</label></p>
 		<input name=\"rm_post_name\" type=\"text\" id=\"rm_post_name\" value=\"$post_name\">
 	";
 	
+	// Output level
+	$card_meta = get_post_meta( $post->ID, '_rm_card_attributes', true);
+	$card_level = 0;
+	if( isset($card_meta) && isset($card_meta['output_level']) ) {
+		$card_level = (int) $card_meta['output_level'];
+	}
+	$output .= "
+		<p class=\"post-attributes-label-wrapper\"><label class=\"post-attributes-label\" for=\"rm_post_name\">Card URI</label></p>
+	";
 	
-	$output .= "<p class=\"post-attributes-label-wrapper\"><label class=\"post-attributes-label\" for=\"post_name\">Default Page</label></p>";
+	// Page attribution
+	$output .= "<p class=\"post-attributes-label-wrapper\"><label class=\"post-attributes-label\" for=\"post_name\">Level</label></p>";
+	$output .= "
+		<select name='output_level'>
+			<option value ".($card_level == 0 ? 'selected' : '').">default</option>
+			<option value='1' ".($card_level == 1 ? 'selected' : '').">h1</option>
+			<option value='2' ".($card_level == 2 ? 'selected' : '').">h2</option>
+			<option value='3' ".($card_level == 3 ? 'selected' : '').">h3</option>
+			<option value='4' ".($card_level == 4 ? 'selected' : '').">h4</option>
+		</select>
+	";
 	
 	if ( $post->post_parent == 0 ) {
 		$pages = get_pages();
@@ -82,6 +102,17 @@ add_action( 'save_post', 'rm_card_save' );
 function rm_card_save( $post_id ) {
 	if( $_POST['post_type'] != 'card') return;
 	
+	$card_meta  = get_post_meta( $post_id, '_rm_card_attributes', true);
+	if( !$card_meta ) $card_meta = array();
+	
+	// Output level
+	if( isset($_POST['output_level']) && $_POST['output_level'] != '' ) {
+		$card_meta['output_level'] = (int) $_POST['output_level'];
+	} else {
+		unset($card_meta['output_level']);
+	}
+	
+	// Card slug
 	$new_post_name = trim(sanitize_title_with_dashes($_POST['rm_post_name']), '-');
 	if($new_post_name != '') {
 		remove_action( 'save_post', 'rm_card_save' );
@@ -94,6 +125,7 @@ function rm_card_save( $post_id ) {
 		add_action( 'save_post', 'rm_card_save' );
 	}
 	
+	// Default page and parent index
 	$link_index = get_option('_rm_card_link_index');
 	if(!$link_index) $link_index = array();
 	if( !isset($_POST['parent_id']) || $_POST['parent_id'] == '') {
@@ -101,10 +133,12 @@ function rm_card_save( $post_id ) {
 		// saving index card
 		if ( isset($_POST['default_page']) && $_POST['default_page'] != '(not set)' ) {
 			$link_index[$post_id] = array( 'permalink' => get_page_link( $_POST['default_page'] ), 'title' => get_the_title( $_POST['default_page'] ) );
-			update_post_meta($post_id, '_rm_card_attributes', array( 'default_page' => $_POST['default_page']) );
+//			update_post_meta($post_id, '_rm_card_attributes', array( 'default_page' => $_POST['default_page']) );
+			$card_meta['default_page'] = $_POST['default_page'];
 		} else {
 			unset($link_index[$post_id]);
-			update_post_meta($post_id, '_rm_card_attributes', array() );
+//			update_post_meta($post_id, '_rm_card_attributes', array() );
+			unset($card_meta['default_page']);
 		}
 		
 	} else {
@@ -116,6 +150,7 @@ function rm_card_save( $post_id ) {
 		
 	}
 	
+	update_post_meta($post_id, '_rm_card_attributes', $card_meta );
 	update_option('_rm_card_link_index', $link_index);
 }
 

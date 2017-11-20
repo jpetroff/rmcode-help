@@ -35,12 +35,18 @@ function rm_recursive_output($id, $current_level, &$levels, &$all) {
 		);
 	}
 	
-	$section_id = $all[$id]->post_name;
-	$section_id_decl = $current_level != 1 ? "id='$section_id'" : '';
-	$section_title = $all[$id]->post_title;
-	$output = "<div class=\"card_level_$current_level\" data-level=\"$current_level\" data-title=\"$section_title\" $section_id_decl v-navblock>";
+	$card_meta = get_post_meta( $id, '_rm_card_attributes', true);
+	$_current_level = $current_level;
+	if( $card_meta && isset($card_meta['output_level']) && $card_meta['output_level'] != 0) {
+		$_current_level = $card_meta['output_level'];
+	}
 	
-	$output .= "<h$current_level class=\"single-page__header-$current_level\">".$section_title."</h$current_level>";
+	$section_id = $all[$id]->post_name;
+	$section_id_decl = $_current_level != 1 ? "id='$section_id'" : '';
+	$section_title = $all[$id]->post_title;
+	$output = "<div class=\"card_level_$_current_level\" data-level=\"$_current_level\" data-title=\"$section_title\" $section_id_decl v-navblock>";
+	
+	$output .= "<h$_current_level class=\"single-page__header-$_current_level\">".$section_title."</h$_current_level>";
 	$output .= apply_filters('the_content', $all[$id]->post_content);
 	
 	$output .= "</div>";

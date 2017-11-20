@@ -312,7 +312,7 @@ body {
 		ul,
 		ol {
 			//margin-left: -22px;
-			margin: 45px 0 0 -22px;
+			margin: 45px 0 0 0;
 			list-style: none;
 			padding: 0;
 			letter-spacing: -0.6px;
@@ -320,6 +320,7 @@ body {
 			li {
 				line-height: 28px;
 				font-weight: normal;
+				position: relative;
 			}
 		}
 
@@ -333,6 +334,9 @@ body {
 			color: #BCBCBC;
 			display: inline-block;
 			width: 22px;
+			position: absolute;
+			left: -22px;
+			top: 0;
 		}
 
 		ol li {
@@ -343,6 +347,9 @@ body {
 			color: #BCBCBC;
 			display: inline-block;
 			width: 22px;
+			position: absolute;
+			left: -22px;
+			top: 0;
 		}
 
 		div.card_level_1 {
