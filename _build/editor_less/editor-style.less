@@ -1,6 +1,6 @@
 
 @font-face {
-	font-family: 'Graphik';
+	font-family: 'Graphik', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	src: 	url('assets/fonts/graphic_n4-webfont.woff2') format('woff2'),
@@ -36,7 +36,7 @@
 body#tinymce {
 	padding-top: 30px !important;
 	padding-bottom: 30px !important;
-	font-family: 'Graphik';
+	font-family: 'Graphik', sans-serif;
 	background-color: #EDEDED;
 	font-size: 18px;
 	-webkit-font-smoothing: antialiased;
@@ -180,5 +180,49 @@ div.wpview[data-wpview-type="video"] {
 			margin-top: 0;
 		}
 
+	}
+}
+
+h2.single-page__header-2 {
+	font-size: 40px;
+	font-weight: 600;
+	letter-spacing: -2px;
+	padding-top: 23px;
+	border-top: 1px solid #ddd;
+	margin: 0 0 45px 0;
+	.elements-padding;
+}
+
+h3.single-page__header-3 {
+	font-size: 40px;
+	letter-spacing: -2.2px;
+	font-weight: 400;
+	margin: 0 0 42px 0;
+	.elements-padding;
+}
+
+h4.single-page__header-4,
+h4.single-page__header-5 {
+	font-size: 18px;
+	font-weight: 600;
+	margin: 50px 0 0 0;
+	letter-spacing: -0.4px;
+	line-height: 28px;
+	.elements-padding;
+}
+
+h4.single-page__header-5 {
+	color: #999;
+}
+
+table {
+	width: 700px;
+	border-collapse: collapse;
+	margin-left: 40px;
+	margin-top: 40px;
+	margin-right: 40px;
+
+	td {
+		padding: 8px 24px 8px 0;
 	}
 }

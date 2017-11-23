@@ -31,8 +31,12 @@ function rm_help_register_card() {
 		'has_archive'        => true,
 		'hierarchical'       => true,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author', 'page-attributes' )
+		'supports'           => array( 'title', 'editor', 'author', 'page-attributes', 'thumbnail' )
 	);
 	
 	register_post_type( 'card', $args );
 }
+
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'card-thumb', 205, 9999 );
+add_image_size( 'card-thumb-2x', 410, 9999 );

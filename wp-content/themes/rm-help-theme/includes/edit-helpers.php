@@ -209,6 +209,41 @@ function rm_filter_tiny_mce_before_init( $options ) {
 	$options['extended_valid_elements'] .= 'div[*],iframe[*],hint[*],media-wrapper[*],a[*]';
 	$options['valid_children'] .= '+div[hint|media-wrapper|a],+a[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6],+hint[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6]';
 	
+	$style_formats = array(
+		/*
+		* Each array child is a format with it's own settings
+		* Notice that each array has title, block, classes, and wrapper arguments
+		* Title is the label which will be visible in Formats menu
+		* Block defines whether it is a span, div, selector, or inline style
+		* Classes allows you to define CSS classes
+		* Wrapper whether or not to add a new block-level element around any selected elements
+		*/
+		array(
+			'title' => 'H2',
+			'block' => 'h2',
+			'classes' => 'single-page__header-2',
+			'wrapper' => true,
+		),
+		array(
+			'title' => 'H3',
+			'block' => 'h3',
+			'classes' => 'single-page__header-3',
+			'wrapper' => true,
+		),
+		array(
+			'title' => 'H4',
+			'block' => 'h4',
+			'classes' => 'single-page__header-4',
+			'wrapper' => true,
+		),
+	);
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$options['style_formats'] = json_encode( $style_formats );
+	
+//	echo '<pre>';
+//	var_dump($options['formats']);
+//	echo '</pre>';
+	
 	return $options;
 }
 

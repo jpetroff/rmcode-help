@@ -2,10 +2,10 @@
 	<div class="def-hint-box" v-bind:class="[ show ? 'show' : '', landed ? 'def-hint-box_transitions' : '' ]" v-bind:style="{height:this.elHeight}">
 		<div class="def-hint-box__toggle" v-on:click.prevent="toggle()" ref="toggleButton">
 			{{header}}
-			<i class="toggle-icon"><svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<i class="toggle-icon"><svg width="10px" height="15px" viewBox="0 0 10 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g id="close" stroke="#BEBEBE" stroke-width="1" stroke-linecap="round">
-					<path d="M1,1 L5,9" id="Line-3"></path>
-					<path d="M5,1 L9,9" id="Line-3" transform="translate(7.000000, 5.000000) scale(-1, 1) translate(-7.000000, -5.000000) "></path>
+					<path d="M1,1 L5,14"></path>
+					<path d="M9,1 L5,14"></path>
 				</g>
 			</svg></i>
 		</div>

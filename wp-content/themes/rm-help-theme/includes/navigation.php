@@ -2,7 +2,7 @@
 
 $templs['home'] = "<a href=\"%s\" class=\"second-level__item def-link\" v-rlink>%s</a>";
 
-$templs['content'] = "";
+$templs['content'] = '<a href="%1$s" class="content-navigation__item"><div class="content-navigation__item_icon">%3$s</div><div class="content-navigation__item_caption">%2$s</div></a>';
 
 function rm_show_menu_shortcode( $atts ) {
 	global $templs;
@@ -48,20 +48,62 @@ function rm_show_menu_shortcode( $atts ) {
 				</a>
 				<div class=\"homepage__section-list__second-level\">
 		";
-	}
-	
-	
-	if(count($q->posts) != 0) {
-		foreach ($q->posts as $card) {
-			$url = '/' . $setPage . '/#' . $card->post_name;
-			$newline = sprintf($templs[$a['template']],  $url, $card->post_title);
-			$output .= $newline;
+		
+		if(count($q->posts) != 0) {
+			foreach ($q->posts as $card) {
+				$url = '/' . $setPage . '/#' . $card->post_name;
+				$newline = sprintf($templs['home'],  $url, $card->post_title);
+				$output .= $newline;
+			}
 		}
-	}
-	
-	if($a['template'] == 'home') {
+		
 		$output .= "</div>
 			</div>";
+	}
+	
+	if($a['template'] == 'content') {
+		$posts_cnt = count($q->posts);
+		$rows = intdiv($posts_cnt, 3);
+		$curr_row = -1;
+		$item_cnt = 0;
+		foreach ($q->posts as $card) {
+			$url = '/' . $setPage . '/#' . $card->post_name;
+			
+			$post_thumb = get_the_post_thumbnail_url($card->ID, 'card-thumb');
+			$post_thumb_2x = get_the_post_thumbnail_url($card->ID, 'card-thumb-2x');
+			
+			if(!$post_thumb) {
+				$post_thumb = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+				$img_elem = '<img src="'.$post_thumb.'" width=205 height=180 />';
+			} else {
+				$img_elem = '<img src="'.$post_thumb.'" srcset="'.$post_thumb_2x.' 2x" />';
+			}
+			
+			$newline = sprintf($templs['content'],  $url, $card->post_title, $img_elem);
+			
+			$row_class = '';
+			
+			if($item_cnt % 3 == 0) {
+				$curr_row += 1;
+				
+				if($curr_row == 0)
+					$row_class .= ' single-page__content-navigation_first-row';
+				
+				if($curr_row == $rows)
+					$row_class .= ' single-page__content-navigation_last-row';
+				
+				if($curr_row != 0)
+					$output .= "</div>";
+				
+				$output .= "<div class=\"single-page__content-navigation row $row_class\">";
+			}
+			
+			$output .= $newline;
+			
+			if($item_cnt % 3 == 0)
+			$item_cnt++;
+		}
+		$output .= "</div>";
 	}
 	
 	return $output;
