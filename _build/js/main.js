@@ -9,19 +9,33 @@ w.Page = function() {
 			activeSection: ''
 		},
 		components: {
-			'hint': w.components['hint']
+			'hint': w.components['hint'],
+			'project-views': w.components['project-views']
 		},
 		mounted: function() {
-			this.recalcAnchorNav();
+			this.$nextTick(this.recalcAnchorNav);
 			this.$on('recalcAnchorNav', this.recalcAnchorNav);
 		},
 		directives: {
 			rlink: {
 				bind: function( el, binding, vnode ) {
-					el.addEventListener('click', _.bind(function(ev) {
-						ev.preventDefault();
-						this.linkClick( ev.currentTarget );
-					}, vnode.context) );
+					var linkHost = el.host || el.hostname;
+					var siteHost = w._home_url.host || w._home_url.hostname;
+					if (linkHost == siteHost) {
+
+						el.addEventListener('click', _.bind(function (ev) {
+							console.log(!ev.altKey && !ev.ctrlKey && !ev.metaKey && !ev.shiftKey);
+							if(!ev.altKey && !ev.ctrlKey && !ev.metaKey && !ev.shiftKey) {
+								ev.preventDefault();
+								this.linkClick(ev.currentTarget);
+							} else {
+								return true;
+							}
+						}, vnode.context));
+
+					} else {
+						el.target = '_blank';
+					}
 				}
 			},
 			navblock: {
@@ -54,6 +68,7 @@ w.Page = function() {
 			},
 			scrollSpy: function() {
 				if(this.scrollAnimationStarted == true) return;
+				console.log('!');
 				var pos = w.pageYOffset;
 				var navSection = this._getCurrentNavSection(pos);
 				// console.log(w.Router.url.hash, navSection[2]);

@@ -143,7 +143,8 @@ w.utils = {
 		return changeInValue * (Math.pow(currentIteration / totalIterations - 1, 3) + 1) + startValue;
 	},
 	outerHeight: function(el) {
-		var height = el.offsetHeight;
+		var height = el.clientHeight;
+		// console.log(height);
 		var style = getComputedStyle(el);
 
 		height += parseInt(style.marginTop) + parseInt(style.marginBottom);

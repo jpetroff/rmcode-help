@@ -84,7 +84,7 @@ function show_search_component() {
 						v-show=\"searchResultsState == 'success' || searchResultsState == 'inactive'\"
 						v-on:click.prevent='showResultPage(\$event.currentTarget)'
 					>
-						<div class='result-item__nav'>{{post.post_title}}{{post.parent_title != '' ? ' — ' + post.parent_title : ''}}</div>
+						<div class='result-item__nav'>{{post.post_title}}{{post.parent_title != '' ? ' • ' + post.parent_title : ''}}</div>
 						<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
 					</a>
 				</div>

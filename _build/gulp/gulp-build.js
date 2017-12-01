@@ -97,7 +97,8 @@ gulp.task('less', function(){
 		.pipe(order([
 			'less/prefix.less',
 			'libs/css/normalize.css',
-			'less/main.less'
+			'less/main.less',
+			'less/**'
 		],{base: src}))
 		.pipe(concat('style.css'));
 	if(!__prod)

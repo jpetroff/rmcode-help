@@ -1,11 +1,11 @@
 <template>
-	<div class="def-hint-box" v-bind:class="[ show ? 'show' : '', landed ? 'def-hint-box_transitions' : '' ]" v-bind:style="{height:this.elHeight}">
+	<div class="def-hint-box" v-bind:class="[ show ? 'show' : '', landed ? 'def-hint-box_transitions' : '' ]" v-bind:style="{height:this.elHeight+'px'}">
 		<div class="def-hint-box__toggle" v-on:click.prevent="toggle()" ref="toggleButton">
 			{{header}}
-			<i class="toggle-icon"><svg width="10px" height="15px" viewBox="0 0 10 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<i class="toggle-icon"><svg width="11px" height="15px" viewBox="0 0 11 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g id="close" stroke="#BEBEBE" stroke-width="1" stroke-linecap="round">
-					<path d="M1,1 L5,14"></path>
-					<path d="M9,1 L5,14"></path>
+					<path d="M1,1 L5.5,14" stroke-linejoin="round"></path>
+					<path d="M10,1 L5.5,14 L10,1 Z" stroke-linejoin="round"></path>
 				</g>
 			</svg></i>
 		</div>

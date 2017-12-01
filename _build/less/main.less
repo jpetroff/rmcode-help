@@ -79,13 +79,14 @@ body {
 }
 
 .page-content-wrapper {
-	width: 1024px;
+	width: 948px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .row {
-
+	margin-left: -21px;
+	margin-right: -21px;
 	&:after {
 		content: "";
 		display: table;
@@ -96,26 +97,28 @@ body {
 .col-third {
 	width: 33.32%;
 	float: left;
-	min-height: 10px;
+	padding: 0 21px;
+	box-sizing: border-box;
 }
 
 // HOMEPAGE
 
 .homepage {
+	padding-bottom: 155px;
 
 	&__main-header {
-		padding-top: 46px;
-		padding-left: 26px;
+		padding-top: 15px;
+		position: relative;
+		left: -10px;
 	}
 
 	&__menu {
-		margin-top: 280px;
+		margin-top: 310px;
 		letter-spacing: -0.3px;
 		margin-bottom: 74px;
 	}
 
 	&__section-list {
-		padding-right: 14px;
 
 		&__top-level {
 			text-decoration: none;
@@ -125,10 +128,11 @@ body {
 				height: 120px;
 				border-radius: 50%;
 				margin-bottom: 28px;
+				position: relative;
+				left: -30px;
 			}
 
 			.top-level__caption {
-				padding-left: 28px;
 				color: #000;
 				font-weight: 600;
 				line-height: 28px;
@@ -145,7 +149,7 @@ body {
 
 		&__second-level {
 			border-top: 1px solid #ddd;
-			margin-left: 28px;
+			//margin-left: 28px;
 			margin-top: 18px;
 
 			.second-level__item {
@@ -201,6 +205,11 @@ body {
 			text-decoration: none;
 			color: #000;
 			padding-top: 10px;
+			transition: opacity 0.2s ease;
+
+			&:hover {
+				opacity: 0.6;
+			}
 		}
 	}
 }
@@ -237,7 +246,7 @@ body {
 	.rm-logo {
 		width: 130px;
 		height: 30px;
-		margin-top: 80px;
+		margin-top: 40px;
 
 		svg {width: 100%; height: 100%}
 	}
@@ -261,12 +270,11 @@ body {
 // SINGLE PAGE
 
 .page-content {
-	width: 760px;
-	margin-left: 264px;
+	width: 700px;
+	margin-left: 248px;
 
 	&_narrow {
-		width: 700px;
-		margin-left: 294px;
+
 	}
 }
 
@@ -275,6 +283,32 @@ body {
 
 	.page-content {
 		letter-spacing: -0.6px;
+		padding-bottom: 100px;
+
+		code, textarea.code-block {
+			font-family: 'Roboto Mono', monospace;
+			font-size: 14px;
+			color: #777;
+			letter-spacing: 0;
+			line-height: 1.4;
+			font-weight: normal;
+		}
+
+		code.block {
+			white-space: pre;
+			border: 1px solid #ddd;
+			border-radius: 6px;
+			display: block;
+			margin: 18px 0 0 0;
+			padding: 18px 40px 22px 40px;
+			line-height: 1.5;
+		}
+
+		textarea.code-block {
+			width: 100%;
+			background: transparent;
+			border: none;
+		}
 
 		a {
 			text-decoration: none;
@@ -292,17 +326,20 @@ body {
 
 		p {
 			font-weight: 400;
-			//letter-spacing: -0.6px;
 			font-size: 18px;
 			line-height: 28px;
-			margin: 45px 0 0 0;
+			margin: 42px 0 0 0;
 		}
 
-		p + p, ul + p, ol + p {
+		p + p, ul + p, ol + p, code + p {
 			margin-top: 18px;
 		}
 		h4 + p, h5 + p {
 			margin-top: 0;
+		}
+
+		strong {
+			font-weight: 600;
 		}
 
 		img.page-content__responsive-image,
@@ -314,20 +351,24 @@ body {
 
 		ul,
 		ol {
-			//margin-left: -22px;
 			margin: 45px 0 0 0;
 			list-style: none;
 			padding: 0;
-			//letter-spacing: -0.6px;
 
 			li {
 				line-height: 28px;
 				font-weight: normal;
 				position: relative;
+
+				img.page-content__responsive-image,
+				video.page-content__responsive-video {
+					margin-top: 9px;
+					margin-bottom: 36px;
+				}
 			}
 		}
 
-		p + ol, p + ul, h4 + ol, h4 + ul, ul + ol, ol + ul {
+		p + ol, p + ul, h4 + ol, h4 + ul, ul + ol, ol + ul, h4 + table {
 			margin-top: 0;
 		}
 
@@ -349,10 +390,11 @@ body {
 			content: counter(list-order);
 			color: #BCBCBC;
 			display: inline-block;
-			width: 22px;
+			//width: 22px;
 			position: absolute;
-			left: -22px;
+			right: 100%;
 			top: 0;
+			padding-right: 15px;
 		}
 
 		div.card_level_1 {
@@ -370,8 +412,8 @@ body {
 			margin-top: 45px;
 		}
 
-		div.card_level_4 {
-
+		div.card_level_5 {
+			margin-top: 36px;
 		}
 
 		table {
@@ -404,6 +446,52 @@ body {
 					padding: 0 4px 0 3px;
 				}
 			}
+
+			&.two-column-description {
+				thead tr {
+					border-bottom: 1px solid #ddd;
+				}
+				td {
+					line-height: 24px;
+					width: 50%;
+					vertical-align: top;
+				}
+				tbody tr:last-child {
+					border: none;
+				}
+			}
+		}
+	}
+
+	&__header {
+		position: relative;
+
+		.direct-anchor {
+			position: absolute;
+			color: #ccc !important;
+			text-decoration: none;
+			font-size: 18px;
+			top: 0;
+			left: -1em;
+			visibility: hidden;
+			opacity: 0;
+			height: 100%;
+			font-weight: 600;
+			transition: all 0.2s ease 0s;
+			text-align: center;
+
+			&:active, &:visited, &:hover {
+				text-decoration: none;
+				color: #ccc !important;
+			}
+		}
+	}
+
+	&__header:hover {
+		.direct-anchor {
+			visibility: visible;
+			opacity: 1;
+			transition-delay: 0.5s;
 		}
 	}
 
@@ -415,6 +503,8 @@ body {
 		letter-spacing: -10.4px;
 		line-height: 1;
 		min-height: 224px;
+
+		.direct-anchor {width: 112px; height: 112px; line-height: 112px; top: 118px; left: -112px}
 	}
 
 	&__header-2 {
@@ -424,6 +514,8 @@ body {
 		padding-top: 23px;
 		border-top: 1px solid #ddd;
 		margin: 0 0 45px 0;
+
+		.direct-anchor {width: 40px; height: 40px; line-height: 40px; top: 23px; left: -40px}
 	}
 
 	&__header-3 {
@@ -431,20 +523,26 @@ body {
 		letter-spacing: -2.2px;
 		font-weight: 400;
 		margin: 0 0 42px 0;
+
+		.direct-anchor {width: 40px; height: 40px; line-height: 40px; top: 0; left: -40px}
 	}
 
 	&__header-4,
 	&__header-5 {
 		font-size: 18px;
 		font-weight: 600;
-		margin: 50px 0 0 0;
+		margin: 44px 0 0 0;
 		letter-spacing: -0.4px;
 		line-height: 28px;
+
+		.direct-anchor {width: 28px; height: 28px; line-height: 28px; top: 0; left: -28px}
 	}
 
 	&__header-5 {
-		margin-top: 36px;
-		color: #999;
+		font-size: 18px;
+		font-weight: 600;
+		margin: 0;
+		float: left;
 	}
 
 	&__feature-img {
@@ -465,10 +563,6 @@ body {
 
 		&_first-row {
 			margin-top: 100px;
-		}
-
-		&_last-row {
-			margin-bottom: 260px;
 		}
 
 		.content-navigation__item {
@@ -517,12 +611,14 @@ body {
 
 			.toggle-icon {
 				height: 15px;
-				width: 10px;
+				width: 11px;
 				position: absolute;
 				right: 40px;
 				top: 13px;
 				overflow: hidden;
 				contain: strict;
+
+				svg {position: absolute; top: 0; left: 0}
 			}
 
 			&:hover {
@@ -531,14 +627,30 @@ body {
 		}
 
 		&__content {
-			display: block;
 			visibility: hidden;
 			opacity: 0;
 			padding: 6px 40px 50px 40px;
 			transition: all 0.2s ease;
+			letter-spacing: -0.4px;
+			padding: 6px 40px 50px 40px;
+		}
+
+		&_non-interactive {
+			padding: 7px 40px 6px 40px;
+			color: #aaa;
+		}
+
+		&__content,
+		&_non-interactive {
+			display: block;
 
 			p:first-child,ul:first-child,ol:first-child {
 				margin-top: 0;
+			}
+
+			code.block {
+				padding: 0;
+				border: none;
 			}
 		}
 
@@ -601,7 +713,7 @@ body {
 		z-index: 10;
 
 		background: white;
-		height: 60px;
+		height: 56px;
 		border-radius: 30px;
 		width: 100%;
 	}
@@ -628,8 +740,8 @@ body {
 		background: transparent;
 		border-radius: 30px;
 		display: block;
-		height: 60px;
-		line-height: 60px;
+		height: 56px;
+		line-height: 56px;
 		font-size: 16px;
 		width: 100%;
 		outline: none;
@@ -658,11 +770,11 @@ body {
 
 	&__submit {
 		position: absolute;
-		top: 0;
+		top: 1px;
 		right: 0;
-		height: 60px;
+		height: 54px;
 		width: 112px;
-		line-height: 60px;
+		line-height: 54px;
 		border-radius: 30px;
 		background-color: #ccc;
 		color: white;
@@ -681,9 +793,9 @@ body {
 		position: absolute;
 		right: 112px;
 		top: 0;
-		width: 60px;
-		height: 60px;
-		padding: 19px 0 0 17px;
+		width: 56px;
+		height: 56px;
+		padding: 17px 0 0 15px;
 		box-sizing: border-box;
 		cursor: pointer;
 		z-index: 11;
@@ -722,7 +834,7 @@ body {
 
 	&__results {
 		position: absolute;
-		top: 59px;
+		top: 55px;
 		left: 0;
 		width: 100%;
 		border-radius: 30px;

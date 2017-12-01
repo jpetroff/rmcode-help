@@ -19,7 +19,7 @@ w.Router = {
 		w.currentPage = new Vue(w.Page());
 		w.currentPage.$mount(this.pageContainer);
 		w.currentPage.$el.dataset.visible = true;
-
+		w.currentPage.scrollAnimationStarted = true;
 		if(w.currentPage.navElements.length > 0) {
 			w.addEventListener('scroll', this.passScrollParams);
 		}

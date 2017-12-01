@@ -26,10 +26,12 @@ add_shortcode('video', 'rm_video_shortcode');
 function rm_recursive_output($id, $current_level, &$levels, &$all) {
 	global $create_nav, $current_page;
 	
+	$link = $current_level == 1 ? $current_page : $current_page."#".$all[$id]->post_name;
+	
 	if ($current_level == 1 || $current_level == 2) {
 		$create_nav[] = array(
 			'caption' => $all[$id]->post_title,
-			'link' => $current_level == 1 ? $current_page : $current_page."#".$all[$id]->post_name,
+			'link' => $link,
 			'level' => $current_level == 1 ? 'top' : 'secondary',
 			'post_name' => $all[$id]->post_name
 		);
@@ -46,7 +48,9 @@ function rm_recursive_output($id, $current_level, &$levels, &$all) {
 	$section_title = $all[$id]->post_title;
 	$output = "<div class=\"card_level_$_current_level\" data-level=\"$_current_level\" data-title=\"$section_title\" $section_id_decl v-navblock>";
 	
-	$output .= "<h$_current_level class=\"single-page__header-$_current_level\">".$section_title."</h$_current_level>";
+	$pseudo_link = "<a class='direct-anchor' ref='nofollow' href='$link'>#</a>";
+	$_sp = ($current_level == 5 ? '.&nbsp;' : '');
+	$output .= "<h$_current_level class=\"single-page__header single-page__header-$_current_level\">".$section_title.$_sp.$pseudo_link."</h$_current_level>";
 	$output .= apply_filters('the_content', $all[$id]->post_content);
 	
 	$output .= "</div>";
@@ -99,13 +103,19 @@ add_shortcode('output', 'rm_output_shortcode');
 function rm_hint_box_shortcode( $atts, $content, $tag) {
 	$header = (isset($atts['title']) && $atts['title'] != '') ? $atts['title'] : ucfirst($tag);
 	
-	$pattern = "#</?p *>#i";
-	$content = wpautop(preg_replace($pattern, '', $content));
+	$patterns = ["#^(\s*?(</p>)?)#i", "#((<p>)?\s*?)?$#i"];
+	$content = preg_replace_callback($patterns, function($matches) {
+		return '';
+	}, $content);
 	
-	$emptyp = "#<p>\s*</p>#i";
-	$content = preg_replace($emptyp, '', $content);
+	$content = apply_filters('the_content', $content);
+	$content = trim($content, " \n");
 	
-	$output = "<div is='hint' header='$header'> $content </div>";
+	if ($content != '') {
+		$output = "<div is='hint' header='$header'> $content </div>";
+	} else {
+		$output = "<div class='def-hint-box def-hint-box_non-interactive'><p>$header</p></div>";
+	}
 	
 	return $output;
 }
@@ -113,3 +123,34 @@ add_shortcode('hint', 'rm_hint_box_shortcode');
 add_shortcode('note', 'rm_hint_box_shortcode');
 add_shortcode('hints', 'rm_hint_box_shortcode');
 add_shortcode('notes', 'rm_hint_box_shortcode');
+
+add_filter( 'the_content', 'rm_content_filter', 100);
+function rm_content_filter( $content ) {
+	$emptyp = "#<p>\s*?</p>#i";
+	$content = preg_replace_callback($emptyp, function($matches) {
+		return '';
+	}, $content);
+	
+	$empty_nbsp = "#<p>\s*?&nbsp;\s*?</p>#i";
+	$content = preg_replace_callback($empty_nbsp, function($matches) {
+		return '';
+	}, $content);
+	
+	$content = do_shortcode($content);
+	
+	return $content;
+}
+
+add_shortcode('code', 'rm_code_block_shortcode');
+function rm_code_block_shortcode( $atts, $content ) {
+	$content = trim($content, "\n ");
+	$content = preg_replace_callback('#<\s*br\s*/>#i', function($matches) {
+		return "";
+	}, $content);
+	
+	$content = preg_replace_callback('#</?p>#i', function($matches) {
+		return "";
+	}, $content);
+	
+	return $content;
+}

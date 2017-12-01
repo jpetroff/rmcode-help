@@ -97,6 +97,7 @@ w.rmSearch = new Vue({
 		queryInput: function(val) {
 			this.value = val;
 			if(val == '') this.query = '';
+			this.submitAsYouType();
 		},
 		_requestResults: function() {
 			w.utils.ajax({
@@ -189,9 +190,9 @@ w.rmSearch = new Vue({
 			var pageContentLeftOffset = pageContent.offsetLeft;
 			var windowClientHeight = window.innerHeight;
 
-			this.presentation.width = this.presentation.isFront ? pageContentClientWidth : (pageContentClientWidth + 60);
+			this.presentation.width = pageContentClientWidth + 60;
 
-			this.presentation.left = this.presentation.isFront ? pageContentLeftOffset : (pageContentLeftOffset - 30);
+			this.presentation.left = pageContentLeftOffset - 30;
 
 			this.presentation.height = windowClientHeight;
 
@@ -253,7 +254,10 @@ w.rmSearch = new Vue({
 			}, this);
 
 			w.utils.updateDOM(setSubjectCrudeMethod);
-		}
+		},
+		submitAsYouType: _.debounce(function() {
+			this.submitSearch();
+		}, 1000)
 	}
 });
 

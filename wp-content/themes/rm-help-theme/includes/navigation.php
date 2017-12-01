@@ -100,7 +100,7 @@ function rm_show_menu_shortcode( $atts ) {
 			
 			$output .= $newline;
 			
-			if($item_cnt % 3 == 0)
+//			if($item_cnt % 3 == 0)
 			$item_cnt++;
 		}
 		$output .= "</div>";

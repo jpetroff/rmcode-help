@@ -29,7 +29,8 @@
 
 			editor.addCommand("insert_mdash", function() {
 				var selected_text = editor.selection.getContent();
-				var return_text = " — ";
+				// var return_text = " — ";
+				var return_text = "&#8239;&mdash;&#8198;"
 				editor.execCommand("mceInsertContent", 0, return_text);
 			});
 
