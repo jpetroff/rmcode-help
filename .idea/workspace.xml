@@ -2,28 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6b0f62-dc85-4e72-88f9-595abeb2496a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_build/components/project-views.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_build/less/project-views.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme.tar" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme.tar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/assets/fonts/fonts.css" afterPath="$PROJECT_DIR$/_build/assets/fonts/fonts.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/components/hint.vue" afterPath="$PROJECT_DIR$/_build/components/hint.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/editor_less/editor-style.less" afterPath="$PROJECT_DIR$/_build/editor_less/editor-style.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/gulp/gulp-build.js" afterPath="$PROJECT_DIR$/_build/gulp/gulp-build.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/js/main.js" afterPath="$PROJECT_DIR$/_build/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/js/router.js" afterPath="$PROJECT_DIR$/_build/js/router.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/js/search.js" afterPath="$PROJECT_DIR$/_build/js/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/js/utils.js" afterPath="$PROJECT_DIR$/_build/js/utils.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/less/main.less" afterPath="$PROJECT_DIR$/_build/less/main.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/tinymce_js/main.js" afterPath="$PROJECT_DIR$/_build/tinymce_js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/cache/8ec5419e0f9dd21ffb671076c131dc91.php" afterPath="$PROJECT_DIR$/wp-content/cache/8ec5419e0f9dd21ffb671076c131dc91.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/editor-style.css" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/editor-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/fonts/fonts.css" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/fonts/fonts.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/header.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/header.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/edit-helpers.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/edit-helpers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/shortcodes.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/shortcodes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/app.js" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/editor.js" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/editor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/style.css" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/style.css" />
@@ -40,18 +26,8 @@
       <file leaf-file-name="main.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_build/less/main.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="679">
-              <caret line="484" column="19" lean-forward="false" selection-start-line="484" selection-start-column="19" selection-end-line="484" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pace.modified.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_build/js/pace.modified.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state relative-caret-position="1046">
+              <caret line="911" column="23" lean-forward="false" selection-start-line="911" selection-start-column="23" selection-end-line="911" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -60,7 +36,7 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_build/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="677">
+            <state relative-caret-position="1890">
               <caret line="70" column="33" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
               <folding />
             </state>
@@ -70,7 +46,7 @@
       <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_build/js/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
+            <state relative-caret-position="864">
               <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
@@ -80,8 +56,8 @@
       <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_build/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-553">
-              <caret line="99" column="35" lean-forward="true" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+            <state relative-caret-position="-2272">
+              <caret line="189" column="29" lean-forward="true" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -90,77 +66,62 @@
       <file leaf-file-name="ajax-search.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1840">
-              <caret line="86" column="104" lean-forward="false" selection-start-line="86" selection-start-column="104" selection-end-line="86" selection-end-column="104" />
+            <state relative-caret-position="895">
+              <caret line="144" column="78" lean-forward="false" selection-start-line="144" selection-start-column="78" selection-end-line="144" selection-end-column="78" />
               <folding>
-                <marker date="1511795021563" expanded="true" signature="628:4283" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="840:1916" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="875:1180" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="1442:1866" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="1473:1856" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="1662:1845" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="1748:1833" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="1953:4085" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="1995:4069" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="2427:4060" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="2703:4050" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="2833:3107" ph="..." />
-                <marker date="1511795021563" expanded="false" signature="2878:2890" ph="..." />
-                <marker date="1511795021563" expanded="false" signature="2942:2954" ph="..." />
-                <marker date="1511795021563" expanded="false" signature="3012:3024" ph="..." />
-                <marker date="1511795021563" expanded="false" signature="3076:3088" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="3348:3549" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="3558:4039" ph="..." />
-                <marker date="1511795021563" expanded="true" signature="4122:4275" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="1905:6085" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="2117:3240" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="2152:2457" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="2486:2661" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="2766:3190" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="2797:3180" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="2986:3169" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="3072:3157" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="3277:5887" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="3319:5871" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="3751:5862" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="4027:5852" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="4157:4431" ph="..." />
+                <marker date="1512395071237" expanded="false" signature="4202:4214" ph="..." />
+                <marker date="1512395071237" expanded="false" signature="4266:4278" ph="..." />
+                <marker date="1512395071237" expanded="false" signature="4336:4348" ph="..." />
+                <marker date="1512395071237" expanded="false" signature="4400:4412" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="4517:4771" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="4630:4636" ph=" " />
+                <marker date="1512395071237" expanded="true" signature="4927:5024" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="5119:5320" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="5329:5841" ph="..." />
+                <marker date="1512395071237" expanded="true" signature="5924:6077" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project-views.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_build/components/project-views.vue">
+      <file leaf-file-name="custom-parse-request.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1107">
-              <caret line="41" column="30" lean-forward="false" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+            <state relative-caret-position="216">
+              <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navigation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php">
+      <file leaf-file-name="search.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/relevanssi/lib/search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="65" column="38" lean-forward="false" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
+            <state relative-caret-position="535">
+              <caret line="1153" column="51" lean-forward="false" selection-start-line="1153" selection-start-column="51" selection-end-line="1153" selection-end-column="51" />
               <folding>
-                <marker date="1512056805522" expanded="true" signature="1234:1526" ph="..." />
-                <marker date="1512056805522" expanded="true" signature="1314:1466" ph="..." />
-                <marker date="1512056805522" expanded="true" signature="1351:1389" ph="..." />
-                <marker date="1512056805522" expanded="true" signature="1362:1389" ph="..." />
-                <marker date="1512056805522" expanded="true" signature="1429:1457" ph="..." />
+                <marker date="1508847485457" expanded="true" signature="10479:10554" ph="SELECT COUNT... ${$relevanssi_table}" />
+                <marker date="1508847485457" expanded="true" signature="16609:17037" ph="SELECT DISTI... ${$relevanssi_table}" />
+                <marker date="1508847485457" expanded="true" signature="17606:18078" ph="SELECT relev... ${$relevanssi_table}" />
+                <marker date="1508847485457" expanded="true" signature="18374:18483" ph="SELECT COUNT... ${$relevanssi_table}" />
+                <marker date="1508847485457" expanded="true" signature="18729:18925" ph="SELECT COUNT... ${$relevanssi_table}" />
+                <marker date="1508847485457" expanded="true" signature="45888:46082" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
+                <marker date="1508847485457" expanded="true" signature="47233:47427" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
+                <marker date="1508847485457" expanded="true" signature="47964:48150" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shortcodes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/shortcodes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1059">
-              <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
-              <folding>
-                <marker date="1512121701601" expanded="true" signature="4238:4244" ph=" " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editor-style.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_build/editor_less/editor-style.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1076">
-              <caret line="138" column="17" lean-forward="false" selection-start-line="138" selection-start-column="17" selection-end-line="138" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -177,15 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>__jp0</find>
-      <find>widget-backend.groovehq.com</find>
-      <find>video</find>
-      <find>respo</find>
-      <find>def-</find>
-      <find>search</find>
-      <find>getPre</find>
-      <find>data</find>
-      <find>level</find>
       <find>async-upload</find>
       <find>@font</find>
       <find>document</find>
@@ -199,7 +151,6 @@
       <find>280</find>
       <find>single_</find>
       <find>li</find>
-      <find>li</find>
       <find>sing</find>
       <find>amount</find>
       <find>floa</find>
@@ -207,6 +158,16 @@
       <find>def-hi</find>
       <find>content-na</find>
       <find>scroll</find>
+      <find>proxy_atd</find>
+      <find>redirect</find>
+      <find>TSpell_redirect_call</find>
+      <find>redirect_call</find>
+      <find>apply</find>
+      <find>empty</find>
+      <find>clear</find>
+      <find>isAc</find>
+      <find>result</find>
+      <find>__nav</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -255,7 +216,6 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.js" />
         <option value="$PROJECT_DIR$/_build/gulpfile.js" />
         <option value="$PROJECT_DIR$/update-theme.sh" />
-        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
         <option value="$PROJECT_DIR$/_build/less/prefix.less" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/footer.php" />
@@ -263,7 +223,6 @@
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/header.php" />
         <option value="$PROJECT_DIR$/_build/js/utils.js" />
         <option value="$PROJECT_DIR$/_build/assets/fonts/fonts.css" />
-        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php" />
         <option value="$PROJECT_DIR$/_build/components/hint.vue" />
         <option value="$PROJECT_DIR$/_build/gulp/gulp-build.js" />
         <option value="$PROJECT_DIR$/_build/tinymce_js/main.js" />
@@ -273,9 +232,11 @@
         <option value="$PROJECT_DIR$/_build/editor_less/editor-style.less" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/shortcodes.php" />
-        <option value="$PROJECT_DIR$/_build/less/main.less" />
         <option value="$PROJECT_DIR$/_build/js/main.js" />
         <option value="$PROJECT_DIR$/_build/js/router.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php" />
+        <option value="$PROJECT_DIR$/_build/less/main.less" />
         <option value="$PROJECT_DIR$/_build/js/search.js" />
       </list>
     </option>
@@ -303,11 +264,11 @@
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="MAMP" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="426" />
-    <option name="y" value="22" />
-    <option name="width" value="1707" />
-    <option name="height" value="1362" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="328" />
+    <option name="y" value="194" />
+    <option name="width" value="1280" />
+    <option name="height" value="723" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -327,7 +288,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -385,6 +345,27 @@
               <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
               <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="relevanssi" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="relevanssi" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -407,6 +388,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -492,32 +474,34 @@
       <workItem from="1511119644037" duration="7818000" />
       <workItem from="1511258645095" duration="7847000" />
       <workItem from="1511346493101" duration="14248000" />
-      <workItem from="1511776033703" duration="32258000" />
+      <workItem from="1511776033703" duration="37908000" />
+      <workItem from="1512320186771" duration="7000" />
+      <workItem from="1512378590474" duration="10730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="345990000" />
+    <option name="totallyTimeSpent" value="362377000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="426" y="22" width="1707" height="1362" extended-state="0" />
+    <frame x="0" y="22" width="1920" height="1122" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17357357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16506922" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976654" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976654" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14534535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39936858" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976654" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -539,77 +523,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_build/gulp/gulp-watch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="25" column="105" lean-forward="false" selection-start-line="25" selection-start-column="105" selection-end-line="25" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_build/gulp/gulp-vue-extract.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1166">
-          <caret line="195" column="0" lean-forward="false" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/down.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/helper-page-front.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="168" lean-forward="false" selection-start-line="3" selection-start-column="168" selection-end-line="3" selection-end-column="168" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/tinymce.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="3" column="15884" lean-forward="false" selection-start-line="3" selection-start-column="15884" selection-end-line="3" selection-end-column="15884" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="89" column="22" lean-forward="false" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/tinymce-graphical-shortcode/tinymce-plugin/icitspots/editor_plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1098">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/plugins/media/plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4823">
-          <caret line="379" column="8" lean-forward="false" selection-start-line="379" selection-start-column="8" selection-end-line="379" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_build/node_modules/uglify-js/tools/node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-677">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_build/node_modules/gulp-uglify/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -709,7 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,14 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2295">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,7 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3969">
           <caret line="147" column="29" lean-forward="false" selection-start-line="147" selection-start-column="29" selection-end-line="147" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,7 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="9" column="87" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="9" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="23" column="6" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="23" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,7 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="99" column="29" lean-forward="false" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -810,7 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1074">
           <caret line="44" column="47" lean-forward="false" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -818,7 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1076">
           <caret line="138" column="17" lean-forward="false" selection-start-line="138" selection-start-column="17" selection-end-line="138" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -845,7 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1107">
           <caret line="41" column="30" lean-forward="false" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -853,7 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
           <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -881,62 +775,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_build/less/main.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="484" column="19" lean-forward="false" selection-start-line="484" selection-start-column="19" selection-end-line="484" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_build/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
+        <state relative-caret-position="1890">
           <caret line="70" column="33" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/tinymce-spellcheck/languages/tinymce-spellcheck.pot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/tinymce-spellcheck/includes/config-options.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2398">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/tinymce-spellcheck/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/tinymce-spellcheck/js/atd.core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6664">
+          <caret line="250" column="32" lean-forward="true" selection-start-line="250" selection-start-column="32" selection-end-line="250" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/tinymce-spellcheck/js/atd-nonvis-editor-plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1581">
+          <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/tinymce-spellcheck/includes/proxy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="41" column="34" lean-forward="false" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/tinymce-spellcheck/tinymce-spellcheck.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="265" column="54" lean-forward="false" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/tinymce-spellcheck/js/atd-autoproofread.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1944">
+          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/tinymce-spellcheck/includes/atd-l10n.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_build/js/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
+        <state relative-caret-position="864">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/relevanssi/lib/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="1153" column="51" lean-forward="false" selection-start-line="1153" selection-start-column="51" selection-end-line="1153" selection-end-column="51" />
+          <folding>
+            <marker date="1508847485457" expanded="true" signature="10479:10554" ph="SELECT COUNT... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="16609:17037" ph="SELECT DISTI... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="17606:18078" ph="SELECT relev... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="18374:18483" ph="SELECT COUNT... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="18729:18925" ph="SELECT COUNT... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="45888:46082" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
+            <marker date="1508847485457" expanded="true" signature="47233:47427" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
+            <marker date="1508847485457" expanded="true" signature="47964:48150" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1840">
-          <caret line="86" column="104" lean-forward="false" selection-start-line="86" selection-start-column="104" selection-end-line="86" selection-end-column="104" />
+        <state relative-caret-position="895">
+          <caret line="144" column="78" lean-forward="false" selection-start-line="144" selection-start-column="78" selection-end-line="144" selection-end-column="78" />
           <folding>
-            <marker date="1511795021563" expanded="true" signature="628:4283" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="840:1916" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="875:1180" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="1442:1866" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="1473:1856" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="1662:1845" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="1748:1833" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="1953:4085" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="1995:4069" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="2427:4060" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="2703:4050" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="2833:3107" ph="..." />
-            <marker date="1511795021563" expanded="false" signature="2878:2890" ph="..." />
-            <marker date="1511795021563" expanded="false" signature="2942:2954" ph="..." />
-            <marker date="1511795021563" expanded="false" signature="3012:3024" ph="..." />
-            <marker date="1511795021563" expanded="false" signature="3076:3088" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="3348:3549" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="3558:4039" ph="..." />
-            <marker date="1511795021563" expanded="true" signature="4122:4275" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="1905:6085" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="2117:3240" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="2152:2457" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="2486:2661" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="2766:3190" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="2797:3180" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="2986:3169" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="3072:3157" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="3277:5887" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="3319:5871" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="3751:5862" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="4027:5852" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="4157:4431" ph="..." />
+            <marker date="1512395071237" expanded="false" signature="4202:4214" ph="..." />
+            <marker date="1512395071237" expanded="false" signature="4266:4278" ph="..." />
+            <marker date="1512395071237" expanded="false" signature="4336:4348" ph="..." />
+            <marker date="1512395071237" expanded="false" signature="4400:4412" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="4517:4771" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="4630:4636" ph=" " />
+            <marker date="1512395071237" expanded="true" signature="4927:5024" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="5119:5320" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="5329:5841" ph="..." />
+            <marker date="1512395071237" expanded="true" signature="5924:6077" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_build/less/main.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1046">
+          <caret line="911" column="23" lean-forward="false" selection-start-line="911" selection-start-column="23" selection-end-line="911" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_build/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-553">
-          <caret line="99" column="35" lean-forward="true" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+        <state relative-caret-position="-2272">
+          <caret line="189" column="29" lean-forward="true" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
           <folding />
         </state>
       </provider>

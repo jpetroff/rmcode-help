@@ -4,13 +4,60 @@ add_action( 'wp_ajax_search', 'get_ajax_search_results' );
 add_action( 'wp_ajax_nopriv_search', 'get_ajax_search_results' );
 
 function get_ajax_search_results( $wp ) {
+	global $modify_suggested, $disable_suggestions;
 	$q = new WP_Query();
 	$q->query_vars['s'] = $wp->query_vars['s'];
+	
+	if($_GET['limit'] == 'true')
+		$q->query_vars['posts_per_page'] = 4;
+	
+	$modify_suggested = null;
+	$disable_suggestions = false;
+	
+	add_filter('relevanssi_hits_filter', function( $hits ) {
+		global $modify_suggested, $disable_suggestions;
+		
+		if($disable_suggestions) return $hits;
+		
+		$has_corrections = false;
+		$words = explode(" ", $hits[1]);
+		
+		if(function_exists('pspell_new')) {
+			$pspell = pspell_new('en_US');
+			
+			foreach ($words as $key => $word) {
+				if(!pspell_check($pspell, $word)) {
+					$suggestions = pspell_suggest($pspell, $word);
+					if(count($suggestions) > 0) {
+						$words[$key] = $suggestions[0];
+						$has_corrections = true;
+					}
+				}
+			}
+		}
+		
+		if($has_corrections)
+			$modify_suggested = implode(' ', $words);
+		
+		if( DEFINED('LOCAL') )
+			$modify_suggested = 'editor';
+		
+		return $hits;
+	});
 	
 	relevanssi_do_query($q);
 	$link_index = get_option('_rm_card_link_index');
 	
-	wp_send_json( array( 'posts' => $q->posts, 'link_index' => $link_index ) );
+	if( $modify_suggested != null && count($q->posts) == 0 ) {
+		// if nothing found, try modified suggestion
+		$q->query_vars['s'] = $modify_suggested;
+		$disable_suggestions = true;
+		relevanssi_do_query($q);
+	}
+	
+	$hasMore = ( count($q->posts) < $q->found_posts ) ? true : false;
+	
+	wp_send_json( array( 'posts' => $q->posts, 'link_index' => $link_index, 'suggested' => $modify_suggested, 'has_more' => $hasMore, 'modified_results' => $disable_suggestions ) );
 	wp_die();
 }
 
@@ -35,7 +82,13 @@ function show_search_component() {
 				ref='queryInput'
 			>
 			
-			<input type='submit' class='search-component__submit' v-bind:class=\"[isActive ? 'active' : '']\" value='Search' v-on:click.prevent='submitSearch(true)'>
+			<input type='submit'
+				class='search-component__submit' v-bind:class=\"[isActive ? 'active' : '']\"
+				value='Search'
+				v-on:click.prevent='submitSearch(true)'
+				v-show=\"query != ''\"
+			>
+			
 			<div class='search-component__clear' v-show=\"value.length > 0\" v-on:click.prevent='clearQuery'>
 				<div class='clear-button'>
 					<svg class='clear-button-cross' width=\"10px\" height=\"10px\" viewBox=\"0 0 10 10\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">
@@ -69,8 +122,13 @@ function show_search_component() {
 						<div class='fake-line-loader break' style='width:180px;'></div>
 						<div class='fake-line-loader' style='width:450px;'></div>
 					</div>
+					<div class='search-component__result-item suggestion' v-show=\"showSuggestion\">
+					 	<span v-if='!modifiedResults'>Did you mean</span><span v-if='modifiedResults'>Showing results for</span>&nbsp;<a href='#' class='new-query' v-on:click.prevent='applySuggestion'>{{correction}}</a><span v-if='!modifiedResults' >?</span>
+					</div>
+					<div class='search-component__result-item empty' v-bind:class=\"[correction != '' ? 'has-correction' : '']\" v-show=\"searchResultsState == 'empty'\">
+						<div class='empty-wrapper' >Nothing found for <strong>{{query}}</strong></div>
+					</div>
 					
-					<div class='search-component__result-item empty' v-show=\"searchResultsState == 'empty'\">Nothing found for <strong>{{query}}</strong></div>
 					<a 	v-bind:href=\" 'mailto:support@readymag.com?subject=' + encodedQuerySubject \"
 						class='search-component__result-item empty contact' v-show=\"searchResultsState == 'empty'\"
 						v-on:click='contactSupport(\$event)'
@@ -84,7 +142,7 @@ function show_search_component() {
 						v-show=\"searchResultsState == 'success' || searchResultsState == 'inactive'\"
 						v-on:click.prevent='showResultPage(\$event.currentTarget)'
 					>
-						<div class='result-item__nav'>{{post.post_title}}{{post.parent_title != '' ? ' • ' + post.parent_title : ''}}</div>
+						<div class='result-item__nav'><span v-html='post.post_highlighted_title'></span>{{post.parent_title != '' ? ' • ' + post.parent_title : ''}}</div>
 						<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
 					</a>
 				</div>

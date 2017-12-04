@@ -5,6 +5,7 @@ w.rmSearch = new Vue({
 		waitingForResults: false,
 		inputFocus: false,
 		results: [],
+		correction: '',
 		presentation: {
 			width: 760,
 			left: 0,
@@ -18,7 +19,10 @@ w.rmSearch = new Vue({
 		},
 		showResultsPanel: false,
 		onlyHints: false,
-		postponeUntilTransitionEnd: false
+		postponeUntilTransitionEnd: false,
+		fullResultsRequested: false,
+		hasMore: false,
+		modifiedResults: false
 	},
 	beforeMount: function() {
 		this.getPresentationParams();
@@ -36,7 +40,10 @@ w.rmSearch = new Vue({
 	},
 	computed: {
 		isActive: function() {
-			if(this.value.length != 0 && this.query != this.value)
+			// if(this.value.length != 0 && this.query != this.value)
+			// 	return true;
+
+			if(this.value.length != 0 && this.hasMore)
 				return true;
 
 			return false;
@@ -91,27 +98,44 @@ w.rmSearch = new Vue({
 				return encodeURI('Looking for: ' + this.query);
 			}
 			return '';
+		},
+		showSuggestion: function() {
+			if(
+				this.results.length == 0 ||
+				this.correction == ''
+			) {
+				return false;
+			} else {
+				return true;
+			}
 		}
 	},
 	methods: {
 		queryInput: function(val) {
 			this.value = val;
 			if(val == '') this.query = '';
-			this.submitAsYouType();
+			this.submitSearch( false, true );
 		},
-		_requestResults: function() {
+		requestResults: function( _applyLimit ) {
+			var applyLimit = _applyLimit ? true : false;
 			w.utils.ajax({
 				url: w._home_url.href + 'search/',
 				method: 'GET',
 				data: {
-					s: this.query
+					s: this.query,
+					limit: _applyLimit
 				}
 			}).then(_.bind(
 				function(data) {
 					var results = JSON.parse(data);
 					var result_posts = results['posts'];
 					var link_index = results['link_index'];
+
 					this.onlyHints = true;
+					this.correction = results.suggested ? results.suggested : '';
+					this.hasMore = results.has_more;
+					this.modifiedResults = results.modified_results;
+
 					for(var i = 0; i < result_posts.length; i++) {
 						if(result_posts[i].post_type != 'hint') {
 							this.onlyHints = false;
@@ -147,8 +171,11 @@ w.rmSearch = new Vue({
 				)
 			)
 		},
-		submitSearch: function( returnFocus ) {
-			if(this.isActive == false) {
+		_requestResults: _.debounce(function() {
+			if(!this.fullResultsRequested) this.requestResults(true);
+		}, 500),
+		submitSearch: function( returnFocus, useDebounce ) {
+			if(!useDebounce && this.isActive == false) {
 				return;
 			}
 
@@ -158,7 +185,15 @@ w.rmSearch = new Vue({
 			this.presentation.scrollContainerHeight = 0;
 			this.presentation.scrollCoefficient = 1;
 			this.onlyHints = false;
-			this._requestResults();
+			this.correction = '';
+			this.hasMore = false;
+			if(useDebounce) {
+				this.fullResultsRequested = false;
+				this._requestResults();
+			} else {
+				this.fullResultsRequested = true;
+				this.requestResults();
+			}
 		},
 		_calcMaxHeight: function() {
 			return this.presentation.height - this.$el.offsetTop - 59 - 50;
@@ -209,6 +244,7 @@ w.rmSearch = new Vue({
 
 			this.value = '';
 			this.query = '';
+			// this.correction = '';
 			this.$refs.queryInput.focus();
 		},
 		contactSupport: function(ev) {
@@ -255,9 +291,15 @@ w.rmSearch = new Vue({
 
 			w.utils.updateDOM(setSubjectCrudeMethod);
 		},
-		submitAsYouType: _.debounce(function() {
+		submitAsYouType: function() {
 			this.submitSearch();
-		}, 1000)
+		},
+		applySuggestion: function() {
+			// this.query = this.correction;
+			this.value = this.correction;
+			this.correction = '';
+			this.submitSearch( true );
+		}
 	}
 });
 

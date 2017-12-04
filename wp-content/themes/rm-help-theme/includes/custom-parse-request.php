@@ -5,6 +5,7 @@
 function rm_query_vars( $query_vars ){
 	$query_vars[] = 'api-page';
 	$query_vars[] = 'api-search';
+//	$query_vars[] = 'limit';
 	return $query_vars;
 }
 add_filter( 'query_vars', 'rm_query_vars' );
