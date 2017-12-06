@@ -4,7 +4,7 @@ $templs['home'] = "<a href=\"%s\" class=\"second-level__item def-link\" v-rlink>
 
 $templs['content'] = '<a href="%1$s" class="content-navigation__item"><div class="content-navigation__item_icon">%3$s</div><div class="content-navigation__item_caption">%2$s</div></a>';
 
-function rm_show_menu_shortcode( $atts ) {
+function rm_show_menu_shortcode( $atts, $content ) {
 	global $templs;
 	$output = '';
 	
@@ -36,15 +36,25 @@ function rm_show_menu_shortcode( $atts ) {
 		$setIcon = $a['icon'];
 		$hasColor = $a['color'] ? 'style="color:'.$a['color'].'"' : '';
 		$iconColor = $a['color'] ? 'style="background:'.$a['color'].'"' : '';
+		
+		if ( $content ) {
+			$head = $content;
+		} else {
+			$head = "
+					<div class=\"top - level__icon\" $iconColor>
+						$setIcon
+					</div>
+					<div class=\"top - level__caption\">
+						$setTitle
+					</div>
+			";
+		}
+		
+		
 		$output .= "
 		<div class=\"homepage__section-list section-list__editor\" $hasColor>
 				<a href=\"/$setPage/\" v-rlink class=\"homepage__section-list__top-level\">
-					<div class=\"top-level__icon\" $iconColor>
-						$setIcon
-					</div>
-					<div class=\"top-level__caption\">
-						$setTitle
-					</div>
+					$head
 				</a>
 				<div class=\"homepage__section-list__second-level\">
 		";

@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6b0f62-dc85-4e72-88f9-595abeb2496a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme.tar" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme.tar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/js/search.js" afterPath="$PROJECT_DIR$/_build/js/search.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_build/less/main.less" afterPath="$PROJECT_DIR$/_build/less/main.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/cache/8ec5419e0f9dd21ffb671076c131dc91.php" afterPath="$PROJECT_DIR$/wp-content/cache/8ec5419e0f9dd21ffb671076c131dc91.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/editor-style.css" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/editor-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/app.js" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/editor.js" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/editor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/style.css" afterPath="$PROJECT_DIR$/wp-content/themes/rm-help-theme/style.css" />
@@ -26,9 +22,34 @@
       <file leaf-file-name="main.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_build/less/main.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1046">
-              <caret line="911" column="23" lean-forward="false" selection-start-line="911" selection-start-column="23" selection-end-line="911" selection-end-column="23" />
+            <state relative-caret-position="486">
+              <caret line="833" column="0" lean-forward="true" selection-start-line="833" selection-start-column="0" selection-end-line="833" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pencil.svg" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Downloads/pencil.svg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="803">
+              <caret line="56" column="25" lean-forward="false" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+              <folding>
+                <marker date="1512563091568" expanded="true" signature="1275:1302" ph="..." />
+                <marker date="1512563091568" expanded="true" signature="1344:1372" ph="..." />
+                <marker date="1512563091568" expanded="true" signature="1475:1635" ph="..." />
+                <marker date="1512563091568" expanded="true" signature="1555:1575" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_build/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2272">
-              <caret line="189" column="29" lean-forward="true" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
+            <state relative-caret-position="27">
+              <caret line="189" column="29" lean-forward="false" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -66,7 +87,7 @@
       <file leaf-file-name="ajax-search.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="895">
+            <state relative-caret-position="3888">
               <caret line="144" column="78" lean-forward="false" selection-start-line="144" selection-start-column="78" selection-end-line="144" selection-end-column="78" />
               <folding>
                 <marker date="1512395071237" expanded="true" signature="1905:6085" ph="..." />
@@ -110,7 +131,7 @@
       <file leaf-file-name="search.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/relevanssi/lib/search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
+            <state relative-caret-position="27">
               <caret line="1153" column="51" lean-forward="false" selection-start-line="1153" selection-start-column="51" selection-end-line="1153" selection-end-column="51" />
               <folding>
                 <marker date="1508847485457" expanded="true" signature="10479:10554" ph="SELECT COUNT... ${$relevanssi_table}" />
@@ -187,7 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigtion.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/tinymce-advanced/mce/visualchars/plugin.js" />
         <option value="$PROJECT_DIR$/wp-content/plugins/tinymce-advanced/mce/visualchars/plugin.min.js" />
         <option value="$PROJECT_DIR$/wp-content/plugins/tinymce-advanced/tinymce-advanced.php" />
@@ -230,14 +250,15 @@
         <option value="$PROJECT_DIR$/_build/less/project-views.less" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/edit-helpers.php" />
         <option value="$PROJECT_DIR$/_build/editor_less/editor-style.less" />
-        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/shortcodes.php" />
         <option value="$PROJECT_DIR$/_build/js/main.js" />
         <option value="$PROJECT_DIR$/_build/js/router.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php" />
-        <option value="$PROJECT_DIR$/_build/less/main.less" />
         <option value="$PROJECT_DIR$/_build/js/search.js" />
+        <option value="$PROJECT_DIR$/_build/less/main.less" />
+        <option value="$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php" />
+        <option value="$USER_HOME$/Downloads/pencil.svg" />
       </list>
     </option>
   </component>
@@ -264,11 +285,10 @@
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="MAMP" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="328" />
-    <option name="y" value="194" />
-    <option name="width" value="1280" />
-    <option name="height" value="723" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1920" />
+    <option name="height" value="1123" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -346,21 +366,6 @@
               <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="relevanssi" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rmcode-help" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="relevanssi" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="rmcode-help" type="b2602c69:ProjectViewProjectNode" />
@@ -477,17 +482,18 @@
       <workItem from="1511776033703" duration="37908000" />
       <workItem from="1512320186771" duration="7000" />
       <workItem from="1512378590474" duration="10730000" />
+      <workItem from="1512561960756" duration="1411000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="362377000" />
+    <option name="totallyTimeSpent" value="363788000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1122" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="1123" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16506922" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16666667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -523,13 +529,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_build/node_modules/gulp-uglify/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -751,20 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="65" column="38" lean-forward="false" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
-          <folding>
-            <marker date="1512056805522" expanded="true" signature="1234:1526" ph="..." />
-            <marker date="1512056805522" expanded="true" signature="1314:1466" ph="..." />
-            <marker date="1512056805522" expanded="true" signature="1351:1389" ph="..." />
-            <marker date="1512056805522" expanded="true" signature="1362:1389" ph="..." />
-            <marker date="1512056805522" expanded="true" signature="1429:1457" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/shortcodes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1059">
@@ -854,26 +839,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/relevanssi/lib/search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="1153" column="51" lean-forward="false" selection-start-line="1153" selection-start-column="51" selection-end-line="1153" selection-end-column="51" />
-          <folding>
-            <marker date="1508847485457" expanded="true" signature="10479:10554" ph="SELECT COUNT... ${$relevanssi_table}" />
-            <marker date="1508847485457" expanded="true" signature="16609:17037" ph="SELECT DISTI... ${$relevanssi_table}" />
-            <marker date="1508847485457" expanded="true" signature="17606:18078" ph="SELECT relev... ${$relevanssi_table}" />
-            <marker date="1508847485457" expanded="true" signature="18374:18483" ph="SELECT COUNT... ${$relevanssi_table}" />
-            <marker date="1508847485457" expanded="true" signature="18729:18925" ph="SELECT COUNT... ${$relevanssi_table}" />
-            <marker date="1508847485457" expanded="true" signature="45888:46082" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
-            <marker date="1508847485457" expanded="true" signature="47233:47427" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
-            <marker date="1508847485457" expanded="true" signature="47964:48150" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/ajax-search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="895">
+        <state relative-caret-position="3888">
           <caret line="144" column="78" lean-forward="false" selection-start-line="144" selection-start-column="78" selection-end-line="144" selection-end-column="78" />
           <folding>
             <marker date="1512395071237" expanded="true" signature="1905:6085" ph="..." />
@@ -903,6 +871,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_build/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="189" column="29" lean-forward="false" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_build/less/main.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="833" column="0" lean-forward="true" selection-start-line="833" selection-start-column="0" selection-end-line="833" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/navigation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="803">
+          <caret line="56" column="25" lean-forward="false" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+          <folding>
+            <marker date="1512563091568" expanded="true" signature="1275:1302" ph="..." />
+            <marker date="1512563091568" expanded="true" signature="1344:1372" ph="..." />
+            <marker date="1512563091568" expanded="true" signature="1475:1635" ph="..." />
+            <marker date="1512563091568" expanded="true" signature="1555:1575" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/relevanssi/lib/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1153" column="51" lean-forward="false" selection-start-line="1153" selection-start-column="51" selection-end-line="1153" selection-end-column="51" />
+          <folding>
+            <marker date="1508847485457" expanded="true" signature="10479:10554" ph="SELECT COUNT... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="16609:17037" ph="SELECT DISTI... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="17606:18078" ph="SELECT relev... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="18374:18483" ph="SELECT COUNT... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="18729:18925" ph="SELECT COUNT... ${$relevanssi_table}" />
+            <marker date="1508847485457" expanded="true" signature="45888:46082" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
+            <marker date="1508847485457" expanded="true" signature="47233:47427" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
+            <marker date="1508847485457" expanded="true" signature="47964:48150" ph="SELECT tt.te... ${$wpdb-&gt;term_taxonomy}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/rm-help-theme/includes/custom-parse-request.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -911,18 +925,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_build/less/main.less">
+    <entry file="file://$USER_HOME$/Downloads/pencil.svg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1046">
-          <caret line="911" column="23" lean-forward="false" selection-start-line="911" selection-start-column="23" selection-end-line="911" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_build/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2272">
-          <caret line="189" column="29" lean-forward="true" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="6" />
           <folding />
         </state>
       </provider>
