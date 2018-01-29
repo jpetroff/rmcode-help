@@ -3,8 +3,8 @@
 function rm_img_shortcode( $atts, $content ) {
 	$w = $atts['w'];
 	$h = $atts['h'];
-	$img_1x = $atts['f'];
-	$img_2x = $atts['rf'];
+	$img_1x = parse_url($atts['f'], PHP_URL_PATH);
+	$img_2x = parse_url($atts['rf'], PHP_URL_PATH);
 	
 	return "<img class=\"page-content__responsive-image\" width=\"$w\" height=\"$h\" src=\"$img_1x\" srcset=\"$img_2x 2x\" />";
 }
@@ -13,7 +13,7 @@ add_shortcode('img', 'rm_img_shortcode');
 function rm_video_shortcode( $atts, $content ) {
 	$w = $atts['width'];
 	$h = $atts['height'];
-	$src = $atts['src'];
+	$src = parse_url($atts['src'], PHP_URL_PATH);
 	$autoplay = $atts['autoplay'] == 'on' ? 'autoplay' : '';
 	$loop = $atts['loop'] == 'on' ? 'loop' : '';
 	$controls = $atts['controls'] == 'on' ? 'controls' : '';

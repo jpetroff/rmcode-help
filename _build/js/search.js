@@ -22,7 +22,8 @@ w.rmSearch = new Vue({
 		postponeUntilTransitionEnd: false,
 		fullResultsRequested: false,
 		hasMore: false,
-		modifiedResults: false
+		modifiedResults: false,
+		SHORT_LIMIT: 4
 	},
 	beforeMount: function() {
 		this.getPresentationParams();
@@ -123,7 +124,8 @@ w.rmSearch = new Vue({
 				method: 'GET',
 				data: {
 					s: this.query,
-					limit: _applyLimit
+					limit: _applyLimit,
+					limitNum: this.SHORT_LIMIT
 				}
 			}).then(_.bind(
 				function(data) {
@@ -194,6 +196,10 @@ w.rmSearch = new Vue({
 				this.fullResultsRequested = true;
 				this.requestResults();
 			}
+		},
+		expandResults: function() {
+			this.hasMore = false;
+			this.$nextTick(this._calcScroll);
 		},
 		_calcMaxHeight: function() {
 			return this.presentation.height - this.$el.offsetTop - 59 - 50;

@@ -24,9 +24,12 @@ w.Page = function() {
 					if (linkHost == siteHost) {
 
 						el.addEventListener('click', _.bind(function (ev) {
-							console.log(!ev.altKey && !ev.ctrlKey && !ev.metaKey && !ev.shiftKey);
+
 							if(!ev.altKey && !ev.ctrlKey && !ev.metaKey && !ev.shiftKey) {
 								ev.preventDefault();
+								var pos = w.pageYOffset;
+
+								w.history && w.history.replaceState({backPos: pos}, null, w.location.href);
 								this.linkClick(ev.currentTarget);
 							} else {
 								return true;
@@ -45,10 +48,11 @@ w.Page = function() {
 			}
 		},
 		methods: {
-			linkClick: function( el ) {
-				w.Router.changePage(el);
+			linkClick: function( el, state ) {
+				if(!state) state = {};
+				w.Router.changePage(el, false, state);
 			},
-			localLink: function(hash) {
+			localLink: function(hash,state) {
 				if(
 					typeof hash == 'undefined' ||
 					hash == null ||
@@ -61,17 +65,21 @@ w.Page = function() {
 
 				var navSection = this._getCurrentNavSection(position);
 				this.activeSection = navSection[2];
-				w.Router && w.Router.updateUrl(w.Router.url.path, w.Router.url.hash, this.navItems[hash].title+' — '+w._site_title);
+				w.Router && w.Router.updateUrl(w.Router.url.path, w.Router.url.hash, this.navItems[hash].title);
+
+				if (state && state.backPos) {
+					position = state.backPos;
+				}
 				w.utils.scrollTop(position, true, _.bind(function() {
 					w.utils.updateDOM(function() {this.scrollAnimationStarted = false}, this);
 				}, this));
 			},
 			scrollSpy: function() {
 				if(this.scrollAnimationStarted == true) return;
-				console.log('!');
+
 				var pos = w.pageYOffset;
 				var navSection = this._getCurrentNavSection(pos);
-				// console.log(w.Router.url.hash, navSection[2]);
+
 				if(w.Router.url.hash != navSection[2]) {
 					console.log('changed to ' + navSection[2]);
 					this.activeSection = navSection[2];

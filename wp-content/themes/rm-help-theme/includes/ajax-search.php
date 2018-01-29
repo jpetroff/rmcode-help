@@ -8,8 +8,8 @@ function get_ajax_search_results( $wp ) {
 	$q = new WP_Query();
 	$q->query_vars['s'] = $wp->query_vars['s'];
 	
-	if($_GET['limit'] == 'true')
-		$q->query_vars['posts_per_page'] = 4;
+//	if($_GET['limit'] == 'true')
+//		$q->query_vars['posts_per_page'] = 4;
 	
 	$modify_suggested = null;
 	$disable_suggestions = false;
@@ -39,8 +39,8 @@ function get_ajax_search_results( $wp ) {
 		if($has_corrections)
 			$modify_suggested = implode(' ', $words);
 		
-		if( DEFINED('LOCAL') )
-			$modify_suggested = 'editor';
+//		if( DEFINED('LOCAL') )
+//			$modify_suggested = 'editor';
 		
 		return $hits;
 	});
@@ -55,9 +55,23 @@ function get_ajax_search_results( $wp ) {
 		relevanssi_do_query($q);
 	}
 	
-	$hasMore = ( count($q->posts) < $q->found_posts ) ? true : false;
+//	$hasMore = ( count($q->posts) < $q->found_posts ) ? true : false;
+	$hasMore = ( (int)$_GET['limitNum'] < count($q->posts) ) ? true : false;
 	
-	wp_send_json( array( 'posts' => $q->posts, 'link_index' => $link_index, 'suggested' => $modify_suggested, 'has_more' => $hasMore, 'modified_results' => $disable_suggestions ) );
+	$hints = [];
+	if( strpos($q->query_vars['s'], 'page') !== false && strpos($q->query_vars['s'], 'width' ) !== false ) {
+		array_push($hints,
+			array(
+				'post_type' => 'hint',
+				'post_excerpt' => 'It is not possible to change page width in Readymag. See <a href="/editor/#dotted-frame" target="_blank">Dotted Frame</a>',
+				'display_link' => '#',
+				'post_highlighted_title' => 'Hint: changing page width',
+				'parent_title' => ''
+			)
+		);
+	}
+	
+	wp_send_json( array( 'posts' => $hints + $q->posts, 'link_index' => $link_index, 'suggested' => $modify_suggested, 'has_more' => $hasMore, 'modified_results' => $disable_suggestions ) );
 	wp_die();
 }
 
@@ -77,7 +91,7 @@ function show_search_component() {
 				v-bind:value='value'
 				v-on:input='queryInput(\$event.target.value)'
 				v-on:focus='inputFocus = true'
-				v-on:keypress.enter.prevent='submitSearch'
+				v-on:keypress.enter.prevent='expandResults'
 				placeholder='Search feature, setting, shortcuts, etc'
 				ref='queryInput'
 			>
@@ -85,7 +99,7 @@ function show_search_component() {
 			<input type='submit'
 				class='search-component__submit' v-bind:class=\"[isActive ? 'active' : '']\"
 				value='Search'
-				v-on:click.prevent='submitSearch(true)'
+				v-on:click.prevent='expandResults'
 				v-show=\"query != ''\"
 			>
 			
@@ -129,22 +143,41 @@ function show_search_component() {
 						<div class='empty-wrapper' >Nothing found for <strong>{{query}}</strong></div>
 					</div>
 					
+					<div
+						v-for='(post, index) in results'
+						class='search-component__result-item item hint'
+						v-show=\"(searchResultsState == 'success' || searchResultsState == 'inactive') && (!hasMore || index < SHORT_LIMIT)\"
+						v-if=\"post.post_type == 'hint' \"
+					>
+						<div class='result-item__nav'><span v-html='post.post_highlighted_title'></span>{{post.parent_title != '' ? ' • ' + post.parent_title : ''}}</div>
+						<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
+					</div>
+					
 					<a 	v-bind:href=\" 'mailto:support@readymag.com?subject=' + encodedQuerySubject \"
-						class='search-component__result-item empty contact' v-show=\"searchResultsState == 'empty'\"
+						class='search-component__result-item empty contact' v-show=\"searchResultsState == 'empty' || onlyHints == true\"
 						v-on:click='contactSupport(\$event)'
 					>
 							Need help? Contact Readymag support
 					</a>
 					<a
-						v-for='post in results'
+						v-for='(post, index) in results'
 						v-bind:href=\"post.display_link\"
-						class='search-component__result-item item'
-						v-show=\"searchResultsState == 'success' || searchResultsState == 'inactive'\"
+						class='search-component__result-item item article'
+						v-show=\"(searchResultsState == 'success' || searchResultsState == 'inactive') && (!hasMore || index < SHORT_LIMIT)\"
+						v-if=\"post.post_type != 'hint' \"
 						v-on:click.prevent='showResultPage(\$event.currentTarget)'
 					>
 						<div class='result-item__nav'><span v-html='post.post_highlighted_title'></span>{{post.parent_title != '' ? ' • ' + post.parent_title : ''}}</div>
 						<div class='result-item__excerpt' v-html='post.post_excerpt'></div>
 					</a>
+					
+					<div 	class='search-component__result-item show-more'
+							v-bind:class=\"[correction != '' ? 'has-correction' : '']\"
+							v-show=\"isActive\"
+							v-on:click='expandResults'
+					>
+						<div class='empty-wrapper' >Show {{results.length - SHORT_LIMIT}} more results</div>
+					</div>
 				</div>
 			</div>
 		</div>

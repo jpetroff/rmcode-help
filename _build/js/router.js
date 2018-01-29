@@ -7,32 +7,40 @@ w.Router = {
 	pageData: null,
 	init: function() {
 		w.addEventListener('popstate', _.bind(function(ev){
-			this.changePage(w.location, true);
+			w.currentPage.scrollAnimationStarted = true;
+			this.changePage(w.location, true, ev.state);
 		}, this), false);
 
 		this.parse_url(w.location, true);
 		w.rmSearch.presentation.isFront = this.isFront;
 		w.rmSearch.$mount('#search-component-vue');
-		this.initPage();
-	},
-	initPage: function () {
-		w.currentPage = new Vue(w.Page());
-		w.currentPage.$mount(this.pageContainer);
-		w.currentPage.$el.dataset.visible = true;
-		w.currentPage.scrollAnimationStarted = true;
-		if(w.currentPage.navElements.length > 0) {
-			w.addEventListener('scroll', this.passScrollParams);
-		}
+		document.addEventListener("DOMContentLoaded",
+			_.bind(function(event) {
+				this.initPage();
+			}, this)
+		);
 
-		_.delay( function() {w.currentPage.localLink(w.Router.url.hash)}, 1);
 	},
-	changePage: function(url, skipUpdate) {
+	initPage: function (state) {
+		w.currentPage = new Vue(w.Page());
+		w.utils.updateDOM(function() {
+			w.currentPage.$mount(this.pageContainer);
+			w.currentPage.$el.dataset.visible = true;
+			w.currentPage.scrollAnimationStarted = true;
+			if(w.currentPage.navElements.length > 0) {
+				w.addEventListener('scroll', this.passScrollParams);
+			}
+
+			_.delay( function() {w.currentPage.recalcAnchorNav(); w.currentPage.localLink(w.Router.url.hash, state)}, 10);
+		}, this);
+	},
+	changePage: function(url, skipUpdate, state) {
 		var needChange = this.parse_url(url, skipUpdate);
 
 		w.rmSearch.presentation.isFront = this.isFront;
 
 		if(this.url.isLocal) {
-			w.currentPage.localLink(this.url.hash);
+			w.currentPage.localLink(this.url.hash, state);
 		} else if(needChange) {
 			this.asyncLoadStarted = true;
 
@@ -44,7 +52,7 @@ w.Router = {
 			}).then(_.bind(function(data) {
 				this.asyncLoadStarted = false;
 				this.pageData = data;
-				this.showNewPage();
+				this.showNewPage(state);
 			}, this));
 		}
 	},
@@ -86,13 +94,13 @@ w.Router = {
 
 		return true;
 	},
-	showNewPage: function(data) {
+	showNewPage: function(state) {
 		if(this.pageTransitionStarted || this.asyncLoadStarted) return;
 
 		w.utils.updateDOM(function() {
 			w.currentPage.$el.innerHTML = this.pageData;
 			w.currentPage.$destroy();
-			this.initPage();
+			this.initPage(state);
 		}, this);
 	},
 	hidePage: function() {

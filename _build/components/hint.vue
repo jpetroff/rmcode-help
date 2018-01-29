@@ -1,7 +1,7 @@
 <template>
 	<div class="def-hint-box" v-bind:class="[ show ? 'show' : '', landed ? 'def-hint-box_transitions' : '' ]" v-bind:style="{height:this.elHeight+'px'}">
-		<div class="def-hint-box__toggle" v-on:click.prevent="toggle()" ref="toggleButton">
-			{{header}}
+		<p class="def-hint-box__toggle" v-on:click.prevent="toggle()" ref="toggleButton">
+			<p class="def-hint-box__header">{{header}}</p>
 			<i class="toggle-icon"><svg width="11px" height="15px" viewBox="0 0 11 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g id="close" stroke="#BEBEBE" stroke-width="1" stroke-linecap="round">
 					<path d="M1,1 L5.5,14" stroke-linejoin="round"></path>
@@ -33,7 +33,7 @@ w.components['hint'] = {
 			}
 		}, this));
 
-		// prevent ontransitionend from firing at mount
+		// prevent ontransitionend from firing at $mounted
 		w.utils.updateDOM(function() {this.landed = true;}, this);
 	},
 	methods: {

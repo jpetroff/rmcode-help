@@ -1,5 +1,6 @@
 <?php
 # WP SUPER CACHE 1.2
+@include WP_CONTENT_DIR.'/themes/rm-help-theme/includes/prev-help-redirects.php';
 function wpcache_broken_message() {
 	global $wp_cache_config_file;
 	if ( isset( $wp_cache_config_file ) == false )

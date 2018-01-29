@@ -12,13 +12,17 @@ function rm_media_send_to_editor( $code, $id, $meta ) {
 		$h = $image_size == 'full' ? $att_meta['height'] : $att_meta['sizes'][$image_size]['height'];
 		$fn = $image_size == 'full' ? $image_filepath . '/' . $att_meta['file'] : $image_filepath . '/' . $att_meta['sizes'][$image_size]['file'];
 		$rfn = $image_size == 'full' ? $image_filepath . '/' . $retina_meta['file'] : $image_filepath . '/' . $retina_meta['sizes'][$image_size]['file'];
+		
+		$fn = parse_url($fn, PHP_URL_PATH);
+		$rfn = parse_url($rfn, PHP_URL_PATH);
+		
 		$prefix = "[img w=\"$w\" h=\"$h\" f=\"$fn\" rf=\"$rfn\"]";
 		
 		return $prefix;
 	}
 	
 	if(wp_attachment_is('video', $id)) {
-		$src = wp_get_attachment_url($id);
+		$src = parse_url(wp_get_attachment_url($id), PHP_URL_PATH);
 		$scaling = 700 / $att_meta['width'];
 		$w = 700;
 		$h = floor($att_meta['height'] * $scaling);
@@ -205,8 +209,8 @@ function rm_filter_tiny_mce_before_init( $options ) {
 		$options['custom_elements'] .= ',';
 	}
 	
-	$options['custom_elements'] .= 'media-wrapper,hint,iframe';
-	$options['extended_valid_elements'] .= 'div[*],iframe[*],hint[*],media-wrapper[*],a[*]';
+	$options['custom_elements'] .= 'media-wrapper,hint,iframe,textarea';
+	$options['extended_valid_elements'] .= 'div[*],iframe[*],hint[*],media-wrapper[*],a[*],textarea[*]';
 	$options['valid_children'] .= '+div[hint|media-wrapper|a],+a[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6],+hint[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6],+li[media-wrapper]';
 	
 	$style_formats = array(
