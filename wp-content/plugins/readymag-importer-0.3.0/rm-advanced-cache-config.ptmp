@@ -1,0 +1,19 @@
+<?php
+
+define( 'RM_IMP_DIR', '{{plugin_directory}}' );
+
+function static_cache_get_rm_index() {
+	return array(
+
+{{index_array}}
+
+	);
+}
+
+function static_cache_get_rm_permalink_array() {
+	return array(
+
+{{parse_permalink_array}}
+
+	);
+}

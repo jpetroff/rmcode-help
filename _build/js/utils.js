@@ -109,10 +109,15 @@ w.utils = {
 		var animate = (typeof _animate != 'undefined') ? _animate : true;
 		var val = parseInt(_val);
 
+		if(window.outerWidth <= 700)
+			animate = false;
+
 		if(animate == false) {
 			w.utils.updateDOM( function() {
 				w.scrollTo(0, val);
-			});
+
+				if(typeof cb == 'function') cb();
+			} );
 		} else {
 			//with animation
 			var from = w.pageYOffset;
@@ -251,3 +256,12 @@ window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
 
 w.utils.init();
+
+/*
+	VUE LAZYLOAD
+ */
+
+Vue.use(VueLazyload, {
+	lazyComponent: true,
+	preLoad: 3
+});

@@ -210,8 +210,8 @@ function rm_filter_tiny_mce_before_init( $options ) {
 	}
 	
 	$options['custom_elements'] .= 'media-wrapper,hint,iframe,textarea';
-	$options['extended_valid_elements'] .= 'div[*],iframe[*],hint[*],media-wrapper[*],a[*],textarea[*]';
-	$options['valid_children'] .= '+div[hint|media-wrapper|a],+a[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6],+hint[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6],+li[media-wrapper]';
+	$options['extended_valid_elements'] .= 'div[*],iframe[*],hint[*],media-wrapper[*],a[*],textarea[*],map[*],area[*]';
+	$options['valid_children'] .= '+div[hint|media-wrapper|a],+a[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6],+hint[div|p|ul|ol|li|h1|span|h2|h3|h4|h5|h5|h6],+li[media-wrapper],+map[area]';
 	
 	$style_formats = array(
 		/*

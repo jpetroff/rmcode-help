@@ -1,4 +1,5 @@
 <?php
+!defined('RM_CACHE_PHASE1_INCLUDED') && @include(WP_CONTENT_DIR . '/rm-projects/rm-advanced-cache.php'); // added by Readymag Importer plugin
 # WP SUPER CACHE 1.2
 @include WP_CONTENT_DIR.'/themes/rm-help-theme/includes/prev-help-redirects.php';
 function wpcache_broken_message() {

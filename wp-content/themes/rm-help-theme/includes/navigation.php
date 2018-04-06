@@ -2,7 +2,7 @@
 
 $templs['home'] = "<a href=\"%s\" class=\"second-level__item def-link\" v-rlink>%s</a>";
 
-$templs['content'] = '<a href="%1$s" class="content-navigation__item"><div class="content-navigation__item_icon">%3$s</div><div class="content-navigation__item_caption">%2$s</div></a>';
+$templs['content'] = '<a href="%1$s" class="content-navigation__item" v-rlink><div class="content-navigation__item_icon">%3$s</div><div class="content-navigation__item_caption">%2$s</div></a>';
 
 function rm_show_menu_shortcode( $atts, $content ) {
 	global $templs;
@@ -76,6 +76,7 @@ function rm_show_menu_shortcode( $atts, $content ) {
 		$rows = intdiv($posts_cnt, 3);
 		$curr_row = -1;
 		$item_cnt = 0;
+		$output .= "<div class=\"single-page__content-navigation\">";
 		foreach ($q->posts as $card) {
 			$url = '/' . $setPage . '/#' . $card->post_name;
 			
@@ -102,10 +103,10 @@ function rm_show_menu_shortcode( $atts, $content ) {
 				if($curr_row == $rows)
 					$row_class .= ' single-page__content-navigation_last-row';
 				
-				if($curr_row != 0)
-					$output .= "</div>";
+//				if($curr_row != 0)
+//					$output .= "</div>";
 				
-				$output .= "<div class=\"single-page__content-navigation row $row_class\">";
+				// $output .= "<div class=\"single-page__content-navigation row $row_class\">";
 			}
 			
 			$output .= $newline;

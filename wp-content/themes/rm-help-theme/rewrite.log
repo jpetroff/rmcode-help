@@ -46,7 +46,7 @@ Array
     [(feed|rdf|rss|rss2|atom)/?$] => index.php?&feed=$matches[1]
     [embed/?$] => index.php?&embed=true
     [page/?([0-9]{1,})/?$] => index.php?&paged=$matches[1]
-    [comment-page-([0-9]{1,})/?$] => index.php?&page_id=20&cpage=$matches[1]
+    [comment-page-([0-9]{1,})/?$] => index.php?&page_id=635&cpage=$matches[1]
     [comments/feed/(feed|rdf|rss|rss2|atom)/?$] => index.php?&feed=$matches[1]&withcomments=1
     [comments/(feed|rdf|rss|rss2|atom)/?$] => index.php?&feed=$matches[1]&withcomments=1
     [comments/embed/?$] => index.php?&embed=true

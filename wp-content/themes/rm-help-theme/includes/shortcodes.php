@@ -1,24 +1,39 @@
 <?php
 
 function rm_img_shortcode( $atts, $content ) {
+	$margin = 46;
 	$w = $atts['w'];
 	$h = $atts['h'];
 	$img_1x = parse_url($atts['f'], PHP_URL_PATH);
 	$img_2x = parse_url($atts['rf'], PHP_URL_PATH);
+	$ratio = $h/$w;
+	$content = $content != '' ? preg_replace("#(</?p>|\n|<br *>)#i", '', $content) : '';
 	
-	return "<img class=\"page-content__responsive-image\" width=\"$w\" height=\"$h\" src=\"$img_1x\" srcset=\"$img_2x 2x\" />";
+	$_p_top = floor($margin * $ratio);
+	$_p_bottom = floor(100 * $ratio);
+	
+	return "<div class='page-content__responsive-wrapper' style='padding-top: {$_p_top}px; padding-bottom: {$_p_bottom}%'><img class=\"page-content__responsive-image\" width=\"$w\" height=\"$h\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\" v-lazy=\"'$img_1x'\" data-srcset=\"$img_2x 2x\" />{$content}</div>";
 }
 add_shortcode('img', 'rm_img_shortcode');
 
 function rm_video_shortcode( $atts, $content ) {
+	$margin = 46;
 	$w = $atts['width'];
 	$h = $atts['height'];
 	$src = parse_url($atts['src'], PHP_URL_PATH);
 	$autoplay = $atts['autoplay'] == 'on' ? 'autoplay' : '';
 	$loop = $atts['loop'] == 'on' ? 'loop' : '';
 	$controls = $atts['controls'] == 'on' ? 'controls' : '';
+	$ratio = $h/$w;
 	
-	return "<video class=\"page-content__responsive-video\" width=\"$w\" height=\"$h\" src=\"$src\" $autoplay $controls $loop></video>";
+	$_p_top = floor($margin * $ratio);
+	$_p_bottom = floor(100 * $ratio);
+	
+	return "<div class='page-content__responsive-wrapper' style='padding-top: {$_p_top}px; padding-bottom: {$_p_bottom}%'>
+			<lazy-component tag='div' style='width:{$w}px;height:{$h}px;' class='extra-video-wrapper'>
+				<video v-video class=\"page-content__responsive-video\" width=\"$w\" height=\"$h\" v-bind:src=\"'$src'\" $autoplay $controls $loop></video>
+			</lazy-component>
+			</div>";
 }
 remove_shortcode('video');
 add_shortcode('video', 'rm_video_shortcode');

@@ -83,7 +83,12 @@ function show_search_component() {
 		id='search-component-vue'
 		v-bind:style=\"{ width: presentation.width + 'px', left: presentation.left + 'px'}\" v-cloack
 	>
-		<form role='search' class='query-input-wrapper' method='POST' action='$action_url'>
+		<div class='mobile-nav-header' v-if=\"presentation.isMobile && !presentation.isFront\">
+			<a href='/' v-rink class=\"mobile-nav-header__link\">Readymag Guide</a>
+		</div>
+		<form role='search' class='query-input-wrapper' method='POST' action='$action_url'
+			v-show=\"!presentation.isMobile\"
+		>
 		
 			<input type='text' name='s'
 				class='search-component__query-input'

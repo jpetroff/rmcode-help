@@ -25,6 +25,7 @@ w.Router = {
 		w.currentPage = new Vue(w.Page());
 		w.utils.updateDOM(function() {
 			w.currentPage.$mount(this.pageContainer);
+			// console.dir(w.currentPage.$el);
 			w.currentPage.$el.dataset.visible = true;
 			w.currentPage.scrollAnimationStarted = true;
 			if(w.currentPage.navElements.length > 0) {

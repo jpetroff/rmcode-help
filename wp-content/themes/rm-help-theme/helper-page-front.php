@@ -1,5 +1,5 @@
 
-	<nav class="left-navigation">
+	<nav class="left-navigation left-navigation-home">
 		<div class="rm-logo">
 			<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewbox="0 0 612 140.7" y="0px" x="0px" id="Layer_1" style="box-shadow: none; border-radius: 0px; opacity: 1;" viewBox="1.2000000476837158 0 609.7999877929688 140.6999969482422" preserveAspectRatio="xMidYMid meet" fill="#000000" fill-opacity="1">
 				<g>

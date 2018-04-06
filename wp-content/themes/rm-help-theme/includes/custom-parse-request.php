@@ -39,12 +39,15 @@ function rm_parse_request( $wp ){
 }
 add_action( 'parse_request', 'rm_parse_request' );
 
-add_filter( 'site_url',  'wpadmin_filter', 10, 3 );
+if( !defined( 'LOCAL' ) )
+	add_filter( 'site_url',  'wpadmin_filter', 10, 3 );
+
 function wpadmin_filter( $url, $path, $orig_scheme ) {
 	return preg_replace( "/(wp-admin)/", WP_ADMIN_DIR, $url, 1 );
 }
 
-add_action( 'login_form', 'redirect_wp_admin' );
+if( !defined( 'LOCAL' ) )
+	add_action( 'login_form', 'redirect_wp_admin' );
 
 function redirect_wp_admin(){
 	$redirect_to = $_SERVER['REQUEST_URI'];

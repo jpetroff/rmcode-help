@@ -1,7 +1,19 @@
+@content-min-w: 700px;
+
 .custom-widget-container {
 	width: 450px;
 	margin: auto;
 	padding: 40px 0;
+
+	@media screen and (max-width: @content-min-w) {
+		display: none;
+	}
+}
+
+span.is_mobile_hide {
+	@media screen and (max-width: @content-min-w) {
+		display: none;
+	}
 }
 
 .additional-pvs {

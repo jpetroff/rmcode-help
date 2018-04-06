@@ -41,6 +41,7 @@
 				"vuejs": "^1.0.29"
 		},
 		"devDependencies": {
-				"gulp-clean-css": "^3.9.0"
+				"gulp-clean-css": "^3.9.0",
+				"vue-lazyload": "^1.2.1"
 		}
 }

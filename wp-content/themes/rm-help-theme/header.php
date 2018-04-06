@@ -9,7 +9,7 @@
 	<title>Readymag Guide</title>
 	
 <!--	<link rel="stylesheet" media="all" href="--><?php //echo get_template_directory_uri(); ?><!--/fonts/fonts.css">-->
-	<link rel="stylesheet" media="all" href="/wp-content/themes/rm-help-theme/fonts/fonts.css">
-	<link rel="stylesheet" media="all" href="/wp-content/themes/rm-help-theme/style.css">
+	<link rel="stylesheet" media="all" href="/wp-content/themes/rm-help-theme/fonts/fonts.css?<?= rm_build_timestamp(); ?>">
+	<link rel="stylesheet" media="all" href="/wp-content/themes/rm-help-theme/style.css?<?= rm_build_timestamp(); ?>">
 </head>
 <body class=" <?php if (false && is_user_logged_in()) echo '_logged_user'; ?>">

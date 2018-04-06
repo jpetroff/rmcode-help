@@ -15,7 +15,8 @@ w.rmSearch = new Vue({
 			scrollCoefficient: 1,
 			scrollBarTop: 0,
 			scrollBarHeight: 0,
-			scrollContainerHeight: 0
+			scrollContainerHeight: 0,
+			isMobile: false
 		},
 		showResultsPanel: false,
 		onlyHints: false,
@@ -236,6 +237,8 @@ w.rmSearch = new Vue({
 			this.presentation.left = pageContentLeftOffset - 30;
 
 			this.presentation.height = windowClientHeight;
+
+			this.presentation.isMobile = (window.outerWidth < 700);
 
 			if (this.searchResultsState == 'success') this._calcScroll();
 

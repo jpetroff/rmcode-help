@@ -44,7 +44,6 @@ $list = array (
 	"embed" => "/editor/#embed-code",
 	"code-injection" => "/project-settings-and-publishing/#embed-custom-code",
 	"trash" => NULL,
-	"shortcuts" => "/shortcuts/",
 	"domains" => "/project-settings-and-publishing/#use-custom-domain-name",
 	"gtm" => "/project-settings-and-publishing/#google-tag-manager",
 	"ga" => "/project-settings-and-publishing/#collect-data-about-visitors",

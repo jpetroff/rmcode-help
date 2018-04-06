@@ -3,16 +3,18 @@ w.Page = function() {
 		data: {
 			navItems: {},
 			navElements: [],
-			scrollOffset: 118,
+			scrollOffset: [118, 71],
 			scrollSections: [],
 			scrollAnimationStarted: false,
-			activeSection: ''
+			activeSection: '',
+			pageHeight: 0
 		},
 		components: {
 			'hint': w.components['hint'],
 			'project-views': w.components['project-views']
 		},
 		mounted: function() {
+			this.pageHeight = document.body.clientHeight;
 			this.$nextTick(this.recalcAnchorNav);
 			this.$on('recalcAnchorNav', this.recalcAnchorNav);
 		},
@@ -45,6 +47,15 @@ w.Page = function() {
 				bind: function( el, binding, vnode ) {
 					vnode.context.navElements.push(el);
 				}
+			},
+			video: {
+				bind: function( el, binding, vnode ) {
+					if (window.outerWidth < 700) {
+						el.autoplay = false;
+						el.controls = true;
+						if (el.load) el.load();
+					}
+				}
 			}
 		},
 		methods: {
@@ -59,8 +70,12 @@ w.Page = function() {
 					!this.navItems[hash]
 				) return;
 
+				if(this.pageHeight != document.body.clientHeight)
+					this.recalcAnchorNav();
+
 				var position = 0;
-				position = Math.max(this.navItems[hash].pos - this.scrollOffset + 1, 0);
+				var _scrollOffset = window.outerWidth > 700 ? this.scrollOffset[0] : this.scrollOffset[1];
+				position = Math.max(this.navItems[hash].pos - _scrollOffset + 1, 0);
 				this.scrollAnimationStarted = true;
 
 				var navSection = this._getCurrentNavSection(position);
@@ -104,9 +119,10 @@ w.Page = function() {
 					if(this.navElements[i].dataset.level <= 2) {
 						var hash = level == 1 ? '' : this.navElements[i].id;
 						var title = this.navElements[i].dataset.title;
+						var _scrollOffset = window.outerWidth > 700 ? this.scrollOffset[0] : this.scrollOffset[1];
 						this.scrollSections.push(
 							[
-								this.navElements[i].offsetTop - this.scrollOffset,
+								this.navElements[i].offsetTop - _scrollOffset,
 								null,
 								hash,
 								title

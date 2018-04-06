@@ -28,7 +28,8 @@ gulp.task('js-libs', function(){
 
 	gulp.src([
 		base + 'underscore-min.js',
-		base + 'vue.min.js'
+		base + 'vue.min.js',
+		base + 'vue-lazyload.js',
 	])
 		.pipe(concat('libs.js'))
 		.pipe(gulp.dest(dst + 'js'));
@@ -121,6 +122,12 @@ gulp.task('less', function(){
 });
 
 gulp.task('assets', function() {
+	var tmpl = '<?php\n' +
+		'function rm_build_timestamp() {\n' +
+			'\treturn \''+(new Date()).valueOf()+'\';\n' +
+		'}';
+
+	require('fs').writeFileSync(src + 'assets/includes/cache-prevent.php', tmpl);
 	gulp.src( src + 'assets/**/*' )
 		.pipe(gulp.dest(dst));
 });
